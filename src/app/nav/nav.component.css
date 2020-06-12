@@ -1,0 +1,15 @@
+.navbar-expand-lg {
+    z-index: 98;
+    background-color: #66645F;
+    height: 50px;
+
+}
+.navbar-brand{
+    position: relative;
+    margin-left: 5rem;
+}
+.shadow {
+    -webkit-box-shadow: -1px 34px 5px 0px rgba(138,126,138,1);
+    -moz-box-shadow: -1px 34px 5px 0px rgba(138,126,138,1);
+    box-shadow: -1px 34px 5px 0px rgba(138,126,138,1);
+}

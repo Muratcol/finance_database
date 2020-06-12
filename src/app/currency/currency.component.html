@@ -1,0 +1,94 @@
+<div class="currencyTab">
+  <div class="row">
+    <div class="col-md d-flex justify-content-center">
+      <label>
+        <input type="checkbox" />
+        <div class="card">
+          <div class="front">
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            USD {{ currencies[0].satis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faDollarSign"></fa-icon></strong>Sell</span>
+          </div>
+          <div class="back">
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            USD {{ currencies[0].alis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faDollarSign"></fa-icon></strong>Buy</span>
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="col-md d-flex justify-content-center">
+      <label>
+        <input type="checkbox" />
+        <div class="card">
+          <div class="front">
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            EUR {{ currencies[1].satis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faEuroSign"></fa-icon></strong>Sell</span>
+            <!-- <fa-icon [icon]="faDollarSign"></fa-icon> -->
+          </div>
+
+          <div class="back">
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            EUR {{ currencies[1].alis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faEuroSign"></fa-icon></strong>Buy</span>
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="col-md d-flex justify-content-center">
+      <label>
+        <input type="checkbox" />
+        <div class="card">
+          <div class="front">
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            GBP {{ currencies[2].satis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faPoundSign"></fa-icon></strong>Sell</span>
+          </div>
+          <div class="back">
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            GBP {{ currencies[2].alis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faPoundSign"></fa-icon></strong>Buy</span>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th id="currenyHeader" scope="col" colspan="3">Currencies <input class="form-control" type="text" placeholder="Search" aria-label="Search"></th>
+      </tr>
+      <tr id="definers">
+        <th scope="col">Name</th>
+        <th scope="col">Buy</th>
+        <th scope="col">Sell</th>
+        <th scope="col">Highest</th>
+        <th scope="col">Lowest</th>
+        <th scope="col">Change</th>
+        <th scope="col">Last Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let currency of currencies; let i = index"
+        [attr.data-index]="i"
+      >
+        <th scope="row">{{ currency.name }}</th>
+        <td>{{ currency.alis }}</td>
+        <td>{{ currency.satis }}</td>
+        <td>{{ currency.yuksek }}</td>
+        <td>{{ currency.dusuk }}</td>
+        <td>{{ currency.degisim }}</td>
+        <td>{{ currency.update }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,155 @@
+.table {
+
+    margin-top: 10rem;
+    -webkit-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+    -moz-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+    box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+    border-radius: 10px 10px 6px 10px;
+    -moz-border-radius: 10px 10px 6px 10px;
+    -webkit-border-radius: 10px 10px 6px 10px;
+    border: 0px solid #000000;
+    font-family: 'Sawarabi Mincho', sans-serif;
+}
+.currencyTab {
+    margin-top: 10rem;
+}
+#currenyHeader {
+    position: relative;
+    font-weight: lighter;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#definers{
+    font-weight: lighter;
+    font-size: small;
+}
+
+
+
+/* Flip Cards */
+
+
+
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+    -webkit-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+    -moz-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+    box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+    border-radius: 10px 10px 6px 10px;
+    -moz-border-radius: 10px 10px 6px 10px;
+    -webkit-border-radius: 10px 10px 6px 10px;
+    border: 0px solid #000000;
+    font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #FFFFFF;
+        text-align: center;
+        line-height: 200px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+        border-radius: 10px 10px 10px 10px;
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border: 0px solid #000000;
+        font-family: 'Sawarabi Mincho', sans-serif;
+    }
+
+    .card .back {
+        background: #343A40;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+        -webkit-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+        -moz-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+        box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
+        border-radius: 10px 10px 6px 10px;
+        -moz-border-radius: 10px 10px 6px 10px;
+        -webkit-border-radius: 10px 10px 6px 10px;
+        border: 0px solid #000000;
+    }
+
+label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+span{
+    position: relative;
+    /* margin-right: 3rem;
+    margin-bottom: 5rem; */
+    bottom: 9rem;
+    right: 5rem;
+}
+
+#currencyIcon {
+    position: relative;
+    top: 13rem;
+    left: 4rem;
+}
+
+
+
+.active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #f48fb1;
+    box-shadow: 0 1px 0 0 #f48fb1;
+  }
+
+  .active-pink-2 input.form-control[type=text] {
+    border: none
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }

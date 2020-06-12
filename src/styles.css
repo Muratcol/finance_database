@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+/* Added this imports to angular.json/Styles */
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
+/* @import "~font-awesome/css/font-awesome.min.css"; */
+/* @import "~alertifyjs/build/css/alertify.min.css";
+@import "~alertifyjs/build/css/themes/bootstrap.min.css"; */
+
+html {
+    background: #D5D5D5;
+    font-family: 'Sawarabi Mincho', sans-serif;
+  }

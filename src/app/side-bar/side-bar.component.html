@@ -1,0 +1,19 @@
+<div class="header"></div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li *ngIf="isLoggedIn()==false"><a routerLink="/user/login"> Click me to logIn</a></li>
+      <li *ngIf="isLoggedIn()"><a routerLink="/user/panel"><fa-icon [icon]="faUser"></fa-icon> {{username}} <span> {{title}} </span></a></li>
+      <li><a routerLink="/"><fa-icon [icon]="faHome"></fa-icon> Home</a></li>
+      <li><a routerLink="/currencies"><fa-icon [icon]="faMoneyCheck"></fa-icon> Currencies</a></li>  
+      <li><a routerLink="/"><i class="fa fa-ticket" aria-hidden="true"></i> Something</a></li>
+      <li><a routerLink="/"><i class="fa fa-ticket" aria-hidden="true"></i> Something</a></li>
+      <li><a routerLink="/contact"><fa-icon [icon]="faPhone"></fa-icon> Contact Us</a></li>
+    </ul>
+  </div>
+  

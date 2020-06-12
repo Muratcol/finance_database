@@ -1,0 +1,63 @@
+
+  <legend class="border-bottom mb-4"><h3>Update Infos</h3></legend>
+  <form class="border p-2 shadow form-group" [formGroup]="userInfoForm" (ngSubmit)="updateDatas()">
+    <div class="row" >
+        <div class="media col-sm-2">
+            <img class="rounded-circle" 
+            [src]="imageToShow">
+            
+          </div>
+        <div class="col-sm-5 mt-4">
+            <h2 class="account-heading">Update Profile Picture</h2>
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" #Image [(ngModel)] = "imageInput" [ngModelOptions]="{standalone: true}" (change)="handleFileInput($event.target.files)" id="exampleFormControlFile1">
+        </div>
+        <div class="col-sm-5 mt-4">
+            <h2 class="account-heading">{{datas['username']}}</h2>
+            <p *ngIf="datas != null && datas['title']" class="text-secondary">{{datas['title']}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" *ngIf="datas != null" readonly class="form-control-plaintext" id="staticEmail" value="{{datas['email']}}" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="usernameInput" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" *ngIf="datas != null" required formControlName="username" class="form-control" id="usernameInput" placeholder="{{datas['username']}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="titleInput" class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" *ngIf="datas != null && datas['title'] != null" formControlName="title" class="form-control" id="titleInput" placeholder="{{datas['title']}}">
+        <input type="text" *ngIf="datas['title'] == null" formControlName="title" name="title" class="form-control" id="title" placeholder="Title">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="placeInput" class="col-sm-2 col-form-label">Place</label>
+      <div class="col-sm-10">
+        <input type="text" *ngIf="datas != null && datas['place'] != null" class="form-control" id="placeInput" placeholder="{{datas['place']}}">
+        <input type="text" *ngIf="datas['place'] == null" formControlName="place" class="form-control" id="placeInput" placeholder="Place">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="websiteInput" class="col-sm-2 col-form-label">Website</label>
+      <div class="col-sm-10">
+        <input type="text" *ngIf="datas != null && datas['website']" class="form-control" id="websiteInput" placeholder="{{datas['website']}}">
+        <input type="text" *ngIf="datas['website'] == null" formControlName="website" class="form-control" id="webInput" placeholder="Website">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="aboutInput" class="col-sm-2 col-form-label">About</label>
+      <div class="col-sm-10">
+        <textarea type="password" *ngIf="datas != null && datas['about'] != null" class="form-control" id="aboutInput" rows="3">{{datas['about']}}</textarea>
+        <textarea type="password" *ngIf="datas['about'] == null" formControlName="about" class="form-control" id="aboutInput" rows="3" placeholder="About me"></textarea>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end"><button type="submit" class="btn btn-primary m-4">Update</button></div>
+  </form>
+  <p class="text-secondary"><a routerLink="/user/forgotPassword">Click here for reset password</a></p>

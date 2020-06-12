@@ -43,15 +43,15 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 ### currency-api
 - ### Installation
 
-    Open bash shell and
+Open bash shell and
 
     $ git clone https://github.com/Muratcol/currency-api
     $ cd currency-api
     $ npm install
 
-    Later go to [currency-api](https://github.com/Muratcol/currency-api/blob/master/README.md) and create your own configration settings. 
+Later go to [currency-api](https://github.com/Muratcol/currency-api/blob/master/README.md) and create your own configration settings. 
 
-    Now we are ready for Angular.
+Now we are ready for Angular.
 
 
 ### Angular CLI

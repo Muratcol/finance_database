@@ -20,6 +20,7 @@ import { FinanceMainComponent } from './finance-main/finance-main.component';
 import { ContactComponent } from './contact/contact.component';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { CardsComponent } from './cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     ResetPasswordComponent,
     FinanceMainComponent,
     ContactComponent,
-    LineChartComponent
+    LineChartComponent,
+    CardsComponent
 
   ],
   imports: [

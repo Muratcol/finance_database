@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md d-flex justify-content-center">
+      <label>
+        <input type="checkbox" />
+        <div class="card">
+          <div class="front">
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            USD {{ currencies[0].satis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faDollarSign"></fa-icon></strong>Sell</span>
+          </div>
+          <div class="back">
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            USD {{ currencies[0].alis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faDollarSign"></fa-icon></strong>Buy</span>
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="col-md d-flex justify-content-center">
+      <label>
+        <input type="checkbox" />
+        <div class="card">
+          <div class="front">
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            EUR {{ currencies[1].satis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faEuroSign"></fa-icon></strong>Sell</span>
+            <!-- <fa-icon [icon]="faDollarSign"></fa-icon> -->
+          </div>
+
+          <div class="back">
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            EUR {{ currencies[1].alis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faEuroSign"></fa-icon></strong>Buy</span>
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="col-md d-flex justify-content-center">
+      <label>
+        <input type="checkbox" />
+        <div class="card">
+          <div class="front">
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            GBP {{ currencies[2].satis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faPoundSign"></fa-icon></strong>Sell</span>
+          </div>
+          <div class="back">
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            GBP {{ currencies[2].alis }}
+            <span><strong><fa-icon id="currencyIcon" [icon]="faPoundSign"></fa-icon></strong>Buy</span>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>

@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="col-md d-flex justify-content-center">
+
+    <div class="row dollarCard">
       <label>
         <input type="checkbox" />
         <div class="card">
@@ -18,8 +18,8 @@
         </div>
       </label>
     </div>
-    <div class="col-md d-flex justify-content-center">
-      <label>
+    <div class="row">
+      <label class="euroCard">
         <input type="checkbox" />
         <div class="card">
           <div class="front">
@@ -27,7 +27,6 @@
             <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
             EUR {{ currencies[1].satis }}
             <span><strong><fa-icon id="currencyIcon" [icon]="faEuroSign"></fa-icon></strong>Sell</span>
-            <!-- <fa-icon [icon]="faDollarSign"></fa-icon> -->
           </div>
 
           <div class="back">
@@ -39,10 +38,10 @@
         </div>
       </label>
     </div>
-    <div class="col-md d-flex justify-content-center">
-      <label>
+    <div class="row">
+      <label class="poundCard">
         <input type="checkbox" />
-        <div class="card">
+        <div class="card ">
           <div class="front">
             <fa-icon *ngIf="currencies[2].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
             <fa-icon *ngIf="currencies[2].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
@@ -58,4 +57,4 @@
         </div>
       </label>
     </div>
-  </div>
+

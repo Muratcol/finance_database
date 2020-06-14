@@ -12,7 +12,9 @@ import { Currency } from '../currency/currency';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.css']
+  styleUrls: ['./cards.component.css'],
+  providers: [CurrencyService]
+
 })
 export class CardsComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp

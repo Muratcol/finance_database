@@ -47,7 +47,7 @@ export class LineChartComponent {
       this.sells = []
       this.dates = []
       this.chartData = [];
-  }, 30 * 60 * 1000);
+  }, 10 * 1000);
 
   
   updateChart() {

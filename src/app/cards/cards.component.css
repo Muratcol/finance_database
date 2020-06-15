@@ -38,14 +38,23 @@
     padding:1rem;
   }
   
-  .usdBox:hover {  
-    -webkit-animation: changeColor 3.5s forwards;
-  
+  .increase {  
+    -webkit-animation: increaseEffect 3.5s forwards;
+    animation: increaseEffect 3.5s forwards;
+  }
+  .decrease {  
+    -webkit-animation: decreaseEffect 3.5s forwards;
+    animation: decreaseEffect 3.5s forwards;
   }
   
-  @-webkit-keyframes changeColor{
+  @keyframes increaseEffect{
         0%{background: green;}
-        50%{background:light-green}
+        50%{background:lightgreen}
+        100%{background:white}
+    }
+  @keyframes decreaseEffect{
+        0%{background: red;}
+        50%{background:lightcoral}
         100%{background:white}
     }
   

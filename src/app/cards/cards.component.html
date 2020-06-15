@@ -1,61 +1,55 @@
-<div class="currencyBox">
+<div class="currencyBox shadow">
   <div class="box">
-  <div class="labels">
-    <span> USD / TRY </span>
-    <span> {{currencies[0].update}}</span>
-    <span> {{currencies[0].degisim}} </span>
-  </div>
+    <div class="labels">
+      <span> USD / TRY </span>
+      <span> {{ currencies[0].update }}</span>
+      <span> {{ currencies[0].degisim }} </span>
+    </div>
 
     <div class="labels">
-      <div class="usdBox">
-    <span class="currencyInput">{{currencies[0].alis}}</span>
-    </div>    
-      <div class="usdBox">
-    <span class="currencyInput">{{currencies[0].satis}}</span>
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+        <span class="currencyInput">{{ currencies[0].alis }}</span>
+      </div>
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+        <span class="currencyInput">{{ currencies[0].satis }}</span>
+      </div>
     </div>
-    </div>
-  </div>
-  
-  
-       <div class="box">
-  <div class="labels">
-    <span> EUR / TRY </span>
-    <span> {{currencies[1].update}}</span>
-    <span> {{currencies[1].degisim}} </span>
   </div>
 
+  <div class="box">
     <div class="labels">
-      <div class="usdBox">
-    <span class="currencyInput">{{currencies[1].alis}}</span>
-    </div>    
-      <div class="usdBox">
-    <span class="currencyInput">{{currencies[1].satis}}</span>
+      <span> EUR / TRY </span>
+      <span> {{ currencies[1].update }}</span>
+      <span> {{ currencies[1].degisim }} </span>
     </div>
-    </div>
-  </div>
-  
-   <div class="box">
-  <div class="labels">
-    <span> USD / EUR </span>
-    <span> {{currencies[0].update}}</span>
-    <span> {{currencies[0].degisim}} </span>
-  </div>
 
     <div class="labels">
-      <div class="usdBox">
-    <span class="currencyInput">{{pariteBuy}}</span>
-    </div>    
-      <div class="usdBox">
-    <span class="currencyInput">{{pariteSell}}</span>
+      <div class="usdBox" [ngClass]="currencies[1].degisim.indexOf('-') ? 'increase' : 'decrease'" >
+        <span class="currencyInput">{{ currencies[1].alis }}</span>
+      </div>
+      <div class="usdBox" [ngClass]="currencies[1].degisim.indexOf('-') ? 'increase' : 'decrease'" >
+        <span class="currencyInput">{{ currencies[1].satis }}</span>
+      </div>
     </div>
+  </div>
+
+  <div class="box">
+    <div class="labels">
+      <span> USD / EUR </span>
+      <span> {{ currencies[0].update }}</span>
+      <span> {{ currencies[0].degisim }} </span>
+    </div>
+
+    <div class="labels">
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+        <span class="currencyInput">{{ pariteBuy }}</span>
+      </div>
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+        <span class="currencyInput">{{ pariteSell }}</span>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
 
 <!-- 
     <div class="row dollarCard">

@@ -23,6 +23,8 @@ export class CardsComponent implements OnInit {
   faEuroSign = faEuroSign
   faPoundSign = faPoundSign
   interval: any;
+  pariteSell:number;
+  pariteBuy:number;
   currencies : Currency[];
   constructor(
     private currencyService:CurrencyService,
@@ -37,6 +39,12 @@ export class CardsComponent implements OnInit {
   }
   refreshData(){
     this.currencyService.getCurrencies()
-        .subscribe(data => this.currencies = data['data'])
+        .subscribe(data => {
+          this.currencies = data['data']
+          this.pariteSell = Number(this.currencies[0].alis.replace(/,/, '.')) / Number(this.currencies[1].alis.replace(/,/, '.'))
+          this.pariteSell = Number(this.pariteSell.toFixed(5))
+          this.pariteBuy = Number(this.currencies[0].satis.replace(/,/, '.')) / Number(this.currencies[1].satis.replace(/,/, '.'))
+          this.pariteBuy = Number(this.pariteBuy.toFixed(5))
+        })
   }
 }

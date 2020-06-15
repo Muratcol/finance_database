@@ -1,106 +1,51 @@
-label {
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+.currencyBox {
+    border: 1px solid #FFFF;
+    border-collapse: collapse;
+    font-size: 1rem;
+    padding: 2rem;
+    background-color: #343A40;
+    color: #FFFF;
+    height: 500px;
+    width: 430px; 
+    z-index: -1; 
+    margin-top: 0.3rem;
+    margin-left: 0.3rem;
+  }
+  .usdBox{
+    background-color: #FFFF;
+    height: 50px;
+    width: 150px;
+    margin-top: 0.5rem;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom:0.5rem;
+    
+  }
+  .currencyInput {
+    color: #1D1E22;
     display: block;
-    width: 300px;
-    height: 200px;
-    /* left: 50%;
-    top: 50%; */
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    font-size: 2rem;
-}
-
-.card {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: all 600ms;
-    transition: all 600ms;
-    z-index: 20;
-    -webkit-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
-    -moz-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
-    box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
-    border-radius: 10px 10px 6px 10px;
-    -moz-border-radius: 10px 10px 6px 10px;
-    -webkit-border-radius: 10px 10px 6px 10px;
-    border: 0px solid #000000;
-}
-
-    .card div {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background: #FFFFFF;
-        text-align: center;
-        line-height: 200px;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 2px;
-        border-radius: 10px 10px 10px 10px;
-        -moz-border-radius: 10px 10px 10px 10px;
-        -webkit-border-radius: 10px 10px 10px 10px;
-        border: 0px solid #000000;
+  }
+  .labels {
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  .box {
+    margin-bottom: 2rem;
+    border: 1px solid;
+    padding:1rem;
+  }
+  
+  .usdBox:hover {  
+    -webkit-animation: changeColor 3.5s forwards;
+  
+  }
+  
+  @-webkit-keyframes changeColor{
+        0%{background: green;}
+        50%{background:light-green}
+        100%{background:white}
     }
-
-    .card .back {
-        background: #343A40;
-        color: #FFF;
-        -webkit-transform: rotateX(180deg);
-        transform: rotateX(180deg);
-        -webkit-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
-        -moz-box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
-        box-shadow: 0px 14px 18px 0px rgba(173,163,173,1);
-        border-radius: 10px 10px 6px 10px;
-        -moz-border-radius: 10px 10px 6px 10px;
-        -webkit-border-radius: 10px 10px 6px 10px;
-        border: 0px solid #000000;
-    }
-
-label:hover .card {
-    -webkit-transform: rotateX(20deg);
-    transform: rotateX(20deg);
-    box-shadow: 0 20px 20px rgba(50,50,50,.2);
-}
-
-input {
-    display: none;
-}
-
-:checked + .card {
-    transform: rotateX(180deg);
-    -webkit-transform: rotateX(180deg);
-}
-
-label:hover :checked + .card {
-    transform: rotateX(160deg);
-    -webkit-transform: rotateX(160deg);
-    box-shadow: 0 20px 20px rgba(255,255,255,.2);
-}
-
-span{
-    position: relative;
-    /* margin-right: 3rem;
-    margin-bottom: 5rem; */
-    bottom: 9rem;
-    right: 5rem;
-}
-
-#currencyIcon {
-    position: relative;
-    top: 13rem;
-    left: 4rem;
-}
-
-.euroCard {
-    margin-top: 13rem;
-}
-.poundCard {
-    margin-top: 26rem;
-}
+  

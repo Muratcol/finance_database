@@ -3,14 +3,17 @@
     <div class="labels">
       <span> USD / TRY </span>
       <span> {{ currencies[0].update }}</span>
-      <span> {{ currencies[0].degisim }} </span>
+      <span>
+        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+         {{ currencies[0].degisim }} </span>
     </div>
 
     <div class="labels">
-      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput">{{ currencies[0].alis }}</span>
       </div>
-      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput">{{ currencies[0].satis }}</span>
       </div>
     </div>
@@ -20,14 +23,17 @@
     <div class="labels">
       <span> EUR / TRY </span>
       <span> {{ currencies[1].update }}</span>
-      <span> {{ currencies[1].degisim }} </span>
+      <span>
+        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+         {{ currencies[1].degisim }} </span>
     </div>
 
     <div class="labels">
-      <div class="usdBox" [ngClass]="currencies[1].degisim.indexOf('-') ? 'increase' : 'decrease'" >
+      <div class="usdBox" [ngClass]="currencies[1].degisim.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'" >
         <span class="currencyInput">{{ currencies[1].alis }}</span>
       </div>
-      <div class="usdBox" [ngClass]="currencies[1].degisim.indexOf('-') ? 'increase' : 'decrease'" >
+      <div class="usdBox" [ngClass]="currencies[1].degisim.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'" >
         <span class="currencyInput">{{ currencies[1].satis }}</span>
       </div>
     </div>
@@ -37,14 +43,17 @@
     <div class="labels">
       <span> USD / EUR </span>
       <span> {{ currencies[0].update }}</span>
-      <span> {{ currencies[0].degisim }} </span>
+      <span>
+        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+         {{ currencies[0].degisim }} </span>
     </div>
 
     <div class="labels">
-      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput">{{ pariteBuy }}</span>
       </div>
-      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') ? 'increase' : 'decrease'">
+      <div class="usdBox" [ngClass]="currencies[0].degisim.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput">{{ pariteSell }}</span>
       </div>
     </div>

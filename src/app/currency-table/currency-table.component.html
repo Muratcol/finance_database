@@ -1,0 +1,73 @@
+
+<div class="currencytable dxy">
+    <a href="#" title="U.S Dollar Index" class="pt-1" >DXY</a>
+    <span class="dxyCurrency">96133</span>
+</div>
+<div class="currencytable currencyheader">
+    <span class="mr-2">parite</span>
+    <span class="ml-2">change rate</span>
+</div>
+<table class="table table-borderless currencytable">
+    <tbody>
+      <tr [ngClass]="currencies[2].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">GBP/USD</a></th>
+        <td>{{gbpusd}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[2].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[2].degisim}}</td>
+
+      </tr>
+      <tr [ngClass]="currencies[11].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">USD/JPY</a></th>
+        <td>{{usdjpy}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[11].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[11].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[11].degisim}}</td>
+
+      </tr>
+      <tr [ngClass]="currencies[4].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">USD/CAD</a></th>
+        <td>{{usdcad}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[4].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[4].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[4].degisim}}</td>
+      </tr>
+
+      <tr [ngClass]="currencies[9].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">USD/SEK</a></th>
+        <td>{{usdsek}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[9].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[9].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[9].degisim}}</td>
+      </tr>
+
+      <tr [ngClass]="currencies[3].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">USD/CHF</a></th>
+        <td>{{usdchf}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[3].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[3].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[3].degisim}}</td>
+      </tr>
+      <tr [ngClass]="currencies[7].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">AUD/USD</a></th>
+        <td>{{audusd}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[7].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[7].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[7].degisim}}</td>
+      </tr>
+      <tr [ngClass]="currencies[1].degisim.indexOf('-') < 0 ? 'increase' : 'decrease'">
+        <th scope="row"><a href="#">EUR/JPY</a></th>
+        <td>{{eurjpy}}</td>
+        <td>
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            {{currencies[1].degisim}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,54 @@
+.table{
+    margin: 0rem;
+}
+.currencytable {
+    border: 1px solid #343A40;
+    background-color: #343A40;
+    color: white;
+    margin-top: 0;
+}
+.header {
+    margin: 0;
+    padding: 0;
+}
+.currencyheader{
+    text-align: end;
+    justify-content: right;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    font-weight: lighter;
+    text-decoration: underline;
+
+}
+a {
+    color: white;
+}
+.dxy {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+.dxyCurrency {
+    font-size: 2rem;
+    
+}
+.increase {  
+    -webkit-animation: increaseEffect 3.5s forwards;
+    animation: increaseEffect 3.5s forwards;
+  }
+  .decrease {  
+    -webkit-animation: decreaseEffect 3.5s forwards;
+    animation: decreaseEffect 3.5s forwards;
+  }
+  
+  @keyframes increaseEffect{
+        0%{background: green;}
+        50%{background:lightgreen}
+        100%{background:#343A40}
+    }
+  @keyframes decreaseEffect{
+        0%{background: red;}
+        50%{background:lightcoral}
+        100%{background:#343A40}
+    }

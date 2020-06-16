@@ -35,18 +35,21 @@ export class LineChartComponent {
       .subscribe((data) => (this.chartData = data));
       for (let i of this.chartData) {
         this.sells.push(i['sell'])
-        var exactDate = i['date'].split('T', 2)
-        exactDate = exactDate[1].split('.',2)
-        this.dates.push(exactDate[0])
+        this.dates.push(i['dates'])
+        // var exactDate = i['date'].split('T', 2)
+        // exactDate = exactDate[1].split('.',2)
+        // this.dates.push(exactDate[0])
       }
       this.lineChartData = [{
         data: this.sells,
-        label: "USD Daily Data"
+        label: "USD/TRY Currency Chart",
+        pointRadius:0
       }]
       this.lineChartLabels = this.dates
       this.sells = []
       this.dates = []
       this.chartData = [];
+      
   }, 10 * 1000);
 
   
@@ -56,7 +59,7 @@ export class LineChartComponent {
   }
 
   lineChartData: ChartDataSets[] = [
-    { data: [0,0,0,0,0], label: 'USD Daily Data' },
+    { data: [0,0,0,0,0], label: 'USD Daily Data', pointRadius:0 },
   ];
 
   lineChartLabels: Label[] = [
@@ -76,6 +79,22 @@ export class LineChartComponent {
 
   lineChartOptions = {
     responsive: true,
+    tooltips: {
+      mode:'index',
+      intersect:false
+    },
+    hover:{
+      mode:'nearest',
+      intersect:true
+    },
+    scales: { xAxes: [{
+      type:'time',
+      ticks: {
+        autoSkip:true,
+        maxTicksLimit:20
+      }
+    }]
+  }
   };
 
   lineChartColors: Color[] = [

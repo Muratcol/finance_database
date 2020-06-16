@@ -24,8 +24,8 @@
       <span> EUR / TRY </span>
       <span> {{ currencies[1].update }}</span>
       <span>
-        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-        <fa-icon *ngIf="currencies[0].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+        <fa-icon *ngIf="currencies[1].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[1].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
          {{ currencies[1].degisim }} </span>
     </div>
 

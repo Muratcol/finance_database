@@ -18,48 +18,42 @@ export class LineChartComponent {
   gbpData: string;
   chartData: any = [];
   datanew: any;
-  sells:Array<number> = []
-  dates:Array<string> = []
-
-
-
-
+  sells: Array<number> = [];
+  dates: Array<string> = [];
 
   constructor(private currencyService: CurrencyService) {}
 
-  interval:any = setInterval(() => {
-    
+  interval: any = setInterval(() => {
     this.updateChart();
     this.currencyService
       .getMyData()
       .subscribe((data) => (this.chartData = data));
-      for (let i of this.chartData) {
-        this.sells.push(i['sell'])
-        this.dates.push(i['dates'])
-        // var exactDate = i['date'].split('T', 2)
-        // exactDate = exactDate[1].split('.',2)
-        // this.dates.push(exactDate[0])
-      }
-      this.lineChartData = [{
+    for (let i of this.chartData) {
+      this.sells.push(i['sell']);
+      this.dates.push(i['date']);
+      // var exactDate = i['date'].split('T', 2)
+      // exactDate = exactDate[1].split('.',2)
+      // this.dates.push(exactDate[0])
+    }
+    this.lineChartData = [
+      {
         data: this.sells,
-        label: "USD/TRY Currency Chart",
-        pointRadius:0
-      }]
-      this.lineChartLabels = this.dates
-      this.sells = []
-      this.dates = []
-      this.chartData = [];
-      
+        label: 'USD/TRY Currency Chart',
+        pointRadius: 0,
+      },
+    ];
+    this.lineChartLabels = this.dates;
+    this.sells = [];
+    this.dates = [];
+    this.chartData = [];
   }, 10 * 1000);
 
-  
   updateChart() {
     this.currencyService.updateChart();
-    
   }
 
   lineChartData: ChartDataSets[] = [
-    { data: [0,0,0,0,0], label: 'USD Daily Data', pointRadius:0 },
+    { data: [0, 0, 0, 0, 0], label: 'USD Daily Data', pointRadius: 0 },
   ];
 
   lineChartLabels: Label[] = [
@@ -74,27 +68,38 @@ export class LineChartComponent {
     '22.00',
     '00.00',
     '02.00',
-    '04.00'
+    '04.00',
   ];
 
   lineChartOptions = {
+    animation: {
+      duration: 0
+    },
     responsive: true,
     tooltips: {
-      mode:'index',
-      intersect:false
+      mode: 'index',
+      intersect: false,
     },
-    hover:{
-      mode:'nearest',
-      intersect:true
+    hover: {
+      mode: 'nearest',
+      intersect: true,
     },
-    scales: { xAxes: [{
-      type:'time',
-      ticks: {
-        autoSkip:true,
-        maxTicksLimit:20
-      }
-    }]
-  }
+    scales: {
+      xAxes: [
+        {
+          type:'time',
+          ticks: {
+            autoSkip: true,
+            maxTicksLimit: 11,
+          },
+          time: {
+            displayFormats: {
+              hour: 'hA'
+            }
+          }
+        },
+      ],
+    },
   };
 
   lineChartColors: Color[] = [

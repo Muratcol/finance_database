@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { 
   faArrowAltCircleUp,
   faArrowAltCircleDown,
@@ -8,6 +8,7 @@ import {
  } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
 import { Currency } from '../currency/currency';
+
 
 @Component({
   selector: 'app-currency-table',
@@ -64,6 +65,7 @@ export class CurrencyTableComponent implements OnInit {
   currencies : Currency[];
   constructor(
     private currencyService:CurrencyService,
+    private el:ElementRef
   ) { }
 
   ngOnInit(): void {
@@ -96,6 +98,7 @@ export class CurrencyTableComponent implements OnInit {
             this.gbpusdDiff = this.newgbpusd - this.oldgbpusd
           }
           this.oldgbpusd = this.newgbpusd
+          
           
           this.newusdjpy = this.currencyParser(0, 11)
           if (this.newusdjpy != this.oldusdjpy && this.oldusdjpy != 0) {
@@ -139,6 +142,16 @@ export class CurrencyTableComponent implements OnInit {
           }
           this.oldaudusd = this.newaudusd
 
+
+          setTimeout(() => {
+            let animationCarriers = this.el.nativeElement.querySelectorAll('tr')
+            for (let animationCarrier of animationCarriers) {
+            if (animationCarrier.classList.contains('increase') || animationCarrier.classList.contains('decrease')) {
+              animationCarrier.classList.remove('increase')
+          }
+          }
+          }, 3.5 * 1000)
+          
         })
   }
 }

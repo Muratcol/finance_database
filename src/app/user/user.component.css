@@ -3,3 +3,28 @@
     width: 60%;
     margin: 2rem;
 }
+a {
+    font-size: medium;
+    color: #D5D5D5;
+}
+
+strong {
+    font-size: large;
+    margin-left: 0.5rem;
+}
+.offset {
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #2E3439;
+    padding: 3rem;
+    background: linear-gradient(180deg, #D5D5D5 0%, #2E3439  100%);
+}
+.btn-override {
+    width: 25%;
+    border-color: #D5D5D5;
+    color: #D5D5D5;
+    margin: 0.5rem;
+  }
+  .btn-override:hover {
+    background-color: #2E3439;
+  }

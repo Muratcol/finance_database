@@ -11,27 +11,27 @@ import { CurrencyService } from '../services/currency.service';
 })
 
 export class LineChartComponent {
-  dollarData: string;
-  euroData: string;
-  gbpData: string;
   chartData: any = [];
-  datanew: any;
   sells: Array<number> = [];
   dates: Array<string> = [];
-
   constructor(private currencyService: CurrencyService) {}
 
   interval: any = setInterval(() => {
     this.updateChart();
+    this.sendDatasToChart();
+  }, 5 * 1000);
+
+  updateChart() {
+    this.currencyService.updateChart();
+  }
+
+  sendDatasToChart() {
     this.currencyService
       .getMyData()
       .subscribe((data) => (this.chartData = data));
     for (let i of this.chartData) {
       this.sells.push(i['sell']);
       this.dates.push(i['date']);
-      // var exactDate = i['date'].split('T', 2)
-      // exactDate = exactDate[1].split('.',2)
-      // this.dates.push(exactDate[0])
     }
     this.lineChartData = [
       {
@@ -44,14 +44,6 @@ export class LineChartComponent {
     this.sells = [];
     this.dates = [];
     this.chartData = [];
-  }, 10 * 1000);
-
-  updateChart() {
-    this.currencyService.updateChart();
-  }
-
-  sendDatasToChart() {
-    
   }
 
 
@@ -88,22 +80,33 @@ export class LineChartComponent {
     },
     hover: {
       mode: 'nearest',
-      intersect: true,
+      intersect: false,
+    },
+    legend: {
+      labels: {
+        fontColor: "white",
+        fontSize: 18,
+        fontFamily: 'Sawarabi Mincho'
+      }
     },
     scales: {
       xAxes: [
         {
           type:'time',
           ticks: {
-            autoSkip: true,
+            autoSkip: false,
             maxTicksLimit: 7,
+            source:'auto'
           },
           time: {
-            displayFormats: {
-              hour: 'hA'
-            }
-          }
+            unit: 'minute'
+          },
+          displayFormats: {
+            hour: 'h:mm a'
+          },
+          distribution: 'series'
         },
+        
       ],
     },
   };

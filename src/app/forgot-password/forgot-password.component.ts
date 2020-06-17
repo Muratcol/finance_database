@@ -38,8 +38,9 @@ export class ForgotPasswordComponent implements OnInit {
       this.authService.forgotPassword(this.userEmail)
       .subscribe(() => {
         this.alertifyService.success('Check your email for reset your password. Routing login panel')
-        setTimeout(() => "", 2000)
-        this.router.navigate(['user/login'])
+        setTimeout(() => {
+          this.router.navigate(['user/login'])
+        }, 2000)
       });
     }
   }

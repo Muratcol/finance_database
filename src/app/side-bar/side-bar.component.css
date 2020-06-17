@@ -45,7 +45,7 @@ fa-icon {
     margin-top: 0px;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
-    background: linear-gradient(180deg, #E3BB1A 0%,  #D5D5D5 100%);
+    background: linear-gradient(180deg, #2E3439 0%, #D5D5D5   100%);
 
     z-index: 10;
 }
@@ -103,7 +103,7 @@ input[type=checkbox] {
     position: absolute;
     height: 3px;
     width: 100%;
-    background-color: #E3BB1A;
+    background-color: #D5D5D5;
 }
 .horizontal {
     transition: all 0.3s;

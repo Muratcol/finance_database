@@ -1,59 +1,68 @@
-<div class="container mt-4">
-<div class="content-section">
-    <form class="form-group" [formGroup]="userLoginForm" (ngSubmit)="logIn()">
-      <legend class="border-bottom mb-4">Login to Zamazon</legend>
-      <input
-        type="text"
-        id="email"
-        name="email"
-        formControlName="email"
-        class="form-control my-2"
-        placeholder="Email"
-        required
-       />
-       <div
-       *ngIf="
-       userLoginForm.get('email').invalid &&
-         (userLoginForm.get('email').dirty ||
-         userLoginForm.get('email').touched)
-       "
-       class="alert alert-warning"
-     >
-       Please provide a valid email
-     </div>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        formControlName="password"
-        class="form-control my-2"
-        placeholder="Password"
-        required
-       />
-       <div
-       *ngIf="
-       userLoginForm.get('password').invalid &&
-         (userLoginForm.get('password').dirty ||
-         userLoginForm.get('password').touched)
-       "
-       class="alert alert-warning"
-     >
-       Please provide an password between 6-15 characters
-     </div>
-     <div class="form-group">
-      <button class="btn btn-outline-info" type="submit">Log In</button>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2"></div>
+    <div class="col-md-8 ">
+      <div class="content-section offset">
+        <form
+          class="form-group"
+          [formGroup]="userLoginForm"
+          (ngSubmit)="logIn()"
+        >
+          <legend class="border-bottom mb-4">Login to Finance Database</legend>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            formControlName="email"
+            class="form-control my-2"
+            placeholder="Email"
+            required
+          />
+          <div
+            *ngIf="
+              userLoginForm.get('email').invalid &&
+              (userLoginForm.get('email').dirty ||
+                userLoginForm.get('email').touched)
+            "
+            class="alert alert-warning"
+          >
+            Please provide a valid email
+          </div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            formControlName="password"
+            class="form-control my-2"
+            placeholder="Password"
+            required
+          />
+          <div
+            *ngIf="
+              userLoginForm.get('password').invalid &&
+              (userLoginForm.get('password').dirty ||
+                userLoginForm.get('password').touched)
+            "
+            class="alert alert-warning"
+          >
+            Please provide an password between 6-15 characters
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-info btn-override" type="submit">Log In</button>
+          </div>
+        </form>
+
+        <div class="border-top pt-3">
+          <small class="text-muted">
+            <a routerLink="/user/forgotPassword" class="ml-2"
+              >Forgot password?
+            </a>
+            <strong> . </strong>
+            <a routerLink="/user/register" class="ml-2">Need an account? </a>
+          </small>
+        </div>
+      </div>
     </div>
-    </form>
-
-
-  <div class="border-top pt-3">
-    <small class="text-muted">
-      <a routerLink="/user/forgotPassword" class="ml-2"
-        >Forgot password?
-      </a>
-      <strong> . </strong>
-      <a routerLink="/user/register" class="ml-2">Need an account? </a>
-    </small>
-  </div>
-</div>
+  
+  <div class="col col-lg-2"></div>
 </div>

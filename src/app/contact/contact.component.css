@@ -6,7 +6,7 @@ body {
   height: 400px;
 }
 .col-md-3 {
-  background: #ff9b00;
+  background: linear-gradient(180deg, #D5D5D5 0%, #2E3439  100%);
   padding: 4%;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -21,7 +21,7 @@ body {
   margin-bottom: 10%;
 }
 .col-md-9 {
-  background: #fff;
+  background: linear-gradient(180deg, #D5D5D5 0%, #2E3439  100%);
   padding: 3%;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -29,12 +29,11 @@ body {
 .contact-form label {
   font-weight: 600;
 }
-.contact-form button {
-  background: #25274d;
-  color: #fff;
-  font-weight: 600;
+.btn-override {
   width: 25%;
+  border-color: #D5D5D5;
+  color: #D5D5D5;
 }
-.contact-form button:focus {
-  box-shadow: none;
+.btn-override:hover {
+  background-color: #2E3439;
 }

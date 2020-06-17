@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { AlertifyService } from '../services/alertify.service';
 import { matchOtherValidator } from '../helpers/matchPasswordFields'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -61,6 +63,8 @@ export class RegisterComponent implements OnInit {
     }
     this.userService.registerUser(this.user).subscribe((response) => {
       this.alertifyService.success('User succesfully created. Feel free to login');
+      setTimeout(() => "", 2000)
+      this.router.navigate(['user/login'])
     });
   }
 }

@@ -1,95 +1,105 @@
 <div class="container">
-<div class="content-section">
-      <form class="form-group" [formGroup]="userRegisterForm" (ngSubmit)="register()">
-        <legend class="border-bottom mb-4">Create a user to Zamazon</legend>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          formControlName="name"
-          class="form-control my-2"
-          placeholder="Username"
-          required
-         />
-         <div
-         *ngIf="
-         userRegisterForm.get('name').invalid &&
-           (userRegisterForm.get('name').dirty ||
-           userRegisterForm.get('name').touched)
-         "
-         class="alert alert-warning"
-       >
-         Please provide an username between 6-15 characters
-       </div>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          formControlName="email"
-          class="form-control my-2"
-          placeholder="Email"
-          required
-         />
-         <div
-         *ngIf="
-         userRegisterForm.get('email').invalid &&
-           (userRegisterForm.get('email').dirty ||
-           userRegisterForm.get('email').touched)
-         "
-         class="alert alert-warning"
-       >
-         Please provide a valid email
-       </div>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          formControlName="password"
-          class="form-control my-2"
-          placeholder="Password"
-          required
-         />
-         <div
-         *ngIf="
-         userRegisterForm.get('password').invalid &&
-           (userRegisterForm.get('password').dirty ||
-           userRegisterForm.get('password').touched)
-         "
-         class="alert alert-warning"
-       >
-         Please provide an password between 6-15 characters
-       </div>
-        <input
-          type="password"
-          id="repeatPassword"
-          name="repeatPassword"
-          formControlName="repeatPassword"
-          class="form-control my-2"
-          placeholder="Confirm Password"
-          required
-         />
-         <div
-         *ngIf="
-         userRegisterForm.get('repeatPassword').invalid &&
-           (userRegisterForm.get('repeatPassword').dirty ||
-           userRegisterForm.get('repeatPassword').touched)
-         "
-         class="alert alert-warning"
-       >
-         Passwords do not match
-       </div>
-      
-      <div class="form-group">
-        <button class="btn btn-outline-info" type="submit" >Giriş yap</button>
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2"></div>
+    <div class="col-md-8">
+      <div class="content-section offset">
+        <form
+          class="form-group"
+          [formGroup]="userRegisterForm"
+          (ngSubmit)="register()"
+        >
+          <legend class="border-bottom mb-4">Create a user</legend>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            formControlName="name"
+            class="form-control my-2"
+            placeholder="Username"
+            required
+          />
+          <div
+            *ngIf="
+              userRegisterForm.get('name').invalid &&
+              (userRegisterForm.get('name').dirty ||
+                userRegisterForm.get('name').touched)
+            "
+            class="alert alert-warning"
+          >
+            Please provide an username between 6-15 characters
+          </div>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            formControlName="email"
+            class="form-control my-2"
+            placeholder="Email"
+            required
+          />
+          <div
+            *ngIf="
+              userRegisterForm.get('email').invalid &&
+              (userRegisterForm.get('email').dirty ||
+                userRegisterForm.get('email').touched)
+            "
+            class="alert alert-warning"
+          >
+            Please provide a valid email
+          </div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            formControlName="password"
+            class="form-control my-2"
+            placeholder="Password"
+            required
+          />
+          <div
+            *ngIf="
+              userRegisterForm.get('password').invalid &&
+              (userRegisterForm.get('password').dirty ||
+                userRegisterForm.get('password').touched)
+            "
+            class="alert alert-warning"
+          >
+            Please provide an password between 6-15 characters
+          </div>
+          <input
+            type="password"
+            id="repeatPassword"
+            name="repeatPassword"
+            formControlName="repeatPassword"
+            class="form-control my-2"
+            placeholder="Confirm Password"
+            required
+          />
+          <div
+            *ngIf="
+              userRegisterForm.get('repeatPassword').invalid &&
+              (userRegisterForm.get('repeatPassword').dirty ||
+                userRegisterForm.get('repeatPassword').touched)
+            "
+            class="alert alert-warning"
+          >
+            Passwords do not match
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-outline-info btn-override" type="submit">
+              Giriş yap
+            </button>
+          </div>
+        </form>
+        <div class="border-top pt-3">
+          <small class="text-muted">
+            <a routerLink="/user/login" class="ml-2"
+              >Do you have an account already?
+            </a>
+          </small>
+        </div>
       </div>
-    </form>
-    <div class="border-top pt-3">
-      <small class="text-muted">
-        <a routerLink="/user/login" class="ml-2"
-          >Do you have an account already? 
-        </a>
-      </small>
     </div>
-  </div>
+    <div class="col col-lg-2"></div>
 </div>
-  

@@ -57,6 +57,9 @@ export class ResetPasswordComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.userService.resetPassword(this.newPassword, params['resetPasswordToken']).subscribe((response) => {
         this.alertifyService.success('Password resetted. Routing to login page.');
+        setTimeout(() => {
+          this.router.navigate(['user/login'])
+        }, 2000)
       });
     })
 

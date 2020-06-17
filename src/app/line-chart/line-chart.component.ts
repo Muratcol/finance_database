@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { CurrencyService } from '../services/currency.service';
-import { Observable } from 'rxjs';
-import { CurrencyChart } from '../currency/currency';
-import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-line-chart',
@@ -12,6 +9,7 @@ import { tap, map } from 'rxjs/operators';
   styleUrls: ['./line-chart.component.css'],
   providers: [CurrencyService],
 })
+
 export class LineChartComponent {
   dollarData: string;
   euroData: string;
@@ -52,8 +50,16 @@ export class LineChartComponent {
     this.currencyService.updateChart();
   }
 
+  sendDatasToChart() {
+    
+  }
+
+
+
+
+
   lineChartData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0], label: 'USD Daily Data', pointRadius: 0 },
+    { data: [0, 0, 0, 0, 0], label: 'USD/TRY Currency Chart', pointRadius: 0 },
   ];
 
   lineChartLabels: Label[] = [
@@ -90,7 +96,7 @@ export class LineChartComponent {
           type:'time',
           ticks: {
             autoSkip: true,
-            maxTicksLimit: 11,
+            maxTicksLimit: 7,
           },
           time: {
             displayFormats: {

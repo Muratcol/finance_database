@@ -46,9 +46,7 @@ fa-icon {
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     background: linear-gradient(180deg, #E3BB1A 0%,  #D5D5D5 100%);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(189,170,189,1);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(189,170,189,1);
-    box-shadow: 10px 10px 5px 0px rgba(189,170,189,1);
+
     z-index: 10;
 }
 .sidebarMenuInner{

@@ -73,63 +73,68 @@ export class CurrencyTableComponent implements OnInit {
       },2000)  
 
   }
+
+  currencyParser(firstCurrency:number, secondCurrency:number){
+    let sum = Number(this.currencies[firstCurrency].satis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].satis.replace(/,/, '.'))
+    return Number(sum.toFixed(4))
+  }
+  getPercantage(oldCurrency:number, newCurrency:number) {
+    let sum = "%" + (100 - (oldCurrency / newCurrency) * 100).toFixed(2)
+    return sum
+  }
+
+
+
   refreshData(){
     this.currencyService.getCurrencies()
         .subscribe(data => {
           this.currencies = data['data']
 
-          this.newgbpusd = Number(this.currencies[2].satis.replace(/,/, '.')) / Number(this.currencies[0].satis.replace(/,/, '.'))
-          this.newgbpusd = Number(this.newgbpusd.toFixed(4))
+          this.newgbpusd = this.currencyParser(2, 0)
           if (this.newgbpusd != this.oldgbpusd && this.oldgbpusd != 0) {
-            this.gbpusdDiffPerc = "%" + (100 - (this.oldgbpusd / this.newgbpusd) * 100).toFixed(2)
+            this.gbpusdDiffPerc = this.getPercantage(this.oldgbpusd, this.newgbpusd)
             this.gbpusdDiff = this.newgbpusd - this.oldgbpusd
           }
           this.oldgbpusd = this.newgbpusd
           
-          this.newusdjpy = Number(this.currencies[0].satis.replace(/,/, '.')) / Number(this.currencies[11].satis.replace(/,/, '.'))
-          this.newusdjpy = Number(this.newusdjpy.toFixed(4))
+          this.newusdjpy = this.currencyParser(0, 11)
           if (this.newusdjpy != this.oldusdjpy && this.oldusdjpy != 0) {
-            this.usdjpyDiffPerc = "%" + (100 - (this.oldusdjpy / this.newusdjpy) * 100).toFixed(2)
+            this.usdjpyDiffPerc = this.getPercantage(this.oldusdjpy, this.newusdjpy)
             this.usdjpyDiff = this.newusdjpy - this.oldusdjpy
           }
           this.oldusdjpy = this.newusdjpy
 
-          this.newusdchf = Number(this.currencies[0].satis.replace(/,/, '.')) / Number(this.currencies[3].satis.replace(/,/, '.'))
-          this.newusdchf = Number(this.newusdchf.toFixed(4))
+          this.newusdchf = this.currencyParser(0, 3)
           if (this.newusdchf != this.oldusdchf && this.oldusdchf != 0) {
-            this.usdchfDiffPerc = "%" + (100 - (this.oldusdchf / this.newusdchf) * 100).toFixed(2)
+            this.usdchfDiffPerc = this.getPercantage(this.oldusdchf, this.newusdchf)
             this.usdchfDiff = this.newusdchf - this.oldusdchf
           }
           this.oldusdchf = this.newusdchf
 
-          this.newusdcad = Number(this.currencies[0].satis.replace(/,/, '.')) / Number(this.currencies[4].satis.replace(/,/, '.'))
-          this.newusdcad = Number(this.newusdcad.toFixed(4))
+          this.newusdcad = this.currencyParser(0, 4)
           if (this.newusdcad != this.oldusdcad && this.oldusdcad!= 0) {
-            this.usdcadDiffPerc = "%" + (100 - (this.oldusdcad / this.newusdcad) * 100).toFixed(2)
+            this.usdcadDiffPerc = this.getPercantage(this.oldusdcad, this.newusdcad)
             this.usdcadDiff = this.newusdcad - this.oldusdcad
           }
           this.oldusdcad = this.newusdcad
 
-          this.newusdsek = Number(this.currencies[0].satis.replace(/,/, '.')) / Number(this.currencies[9].satis.replace(/,/, '.'))
-          this.newusdsek = Number(this.newusdsek.toFixed(4))
+          this.newusdsek = this.currencyParser(0, 9)
           if (this.newusdsek != this.oldusdsek && this.oldusdsek!= 0) {
-            this.usdsekDiffPerc = "%" + (100 - (this.oldusdsek / this.newusdsek) * 100).toFixed(2)
+            this.usdsekDiffPerc = this.getPercantage(this.oldusdsek, this.newusdsek)
             this.usdsekDiff = this.newusdsek - this.oldusdsek
           }
           this.oldusdsek = this.newusdsek
 
-          this.neweurjpy = Number(this.currencies[1].satis.replace(/,/, '.')) / Number(this.currencies[11].satis.replace(/,/, '.'))
-          this.neweurjpy = Number(this.neweurjpy.toFixed(4))
+          this.neweurjpy = this.currencyParser(1, 11)
           if (this.neweurjpy != this.oldeurjpy && this.oldeurjpy!= 0) {
-            this.eurjpyDiffPerc = "%" + (100 - (this.oldeurjpy / this.neweurjpy) * 100).toFixed(2)
+            this.eurjpyDiffPerc = this.getPercantage(this.oldeurjpy, this.neweurjpy)
             this.eurjpyDiff = this.neweurjpy - this.oldeurjpy
           }
           this.oldeurjpy = this.neweurjpy
 
-          this.newaudusd = Number(this.currencies[7].satis.replace(/,/, '.')) / Number(this.currencies[0].satis.replace(/,/, '.'))
-          this.newaudusd = Number(this.newaudusd.toFixed(4))
+          this.newaudusd = this.currencyParser(7, 0)
           if (this.newaudusd != this.oldaudusd && this.oldaudusd!= 0) {
-            this.audusdDiffPerc = "%" + (100 - (this.oldaudusd / this.newaudusd) * 100).toFixed(2)
+            this.audusdDiffPerc = this.getPercantage(this.oldaudusd, this.newaudusd)
             this.audusdDiff = this.newaudusd - this.oldaudusd
           }
           this.oldaudusd = this.newaudusd

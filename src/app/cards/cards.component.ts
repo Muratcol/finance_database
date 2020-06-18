@@ -38,14 +38,22 @@ export class CardsComponent implements OnInit {
       },5000)  
 
   }
+
+  currencyParserSell(firstCurrency:number, secondCurrency:number){
+    let sum = Number(this.currencies[firstCurrency].satis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].satis.replace(/,/, '.'))
+    return Number(sum.toFixed(5))
+  }
+  currencyParserBuy(firstCurrency:number, secondCurrency:number){
+    let sum = Number(this.currencies[firstCurrency].alis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].alis.replace(/,/, '.'))
+    return Number(sum.toFixed(5))
+  }
+
   refreshData(){
     this.currencyService.getCurrencies()
         .subscribe(data => {
           this.currencies = data['data']
-          this.pariteSell = Number(this.currencies[0].alis.replace(/,/, '.')) / Number(this.currencies[1].alis.replace(/,/, '.'))
-          this.pariteSell = Number(this.pariteSell.toFixed(5))
-          this.pariteBuy = Number(this.currencies[0].satis.replace(/,/, '.')) / Number(this.currencies[1].satis.replace(/,/, '.'))
-          this.pariteBuy = Number(this.pariteBuy.toFixed(5))
+          this.pariteSell = this.currencyParserBuy(0,1)
+          this.pariteBuy = this.currencyParserSell(0,1)
 
           setTimeout(() => {
             let animationCarriers = this.el.nativeElement.querySelectorAll('.usdBox')

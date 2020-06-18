@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { CurrencyService } from '../services/currency.service';
+import * as moment from 'moment';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-line-chart',
@@ -9,17 +11,16 @@ import { CurrencyService } from '../services/currency.service';
   styleUrls: ['./line-chart.component.css'],
   providers: [CurrencyService],
 })
-
 export class LineChartComponent {
   chartData: any = [];
   sells: Array<number> = [];
-  dates: Array<string> = [];
+  dates: Array<any> = [];
   constructor(private currencyService: CurrencyService) {}
 
   interval: any = setInterval(() => {
     this.updateChart();
     this.sendDatasToChart();
-  }, 5 * 1000);
+  }, 10 * 1000);
 
   updateChart() {
     this.currencyService.updateChart();
@@ -31,7 +32,9 @@ export class LineChartComponent {
       .subscribe((data) => (this.chartData = data));
     for (let i of this.chartData) {
       this.sells.push(i['sell']);
-      this.dates.push(i['date']);
+      const date = new Date(i['date']);
+      const momentDate = moment(date.toISOString());
+      this.dates.push(momentDate);
     }
     this.lineChartData = [
       {
@@ -46,32 +49,15 @@ export class LineChartComponent {
     this.chartData = [];
   }
 
-
-
-
-
   lineChartData: ChartDataSets[] = [
     { data: [0, 0, 0, 0, 0], label: 'USD/TRY Currency Chart', pointRadius: 0 },
   ];
 
-  lineChartLabels: Label[] = [
-    '06.00',
-    '08.00',
-    '10.00',
-    '12.00',
-    '14.00',
-    '16.00',
-    '18.00',
-    '20.00',
-    '22.00',
-    '00.00',
-    '02.00',
-    '04.00',
-  ];
+  lineChartLabels: Date[] = [];
 
   lineChartOptions = {
     animation: {
-      duration: 0
+      duration: 0,
     },
     responsive: true,
     tooltips: {
@@ -84,29 +70,30 @@ export class LineChartComponent {
     },
     legend: {
       labels: {
-        fontColor: "white",
+        fontColor: 'white',
         fontSize: 18,
-        fontFamily: 'Sawarabi Mincho'
-      }
+        fontFamily: 'Sawarabi Mincho',
+      },
     },
     scales: {
       xAxes: [
         {
-          type:'time',
+          type: 'time',
           ticks: {
             autoSkip: false,
             maxTicksLimit: 7,
-            source:'auto'
+            source: 'auto',
+            beginAtZero: true,
           },
           time: {
-            unit: 'minute'
+            parser: 'HH',
+            unit: 'minute',
           },
           displayFormats: {
-            hour: 'h:mm a'
+            hour: 'h:mm a',
           },
-          distribution: 'series'
+          distribution: 'linear',
         },
-        
       ],
     },
   };

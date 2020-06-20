@@ -1,12 +1,22 @@
 <div class="row">
-  <div class="col-auto nopadding">
-    <app-cards></app-cards>
+  <div class="col-10 nopadding">
+    <div class="row">
+      <div class="col-auto nopadding">
+        <app-cards></app-cards>
+      </div>
+      <div class="col-auto nopadding">
+        <app-currency-table></app-currency-table>
+      </div>
+      <div class="col-auto nopadding" style="width: 60%;">
+        <app-line-chart></app-line-chart>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-auto nopadding"><app-currencyfooter></app-currencyfooter> </div>
+      <div class="col-auto nopadding"></div>
+      <div class="col-auto nopadding"></div>
+      <div class="col-auto nopadding"></div>
+    </div>   
   </div>
-  <div class="col-auto nopadding">
-  <app-currency-table></app-currency-table>
-</div>
-  <div class="col-auto nopadding" style="width: 50%;">
-    <app-line-chart></app-line-chart>
-  </div>
-  <div class="col nopadding">Chat</div>
+  <div class="col-2 nopadding">Chat</div>
 </div>

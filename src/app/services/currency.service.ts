@@ -26,7 +26,6 @@ export class CurrencyService {
   }
 
 
-
   updateChart(){
     return this.http
     .get(this.path + "/chart-data").subscribe(

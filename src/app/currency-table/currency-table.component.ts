@@ -62,6 +62,11 @@ export class CurrencyTableComponent implements OnInit {
   audusdDiffPerc:string;
   audusdDiff:number;
 
+  neweursek:number;
+  oldeursek:number;
+  eursekDiffPerc:string;
+  eursekDiff:number;
+
   currencies : Currency[];
   constructor(
     private currencyService:CurrencyService,
@@ -141,6 +146,13 @@ export class CurrencyTableComponent implements OnInit {
             this.audusdDiff = this.newaudusd - this.oldaudusd
           }
           this.oldaudusd = this.newaudusd
+
+          this.neweursek = this.currencyParser(1, 9)
+          if (this.neweursek != this.oldeursek && this.oldeursek!= 0) {
+            this.eursekDiffPerc = this.getPercantage(this.oldeursek, this.neweursek)
+            this.eursekDiff = this.neweursek - this.oldeursek
+          }
+          this.oldeursek = this.neweursek
 
 
           setTimeout(() => {

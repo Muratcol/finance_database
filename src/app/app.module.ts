@@ -22,6 +22,7 @@ import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { CardsComponent } from './cards/cards.component';
 import { CurrencyTableComponent } from './currency-table/currency-table.component';
+import { CurrencyfooterComponent } from './currencyfooter/currencyfooter.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CurrencyTableComponent } from './currency-table/currency-table.componen
     ContactComponent,
     LineChartComponent,
     CardsComponent,
-    CurrencyTableComponent
+    CurrencyTableComponent,
+    CurrencyfooterComponent
 
   ],
   imports: [

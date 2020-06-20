@@ -1,0 +1,30 @@
+.currencyFooterWrapper{
+    width: 100%;
+    margin-left: 2rem;
+    background-color: #FFFFFF;
+}
+
+.currencyFooterNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    background-color: red;
+    padding: 0.5rem;
+}
+.currencyFooterBody {
+    background-color: #FFFFFF;
+    height: 100%;
+    
+}
+.currencyFooterHeaders {
+    font-size: smaller;
+    position: relative;
+    float: right;
+}
+.currencyTable{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+
+}

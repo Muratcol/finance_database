@@ -1,12 +1,25 @@
+<div class="currencyFooterWrapper">
+  <div class="currencyFooterNav">
+    <span class="footerHeader">Exchange Rates</span>
+    <a routerLink="/currencies" title="U.S Dollar Index" class="pt-1"
+      >See All</a
+    >
+  </div>
 
-<div class="currencytable dxy">
-    <a href="#" title="U.S Dollar Index" class="pt-1" >DXY</a>
-    <span class="dxyCurrency">96133</span>
+  <div class="currencyFooterBody">
+    <div class="currencyFooterHeaders text-muted">
+      <span class="mr-2">parite</span>
+      <span class="ml-2">change rate</span>
+    </div>
+    <div class="currencyTable">
+        <a class="mr-2">exchangeName</a>
+        <a class="ml-2">sell</a>
+        <a class="ml-2">buy</a>
+        <a class="ml-2">change</a>
+    </div>
+  </div>
 </div>
-<div class="currencytable currencyheader">
-    <span class="mr-2">parite</span>
-    <span class="ml-2">change rate</span>
-</div>
+<!-- 
 <table class="table table-borderless currencytable">
     <tbody>
       <tr [ngClass]="gbpusdDiff > 0 ? 'increase' : 'decrease'">
@@ -72,15 +85,8 @@
             {{eurjpyDiffPerc}}</td>
       </tr>
 
-      <!-- <tr [ngClass]="eursekDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">EUR/SEK</a></th>
-        <td>{{oldeursek}}</td>
-        <td>
-            <fa-icon *ngIf="eursekDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="eursekDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{eursekDiffPerc}}</td>
-      </tr>      -->
     </tbody>
   </table>
   <hr>
   <a routerLink="/currencies" class="text-muted clickme">Click here for more currency</a>
+ -->

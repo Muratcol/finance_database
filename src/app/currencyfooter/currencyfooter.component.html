@@ -1,21 +1,36 @@
 <div class="currencyFooterWrapper">
   <div class="currencyFooterNav">
     <span class="footerHeader">Exchange Rates</span>
-    <a routerLink="/currencies" title="U.S Dollar Index" class="pt-1"
+    <a routerLink="/currencies" title="See all currencies" class="pt-1"
       >See All</a
     >
   </div>
 
   <div class="currencyFooterBody">
-    <div class="currencyFooterHeaders text-muted">
-      <span class="mr-2">parite</span>
-      <span class="ml-2">change rate</span>
-    </div>
+    
     <div class="currencyTable">
-        <a class="mr-2">exchangeName</a>
-        <a class="ml-2">sell</a>
-        <a class="ml-2">buy</a>
-        <a class="ml-2">change</a>
+      <tbody>
+        <tr class="text-muted" style="font-size: smaller;">
+          <th scope="row" class="exchangeCol">Exchange</th>
+          <td class="buyCol">Sell</td>
+          <td class="sellCol">Buy</td>
+          <td class="changeCol">Change rate</td>
+        </tr>
+        <tr
+          *ngFor="let index of [2,4,5,9,11,3,8,10,29,30]; let i = index"
+          [attr.data-index]="i"
+        >
+          <th scope="row">{{ currencies[index].name }}</th>
+          <td class="buyCol">{{ currencies[index].alis }}</td>
+          <td class="sellCol">{{ currencies[index].satis }}</td>
+          <td class="changeCol" 
+          [ngClass]="currencies[index].degisim.indexOf('-') < 0 ? 'changeIncreaseColor' : 'changeDecreaseColor'"
+          >{{ currencies[index].degisim }} 
+            <fa-icon *ngIf="currencies[index].degisim.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[index].degisim.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
     </div>
   </div>
 </div>

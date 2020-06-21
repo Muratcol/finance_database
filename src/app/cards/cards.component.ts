@@ -13,7 +13,7 @@ import { Currency } from '../currency/currency';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css'],
-  providers: [CurrencyService]
+  providers: []
 
 })
 export class CardsComponent implements OnInit {

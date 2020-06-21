@@ -1,7 +1,7 @@
 .currencyFooterWrapper{
-    width: 100%;
-    margin-left: 2rem;
-    background-color: #FFFFFF;
+    width: 80%;
+
+    margin-left: 1%;
 }
 
 .currencyFooterNav{
@@ -9,22 +9,44 @@
     justify-content: space-between;
     align-items: center;
     height: 2rem;
-    background-color: red;
+    background-color: #272D20;
     padding: 0.5rem;
+    color: #FFFFFF;
 }
 .currencyFooterBody {
-    background-color: #FFFFFF;
+    background-color: #343A40;
     height: 100%;
+    color: whitesmoke
     
 }
-.currencyFooterHeaders {
-    font-size: smaller;
-    position: relative;
-    float: right;
-}
 .currencyTable{
-    background-color: white;
     display: flex;
     justify-content: space-between;
 
 }
+tbody{
+    border-collapse: separate;
+    border-spacing:  1rem 1rem;
+    font-weight: 700;
+}
+td.buyCol {
+    -webkit-transform: translate(3rem,0);
+    -moz-transform: translate(3rem,0);
+}
+td.sellCol {
+    -webkit-transform: translate(7rem,0);
+    -moz-transform: translate(7rem,0);
+    color: grey;
+}
+td.changeCol {
+    -webkit-transform: translate(11rem,0);
+    -moz-transform: translate(11rem,0);
+}
+.changeIncreaseColor {
+    color: green;
+}
+.changeDecreaseColor {
+    color: red;
+}
+
+

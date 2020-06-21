@@ -14,7 +14,7 @@ import { Currency } from '../currency/currency';
   selector: 'app-currency-table',
   templateUrl: './currency-table.component.html',
   styleUrls: ['./currency-table.component.css'],
-  providers: [CurrencyService]
+  providers: []
 })
 export class CurrencyTableComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp

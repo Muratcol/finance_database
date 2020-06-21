@@ -23,6 +23,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 import { CardsComponent } from './cards/cards.component';
 import { CurrencyTableComponent } from './currency-table/currency-table.component';
 import { CurrencyfooterComponent } from './currencyfooter/currencyfooter.component';
+import { CurrencyService } from './services/currency.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { CurrencyfooterComponent } from './currencyfooter/currencyfooter.compone
     FontAwesomeModule,
     ChartsModule
   ],
-  providers: [AlertifyService, UserService, LoginGuard], //Alertify service a global service !
+  providers: [AlertifyService, UserService, LoginGuard, CurrencyService], //Alertify service a global service !
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowAltCircleDown, faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
-import { Currency } from '../currency/currency';
+import { CurrencyCrosses } from '../currency/currency';
 
 @Component({
   selector: 'app-currencyfooter',
@@ -17,7 +17,7 @@ export class CurrencyfooterComponent implements OnInit {
 
     ) { }
 
-  currencies : Currency[];
+  currencies : CurrencyCrosses[];
   interval: any;
   ngOnInit(): void {
     this.refreshData()

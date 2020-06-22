@@ -3,13 +3,13 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { CurrencyService } from '../services/currency.service';
 import * as moment from 'moment';
-import { Time } from '@angular/common';
+
 
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.css'],
-  providers: [CurrencyService],
+  providers: [],
 })
 export class LineChartComponent {
   chartData: any = [];

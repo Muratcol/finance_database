@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="currencyTab">
+      <table class="table table-hover offset">
+        <thead>
+          <tr>
+            <th id="currenyHeader" scope="col" colspan="3">Real Time Streaming Commodity Prices 
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search"></th>
+          </tr>
+          <tr id="definers">
+            <th scope="col">Name</th>
+            <th scope="col">Month</th>
+            <th scope="col">Last</th>
+            <th scope="col">High</th>
+            <th scope="col">Low</th>
+            <th scope="col">Change</th>
+            <th scope="col">Change Perc %</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let commodity of commodities; let i = index"
+            [attr.data-index]="i"
+          >
+            <th scope="row">{{ commodity.name }}</th>
+            <td>{{ commodity.month }}</td>
+            <td>{{ commodity.last }}</td>
+            <td>{{ commodity.high }}</td>
+            <td>{{ commodity.low }}</td>
+            <td>{{ commodity.chg }}</td>
+            <td>{{ commodity.chgPerc }}</td>
+            <td>{{ commodity.time }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    

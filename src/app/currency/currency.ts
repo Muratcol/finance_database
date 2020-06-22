@@ -1,11 +1,12 @@
-export class Currency {
-    name:string;
-    alis:string;
-    satis:string;
-    yuksek:string;
-    dusuk:string;
-    degisim:string;
-    update:string;
+export class CurrencyCrosses {
+    pair:string;
+    bid:string;
+    ask:string;
+    high:string;
+    low:string;
+    chg:string;
+    chgPerc:string;
+    time:string;
 }
 export class CurrencyChart {
     dollar:object;

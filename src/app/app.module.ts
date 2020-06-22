@@ -24,6 +24,8 @@ import { CardsComponent } from './cards/cards.component';
 import { CurrencyTableComponent } from './currency-table/currency-table.component';
 import { CurrencyfooterComponent } from './currencyfooter/currencyfooter.component';
 import { CurrencyService } from './services/currency.service';
+import { SmfooterComponent } from './smfooter/smfooter.component';
+import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CurrencyService } from './services/currency.service';
     LineChartComponent,
     CardsComponent,
     CurrencyTableComponent,
-    CurrencyfooterComponent
+    CurrencyfooterComponent,
+    SmfooterComponent,
+    CommoditieMainComponent
 
   ],
   imports: [

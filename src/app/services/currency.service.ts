@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
-import { Currency, CurrencyChart } from '../currency/currency';
+import { CurrencyCrosses } from '../currency/currency';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
+import { Commodity } from '../commodity-main/commodity';
+import { Indicies } from '../smfooter/indicies';
 
 @Injectable()
 export class CurrencyService {
@@ -13,9 +15,9 @@ export class CurrencyService {
   myData: BehaviorSubject<Array<object>> = new BehaviorSubject<Array<object>>([])
 
 
-  getCurrencies():Observable<Currency[]> {
+  getCurrencies():Observable<CurrencyCrosses[]> {
     return this.http
-    .get<Currency[]>(this.path)
+    .get<CurrencyCrosses[]>(this.path)
     .pipe(
       tap(data => { // we can log or catch error of data which we get from .get
         // console.log(JSON.stringify(data))
@@ -25,6 +27,22 @@ export class CurrencyService {
      //subscribe means we want this data
   }
 
+  getCommodities():Observable<Commodity[]> {
+    return this.http
+    .get<Commodity[]>(this.path + "/commodities")
+    .pipe(
+      tap(),
+      catchError(err => this.handleError(err))
+    )
+  }
+  getIndices():Observable<Indicies[]> {
+    return this.http
+    .get<Indicies[]>(this.path + "/major-indicies")
+    .pipe(
+      tap(),
+      catchError(err => this.handleError(err))
+    )
+  }
 
   updateChart(){
     return this.http

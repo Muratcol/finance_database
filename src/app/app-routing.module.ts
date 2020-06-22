@@ -10,6 +10,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { FinanceMainComponent } from './finance-main/finance-main.component';
 import { ContactComponent } from './contact/contact.component';
 import { CardsComponent } from './cards/cards.component';
+import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path:"contact",
     component: ContactComponent,
+  },
+  {
+    path:"currencies/commodities",
+    component: CommoditieMainComponent,
   },
 ];
 

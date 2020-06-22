@@ -7,7 +7,7 @@ import {
   faPoundSign
  } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
-import { Currency } from '../currency/currency';
+import { CurrencyCrosses } from '../currency/currency';
 
 @Component({
   selector: 'app-cards',
@@ -25,7 +25,7 @@ export class CardsComponent implements OnInit {
   interval: any;
   pariteSell:number;
   pariteBuy:number;
-  currencies : Currency[];
+  currencies : CurrencyCrosses[];
   constructor(
     private currencyService:CurrencyService,
     private el:ElementRef
@@ -39,21 +39,21 @@ export class CardsComponent implements OnInit {
 
   }
 
-  currencyParserSell(firstCurrency:number, secondCurrency:number){
-    let sum = Number(this.currencies[firstCurrency].satis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].satis.replace(/,/, '.'))
-    return Number(sum.toFixed(5))
-  }
-  currencyParserBuy(firstCurrency:number, secondCurrency:number){
-    let sum = Number(this.currencies[firstCurrency].alis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].alis.replace(/,/, '.'))
-    return Number(sum.toFixed(5))
-  }
+  // currencyParserSell(firstCurrency:number, secondCurrency:number){
+  //   let sum = Number(this.currencies[firstCurrency].satis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].satis.replace(/,/, '.'))
+  //   return Number(sum.toFixed(5))
+  // }
+  // currencyParserBuy(firstCurrency:number, secondCurrency:number){
+  //   let sum = Number(this.currencies[firstCurrency].alis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].alis.replace(/,/, '.'))
+  //   return Number(sum.toFixed(5))
+  // }
 
   refreshData(){
     this.currencyService.getCurrencies()
         .subscribe(data => {
           this.currencies = data['data']
-          this.pariteSell = this.currencyParserBuy(0,1)
-          this.pariteBuy = this.currencyParserSell(0,1)
+          // this.pariteSell = this.currencyParserBuy(0,1)
+          // this.pariteBuy = this.currencyParserSell(0,1)
 
           setTimeout(() => {
             let animationCarriers = this.el.nativeElement.querySelectorAll('.usdBox')

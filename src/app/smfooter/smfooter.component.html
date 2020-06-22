@@ -1,0 +1,34 @@
+<!-- <div class="smFooterWrapper">
+    <div class="smFooterNav">
+      <span class="footerHeader">Stock Market</span>
+      <a routerLink="/stock-market" title="See all stock markets" class="pt-1"
+        >See All</a
+      >
+    </div>
+  
+    <div class="smFooterBody">
+      
+      <div class="smTable">
+        <tbody>
+          <tr class="text-muted" style="font-size: smaller;">
+            <th scope="row" class="exchangeCol"></th>
+            <td class="sessCol">Session</td>
+          </tr>
+          <tr
+            *ngFor="let index of [2,4,5,9,11,3,8,10,29,30]; let i = index"
+            [attr.data-index]="i"
+          >
+            <th scope="row">{{ indicies[index].index }}</th>
+            <td class="sessCol" 
+            [ngClass]="indicies[index].chg.indexOf('-') < 0 ? 'sessOpenColor' : 'sessCloseColor'"
+            >{{ indicies[index].chg }} 
+              <fa-icon *ngIf="indicies[index].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+              <fa-icon *ngIf="indicies[index].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div> -->
+
+  

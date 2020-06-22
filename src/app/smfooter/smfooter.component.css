@@ -1,0 +1,43 @@
+.smFooterWrapper{
+    width: 80%;
+
+    margin-left: 1%;
+}
+
+.smFooterNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    background-color: #DADAF7;
+    padding: 0.5rem;
+    color: #FFFFFF;
+}
+.smFooterBody {
+    background-color: #343A40;
+    height: 100%;
+    color: whitesmoke
+    
+}
+.smTable{
+    display: flex;
+    justify-content: space-between;
+
+}
+tbody{
+    border-collapse: separate;
+    border-spacing:  1rem 1rem;
+    font-weight: 700;
+}
+td.sessCol {
+    -webkit-transform: translate(11rem,0);
+    -moz-transform: translate(11rem,0);
+}
+.sessOpenColor {
+    color: green;
+}
+.sessCloseColor {
+    color: red;
+}
+
+

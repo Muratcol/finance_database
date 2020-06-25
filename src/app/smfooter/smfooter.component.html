@@ -1,34 +1,37 @@
-<!-- <div class="smFooterWrapper">
-    <div class="smFooterNav">
-      <span class="footerHeader">Stock Market</span>
-      <a routerLink="/stock-market" title="See all stock markets" class="pt-1"
-        >See All</a
-      >
-    </div>
-  
-    <div class="smFooterBody">
-      
-      <div class="smTable">
-        <tbody>
-          <tr class="text-muted" style="font-size: smaller;">
-            <th scope="row" class="exchangeCol"></th>
-            <td class="sessCol">Session</td>
-          </tr>
-          <tr
-            *ngFor="let index of [2,4,5,9,11,3,8,10,29,30]; let i = index"
-            [attr.data-index]="i"
-          >
-            <th scope="row">{{ indicies[index].index }}</th>
-            <td class="sessCol" 
-            [ngClass]="indicies[index].chg.indexOf('-') < 0 ? 'sessOpenColor' : 'sessCloseColor'"
-            >{{ indicies[index].chg }} 
-              <fa-icon *ngIf="indicies[index].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-              <fa-icon *ngIf="indicies[index].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            </td>
-          </tr>
-        </tbody>
-      </div>
-    </div>
-  </div> -->
+<div class="smFooterWrapper">
+  <div class="smFooterNav">
+    <span class="footerHeader">Stock Markets</span>
+    <a routerLink="/major-indices" title="See all indices" class="pt-1"
+      >See All</a
+    >
+  </div>
 
-  
+  <div class="FooterBody">
+    
+    <div class="smTable">
+      <tbody>
+        <tr class="text-muted" style="font-size: smaller;">
+          <th scope="row" class="exchangeCol">Index</th>
+          <td class="buyCol">Last</td>
+          <td class="sellCol">High</td>
+          <td class="changeCol">Change rate</td>
+        </tr>
+        <tr
+          *ngFor="let index of [0,1,2,3,4,3,8,10,6,5]; let i = index"
+          [attr.data-index]="i"
+        >
+          <th scope="row">{{ indices[index].index }}</th>
+          <td class="buyCol">{{ indices[index].last }}</td>
+          <td class="sellCol">{{ indices[index].high }}</td>
+          <td class="changeCol" 
+          [ngClass]="indices[index].chg.indexOf('-') < 0 ? 'changeIncreaseColor' : 'changeDecreaseColor'"
+          >{{ indices[index].chg }} 
+            <fa-icon *ngIf="indices[index].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="indices[index].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+  </div>
+</div>
+

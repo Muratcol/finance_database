@@ -4,7 +4,7 @@ import { CurrencyCrosses } from '../currency/currency';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { Commodity } from '../commodity-main/commodity';
-import { Indicies } from '../smfooter/indicies';
+import { Indices } from '../smfooter/indices';
 
 @Injectable()
 export class CurrencyService {
@@ -35,9 +35,9 @@ export class CurrencyService {
       catchError(err => this.handleError(err))
     )
   }
-  getIndices():Observable<Indicies[]> {
+  getIndices():Observable<Indices[]> {
     return this.http
-    .get<Indicies[]>(this.path + "/major-indicies")
+    .get<Indices[]>(this.path + "/major-indices")
     .pipe(
       tap(),
       catchError(err => this.handleError(err))

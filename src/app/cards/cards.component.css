@@ -3,11 +3,11 @@
     border: 1px solid #FFFF;
     border-collapse: collapse;
     font-size: 1rem;
-    padding: 1rem;
+
     background-color: #343A40;
     color: #FFFF;
-    height: 470px;
-    width: 320px; 
+    height: auto;
+    width: 100%; 
     z-index: -1; 
     margin-top: 0.3rem;
     margin-left: 0.3rem;
@@ -15,7 +15,7 @@
   .usdBox{
     background-color: #FFFF;
     height: 50px;
-    width: 110px;
+    width: 100px;
     margin-top: 0.5rem;
     border-radius: 25px;
     display:flex;
@@ -23,6 +23,9 @@
     justify-content:center;
     margin-bottom:0.5rem;
     
+  }
+  .rightBox {
+    margin-left: 1rem;
   }
   .currencyInput {
     color: #1D1E22;
@@ -34,7 +37,7 @@
     align-items: center;
   }
   .box {
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     border: 1px solid;
     padding:1rem;
   }

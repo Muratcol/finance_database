@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
-import { Indicies } from './indicies';
+import { Indices } from './indices';
 
 @Component({
   selector: 'app-smfooter',
@@ -16,7 +16,7 @@ export class SmfooterComponent{
 
     ) { }
 
-  indicies : Indicies[];
+  indices : Indices[];
   interval: any;
   ngOnInit(): void {
     this.refreshData()
@@ -27,7 +27,7 @@ export class SmfooterComponent{
 
   refreshData(){
     this.currencyService.getIndices()
-        .subscribe(data => this.indicies = data['data'])
+        .subscribe(data => this.indices = data['data'])
   }
 
 }

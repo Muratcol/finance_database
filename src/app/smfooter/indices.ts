@@ -1,4 +1,4 @@
-export class Indicies {
+export class Indices {
     index:string;
     last:string;
     high:string;

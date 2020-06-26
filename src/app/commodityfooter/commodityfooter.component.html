@@ -1,0 +1,37 @@
+<div class="comFooterWrapper">
+    <div class="comFooterNav">
+      <span class="footerHeader">Commodities</span>
+      <a routerLink="/commodities" title="See all commodities" class="pt-1"
+        >See All</a
+      >
+    </div>
+  
+    <div class="comFooterBody">
+      
+      <div class="comTable">
+        <tbody>
+          <tr class="text-muted" style="font-size: smaller;">
+            <th>Name</th>
+            <th>High</th>
+            <th>Last</th>
+            <th>Change rate</th>
+          </tr>
+          <tr
+            *ngFor="let index of [0,1,2,3,4,5,6,7,8]; let i = index"
+            [attr.data-index]="i"
+          >
+            <td>{{ commodities[index].name }}</td>
+            <td>{{ commodities[index].high }}</td>
+            <td>{{ commodities[index].last }}</td>
+            <td 
+            [ngClass]="commodities[index].chg.indexOf('-') < 0 ? 'changeIncreaseColor' : 'changeDecreaseColor'"
+            >{{ commodities[index].chg }} 
+              <fa-icon *ngIf="commodities[index].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
+              <fa-icon *ngIf="commodities[index].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div>
+  

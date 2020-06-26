@@ -1,37 +1,37 @@
-.currencyFooterWrapper{
+.comFooterWrapper{
     width: auto;
 
     margin-left: 1%;
 }
 
-.currencyFooterNav{
+.comFooterNav{
     width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 2rem;
-    background-color: #272D20;
+    background-color: #142A5C;
     padding: 0.5rem;
     color: #FFFFFF;
 }
-.currencyFooterBody {
+.comFooterBody {
     background-color: #343A40;
     height: 100%;
     color: whitesmoke
     
 }
-.currencyTable{
+.comTable{
     display: flex;
     justify-content: space-between;
 
 }
 th, td { 
-    width:120px; 
+    width:130px; 
     text-align:start; 
     padding:5px 
   
 }
-td:last-child, th:last-child{
+th:last-child, td:last-child {
     width: 100px;
 }
 .table { 

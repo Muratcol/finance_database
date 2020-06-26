@@ -5,6 +5,8 @@ import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { Commodity } from '../commodity-main/commodity';
 import { Indices } from '../smfooter/indices';
+import { Cryptos } from '../crypto-main/crypto';
+import { Advices } from '../currency-table/advices';
 
 @Injectable()
 export class CurrencyService {
@@ -17,7 +19,7 @@ export class CurrencyService {
 
   getCurrencies():Observable<CurrencyCrosses[]> {
     return this.http
-    .get<CurrencyCrosses[]>(this.path)
+    .get<CurrencyCrosses[]>(this.path + "/glance-forex")
     .pipe(
       tap(data => { // we can log or catch error of data which we get from .get
         // console.log(JSON.stringify(data))
@@ -35,9 +37,28 @@ export class CurrencyService {
       catchError(err => this.handleError(err))
     )
   }
+
+  getAdvices():Observable<Advices[]> {
+    return this.http
+    .get<Advices[]>(this.path + "/get-forex-advices")
+    .pipe(
+      tap(),
+      catchError(err => this.handleError(err))
+    )
+  }
+
+
   getIndices():Observable<Indices[]> {
     return this.http
     .get<Indices[]>(this.path + "/major-indices")
+    .pipe(
+      tap(),
+      catchError(err => this.handleError(err))
+    )
+  }
+  getCryptos():Observable<Cryptos[]> {
+    return this.http
+    .get<Cryptos[]>(this.path + "/cryptos")
     .pipe(
       tap(),
       catchError(err => this.handleError(err))

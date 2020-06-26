@@ -11,97 +11,26 @@
     <div class="currencyTable">
       <tbody>
         <tr class="text-muted" style="font-size: smaller;">
-          <th scope="row" class="exchangeCol">Exchange</th>
-          <td class="buyCol">Sell</td>
-          <td class="sellCol">Buy</td>
-          <td class="changeCol">Change rate</td>
+          <th>Exchange</th>
+          <th>Sell</th>
+          <th>Buy</th>
+          <th>Change rate</th>
         </tr>
         <tr
-          *ngFor="let index of [2,4,5,9,11,3,8,10,29,30]; let i = index"
+          *ngFor="let index of [0,1,2,3,4,5,6,7,8]; let i = index"
           [attr.data-index]="i"
         >
-          <th scope="row">{{ currencies[index].pair }}</th>
-          <td class="buyCol">{{ currencies[index].ask }}</td>
-          <td class="sellCol">{{ currencies[index].bid }}</td>
-          <td class="changeCol" 
+          <td>{{ currencies[index].pair }}</td>
+          <td>{{ currencies[index].ask }}</td>
+          <td>{{ currencies[index].bid }}</td>
+          <td 
           [ngClass]="currencies[index].chg.indexOf('-') < 0 ? 'changeIncreaseColor' : 'changeDecreaseColor'"
           >{{ currencies[index].chg }} 
-            <fa-icon *ngIf="currencies[index].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="currencies[index].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            <fa-icon *ngIf="currencies[index].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="currencies[index].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
           </td>
         </tr>
       </tbody>
     </div>
   </div>
 </div>
-<!-- 
-<table class="table table-borderless currencytable">
-    <tbody>
-      <tr [ngClass]="gbpusdDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">GBP/USD</a></th>
-        <td>{{oldgbpusd}}</td>
-        <td>
-            <fa-icon *ngIf="gbpusdDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="gbpusdDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{gbpusdDiffPerc}}</td>
-
-      </tr>
-      <tr [ngClass]="usdjpyDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">USD/JPY</a></th>
-        <td>{{oldusdjpy}}</td>
-        <td>
-            <fa-icon *ngIf="usdjpyDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="usdjpyDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{usdjpyDiffPerc}}</td>
-
-      </tr>
-      <tr [ngClass]="usdcadDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">USD/CAD</a></th>
-        <td>{{oldusdcad}}</td>
-        <td>
-            <fa-icon *ngIf="usdcadDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="usdcadDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{usdcadDiffPerc}}</td>
-      </tr>
-
-      <tr [ngClass]="usdsekDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">USD/SEK</a></th>
-        <td>{{oldusdsek}}</td>
-        <td>
-            <fa-icon *ngIf="usdsekDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="usdsekDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{usdsekDiffPerc}}</td>
-      </tr>
-
-      <tr [ngClass]="usdchfDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">USD/CHF</a></th>
-        <td>{{oldusdchf}}</td>
-        <td>
-            <fa-icon *ngIf="usdchfDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="usdchfDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{usdchfDiffPerc}}</td>
-      </tr>
-
-      <tr [ngClass]="audusdDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">AUD/USD</a></th>
-        <td>{{oldaudusd}}</td>
-        <td>
-            <fa-icon *ngIf="audusdDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="audusdDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{audusdDiffPerc}}</td>
-      </tr>
-
-      <tr [ngClass]="eurjpyDiff > 0 ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#">EUR/JPY</a></th>
-        <td>{{oldeurjpy}}</td>
-        <td>
-            <fa-icon *ngIf="eurjpyDiff > 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="eurjpyDiff < 0" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{eurjpyDiffPerc}}</td>
-      </tr>
-
-    </tbody>
-  </table>
-  <hr>
-  <a routerLink="/currencies" class="text-muted clickme">Click here for more currency</a>
- -->

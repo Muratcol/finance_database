@@ -1,26 +1,37 @@
 
+<div class="tableWrapper">
 <div class="currencytable dxy">
     <a href="#" title="U.S Dollar Index" class="pt-1" >DXY</a>
     <span class="dxyCurrency">96133</span>
 </div>
-<div class="currencytable currencyheader">
-    <span class="mr-2"> Pair </span>
-    <span class="ml-2"> Change % </span>
+<div class="comFooterWrapper">
+
+
+  <div class="comFooterBody">
+    
+    <div class="comTable">
+      <tbody>
+        <tr class="text-muted" style="font-size: smaller;">
+          <th>Pair</th>
+          <th>Last</th>
+          <th>Advice</th>
+        </tr>
+        <tr
+          *ngFor="let advice of advices; let i = index"
+          [attr.data-index]="i"
+        >
+          <td>{{ advice.pair }}</td>
+          <td>{{ advice.last }}</td>
+          <td 
+          [ngClass]="advice.advice.includes('Buy') ? 'changeIncreaseColor' : 'changeDecreaseColor'"
+
+          >{{ advice.advice }} 
+
+          </td>
+        </tr>
+      </tbody>
+    </div>
+  </div>
 </div>
-<table class="table table-borderless currencytable">
-    <tbody>
-      <tr
-      *ngFor="let index of [5,6,9,12,13,14,16,29,30,31]; let i = index"
-      [attr.data-index]="i"
-       [ngClass]="currencies[index].chg.includes('+') ? 'increase' : 'decrease'">
-        <th scope="row"><a href="#"> {{ currencies[index].pair }} </a></th>
-        <td>{{ currencies[index].ask }}</td>
-        <td>
-            <fa-icon *ngIf="currencies[index].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="currencies[index].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
-            {{currencies[index].chgPerc}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <hr>
-  <a routerLink="/currencies" class="text-muted clickme">Click here for more currency</a>
+</div>
+

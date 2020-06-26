@@ -1,32 +1,61 @@
-.table {
-  margin: 0rem;
+.comFooterWrapper{
+  width: auto;
+
+  margin-left: 1%;
 }
-.currencytable {
-  border: 1px solid #343a40;
-  background-color: #343a40;
-  color: white;
-  margin-top: 0;
+.tableWrapper{
+  border: 2px solid #FFFF;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-collapse: collapse;
+  font-size: 1rem;
 }
-.header {
-  margin: 0;
-  padding: 0;
+.comFooterBody {
+  background-color: #343A40;
+  height: 100%;
+  color: whitesmoke
+  
 }
-.currencyheader {
-  text-align: end;
-  justify-content: right;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  font-weight: lighter;
-  text-decoration: underline;
+.comTable{
+  display: flex;
+  justify-content: space-between;
+
 }
+th, td { 
+  width:130px; 
+  text-align:start; 
+  padding:5px 
+
+}
+th:last-child, td:last-child {
+  width: 100px;
+}
+.table { 
+  border-collapse:separate; 
+  border-spacing:0 15px; 
+} 
+
+.changeIncreaseColor {
+  color: green;
+}
+.changeDecreaseColor {
+  color: red;
+}
+
+
+
 a {
   color: white;
 }
 .dxy {
+
   margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
+  color: white;
+  border-bottom: 2px solid white;
+
 }
 .dxyCurrency {
   font-size: 2rem;
@@ -39,12 +68,7 @@ a {
   -webkit-animation: decreaseEffect 3.5s forwards;
   animation: decreaseEffect 3.5s forwards;
 }
-.clickme {
-    font-size: smaller;
-    margin-left: 0.5rem;
-    color: #FBFBFB;
-    float: right;
-}
+
 @keyframes increaseEffect {
   0% {
     background: green;

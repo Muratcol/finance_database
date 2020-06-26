@@ -1,37 +1,36 @@
-<div class="smFooterWrapper">
-  <div class="smFooterNav">
-    <span class="footerHeader">Stock Markets</span>
+<div class="currencyFooterWrapper">
+  <div class="currencyFooterNav">
+    <span class="footerHeader">Major World Indices</span>
     <a routerLink="/major-indices" title="See all indices" class="pt-1"
       >See All</a
     >
   </div>
 
-  <div class="FooterBody">
+  <div class="indicyFooterBody">
     
-    <div class="smTable">
+    <div class="indicyTable">
       <tbody>
         <tr class="text-muted" style="font-size: smaller;">
-          <th scope="row" class="exchangeCol">Index</th>
-          <td class="buyCol">Last</td>
-          <td class="sellCol">High</td>
-          <td class="changeCol">Change rate</td>
+          <th>Index</th>
+          <th>High</th>
+          <th>Last</th>
+          <th>Change rate</th>
         </tr>
         <tr
-          *ngFor="let index of [0,1,2,3,4,3,8,10,6,5]; let i = index"
+          *ngFor="let index of [0,1,2,3,4,5,6,7,8]; let i = index"
           [attr.data-index]="i"
         >
-          <th scope="row">{{ indices[index].index }}</th>
-          <td class="buyCol">{{ indices[index].last }}</td>
-          <td class="sellCol">{{ indices[index].high }}</td>
-          <td class="changeCol" 
+          <td>{{ indices[index].index }}</td>
+          <td>{{ indices[index].high }}</td>
+          <td>{{ indices[index].last }}</td>
+          <td 
           [ngClass]="indices[index].chg.indexOf('-') < 0 ? 'changeIncreaseColor' : 'changeDecreaseColor'"
           >{{ indices[index].chg }} 
-            <fa-icon *ngIf="indices[index].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-            <fa-icon *ngIf="indices[index].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+            <fa-icon *ngIf="indices[index].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
+            <fa-icon *ngIf="indices[index].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
           </td>
         </tr>
       </tbody>
     </div>
   </div>
 </div>
-

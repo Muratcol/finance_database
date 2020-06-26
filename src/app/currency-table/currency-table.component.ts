@@ -2,12 +2,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { 
   faArrowAltCircleUp,
   faArrowAltCircleDown,
-  faDollarSign,
-  faEuroSign,
-  faPoundSign
  } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
-import { CurrencyCrosses } from '../currency/currency';
+import { Advices } from './advices';
 
 
 @Component({
@@ -19,34 +16,16 @@ import { CurrencyCrosses } from '../currency/currency';
 export class CurrencyTableComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
-  faDollarSign = faDollarSign
-  faEuroSign = faEuroSign
-  faPoundSign = faPoundSign
+  oldpair1:string;
+  oldpair2:string;
+  oldpair3:string;
+  oldpair4:string;
+  oldpair5:string;
+  oldpair6:string;
   interval: any;
 
-  newusdchf:string;
-  oldusdchf:string;
 
-  newusdjpy:string;
-  oldusdjpy:string;
-
-  newusdcad:number;
-  oldusdcad:number;
-
-  newusdsek:number;
-  oldusdsek:number;
-
-  neweurjpy:number;
-  oldeurjpy:number;
-
-  newaudusd:number;
-  oldaudusd:number;
-
-  neweursek:number;
-  oldeursek:number;
-
-
-  currencies : CurrencyCrosses[];
+  advices : Advices[];
   constructor(
     private currencyService:CurrencyService,
     private el:ElementRef
@@ -56,33 +35,17 @@ export class CurrencyTableComponent implements OnInit {
     this.refreshData()
       this.interval = setInterval(() => {
         this.refreshData()
+
       },2000)  
 
   }
 
-  // currencyParser(firstCurrency:number, secondCurrency:number){
-  //   let sum = Number(this.currencies[firstCurrency].satis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].satis.replace(/,/, '.'))
-  //   return Number(sum.toFixed(4))
-  // }
-  // getPercantage(oldCurrency:number, newCurrency:number) {
-  //   let sum = "%" + (100 - (oldCurrency / newCurrency) * 100).toFixed(2)
-  //   return sum
-  // }
-
-
 
   refreshData(){
-    this.currencyService.getCurrencies()
+    this.currencyService.getAdvices()
         .subscribe(data => {
-          this.currencies = data['data']
-
-          // this.newusdchf = this.currencies[3].ask
-          // if (this.newusdchf != this.oldusdchf && this.oldusdchf != 0) {
-          //   this.gbpusdDiffPerc = this.getPercantage(this.oldgbpusd, this.newgbpusd)
-          //   this.gbpusdDiff = this.newgbpusd - this.oldgbpusd
-          // }
-          // this.oldgbpusd = this.newgbpusd
-          
+          this.advices = data['data']
+     
 
           setTimeout(() => {
             let animationCarriers = this.el.nativeElement.querySelectorAll('tr')

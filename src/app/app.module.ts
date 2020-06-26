@@ -26,6 +26,10 @@ import { CurrencyfooterComponent } from './currencyfooter/currencyfooter.compone
 import { CurrencyService } from './services/currency.service';
 import { SmfooterComponent } from './smfooter/smfooter.component';
 import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
+import { CommodityfooterComponent } from './commodityfooter/commodityfooter.component';
+import { CryptofooterComponent } from './cryptofooter/cryptofooter.component';
+import { CryptoMainComponent } from './crypto-main/crypto-main.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +49,10 @@ import { CommoditieMainComponent } from './commodity-main/commoditie-main.compon
     CurrencyTableComponent,
     CurrencyfooterComponent,
     SmfooterComponent,
-    CommoditieMainComponent
+    CommoditieMainComponent,
+    CommodityfooterComponent,
+    CryptofooterComponent,
+    CryptoMainComponent
 
   ],
   imports: [

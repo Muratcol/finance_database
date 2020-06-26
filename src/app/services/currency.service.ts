@@ -7,6 +7,7 @@ import { Commodity } from '../commodity-main/commodity';
 import { Indices } from '../smfooter/indices';
 import { Cryptos } from '../crypto-main/crypto';
 import { Advices } from '../currency-table/advices';
+import { Shares } from '../shares-table/shares';
 
 @Injectable()
 export class CurrencyService {
@@ -38,9 +39,19 @@ export class CurrencyService {
     )
   }
 
-  getAdvices():Observable<Advices[]> {
+
+  getForexAdvices():Observable<Advices[]> {
     return this.http
     .get<Advices[]>(this.path + "/get-forex-advices")
+    .pipe(
+      tap(),
+      catchError(err => this.handleError(err))
+    )
+  }
+
+  getShortShares():Observable<Shares[]> {
+    return this.http
+    .get<Shares[]>(this.path + "/short-shares")
     .pipe(
       tap(),
       catchError(err => this.handleError(err))

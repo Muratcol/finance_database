@@ -16,12 +16,6 @@ import { Advices } from './advices';
 export class CurrencyTableComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
-  oldpair1:string;
-  oldpair2:string;
-  oldpair3:string;
-  oldpair4:string;
-  oldpair5:string;
-  oldpair6:string;
   interval: any;
 
 
@@ -42,7 +36,7 @@ export class CurrencyTableComponent implements OnInit {
 
 
   refreshData(){
-    this.currencyService.getAdvices()
+    this.currencyService.getForexAdvices()
         .subscribe(data => {
           this.advices = data['data']
      

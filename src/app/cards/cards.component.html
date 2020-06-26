@@ -2,18 +2,18 @@
   <div class="box">
     <div class="labels">
       <span> {{ currencies[0].pair }} </span>
-      <span> {{ currencies[0].time }}</span>
+      <span> {{ currencies[0].time }} </span>
       <span>
-        <fa-icon *ngIf="currencies[0].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-        <fa-icon *ngIf="currencies[0].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+        <fa-icon *ngIf="currencies[0].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[0].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
          {{ currencies[0].chg }} </span>
     </div>
 
     <div class="labels">
-      <div class="usdBox" [ngClass]="currencies[0].chg.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
+      <div class="usdBox" [ngClass]="currencies[0].chg.includes('-') ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput">{{ currencies[0].bid }}</span>
       </div>
-      <div class="usdBox rightBox" [ngClass]="currencies[0].chg.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
+      <div class="usdBox rightBox" [ngClass]="currencies[0].chg.includes('-') ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput">{{ currencies[0].ask }}</span>
       </div>
     </div>
@@ -24,16 +24,16 @@
       <span> {{ currencies[1].pair }} </span>
       <span> {{ currencies[1].time }}</span>
       <span>
-        <fa-icon *ngIf="currencies[1].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-        <fa-icon *ngIf="currencies[1].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+        <fa-icon *ngIf="currencies[1].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[1].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
          {{ currencies[1].chg }} </span>
     </div>
 
     <div class="labels">
-      <div class="usdBox" [ngClass]="currencies[1].chg.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'" >
+      <div class="usdBox" [ngClass]="currencies[1].chg.includes('-') ? 'increaseCard' : 'decreaseCard'" >
         <span class="currencyInput">{{ currencies[1].ask }}</span>
       </div>
-      <div class="usdBox" [ngClass]="currencies[1].chg.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'" >
+      <div class="usdBox" [ngClass]="currencies[1].chg.includes('-') ? 'increaseCard' : 'decreaseCard'" >
         <span class="currencyInput">{{ currencies[1].bid }}</span>
       </div>
     </div>
@@ -44,16 +44,16 @@
       <span> {{ currencies[2].pair }} </span>
       <span> {{ currencies[2].time }}</span>
       <span>
-        <fa-icon *ngIf="currencies[2].chg.indexOf('-') < 0" [icon]="faArrowAltCircleUp"></fa-icon>
-        <fa-icon *ngIf="currencies[2].chg.indexOf('-') > 0" [icon]="faArrowAltCircleDown"></fa-icon>
+        <fa-icon *ngIf="currencies[2].chg.includes('+')" [icon]="faArrowAltCircleUp"></fa-icon>
+        <fa-icon *ngIf="currencies[2].chg.includes('-')" [icon]="faArrowAltCircleDown"></fa-icon>
          {{ currencies[2].chg }} </span>
     </div>
 
     <div class="labels">
-      <div class="usdBox" [ngClass]="currencies[2].chg.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
+      <div class="usdBox" [ngClass]="currencies[2].chg.includes('-') ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput"> {{ currencies[2].ask }} </span>
       </div>
-      <div class="usdBox" [ngClass]="currencies[2].chg.indexOf('-') < 0 ? 'increaseCard' : 'decreaseCard'">
+      <div class="usdBox" [ngClass]="currencies[2].chg.includes('-') ? 'increaseCard' : 'decreaseCard'">
         <span class="currencyInput"> {{ currencies[2].bid }} </span>
       </div>
     </div>

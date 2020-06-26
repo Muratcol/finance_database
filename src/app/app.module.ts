@@ -29,6 +29,8 @@ import { CommoditieMainComponent } from './commodity-main/commoditie-main.compon
 import { CommodityfooterComponent } from './commodityfooter/commodityfooter.component';
 import { CryptofooterComponent } from './cryptofooter/cryptofooter.component';
 import { CryptoMainComponent } from './crypto-main/crypto-main.component';
+import { SharesTableComponent } from './shares-table/shares-table.component';
+
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { CryptoMainComponent } from './crypto-main/crypto-main.component';
     CommoditieMainComponent,
     CommodityfooterComponent,
     CryptofooterComponent,
-    CryptoMainComponent
+    CryptoMainComponent,
+    SharesTableComponent,
+
 
   ],
   imports: [

@@ -1,10 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { 
   faArrowAltCircleUp,
   faArrowAltCircleDown,
-  faDollarSign,
-  faEuroSign,
-  faPoundSign
+
  } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
 import { CurrencyCrosses } from '../currency/currency';
@@ -16,15 +14,14 @@ import { CurrencyCrosses } from '../currency/currency';
   providers: []
 
 })
+
+
 export class CardsComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
-  faDollarSign = faDollarSign
-  faEuroSign = faEuroSign
-  faPoundSign = faPoundSign
+  animation:boolean = false
   interval: any;
-  pariteSell:number;
-  pariteBuy:number;
+
   currencies : CurrencyCrosses[];
   constructor(
     private currencyService:CurrencyService,
@@ -39,31 +36,22 @@ export class CardsComponent implements OnInit {
 
   }
 
-  // currencyParserSell(firstCurrency:number, secondCurrency:number){
-  //   let sum = Number(this.currencies[firstCurrency].satis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].satis.replace(/,/, '.'))
-  //   return Number(sum.toFixed(5))
-  // }
-  // currencyParserBuy(firstCurrency:number, secondCurrency:number){
-  //   let sum = Number(this.currencies[firstCurrency].alis.replace(/,/, '.')) / Number(this.currencies[secondCurrency].alis.replace(/,/, '.'))
-  //   return Number(sum.toFixed(5))
-  // }
 
   refreshData(){
     this.currencyService.getCurrencies()
         .subscribe(data => {
           this.currencies = data['data']
-          // this.pariteSell = this.currencyParserBuy(0,1)
-          // this.pariteBuy = this.currencyParserSell(0,1)
-
+          this.animation= true
           setTimeout(() => {
             let animationCarriers = this.el.nativeElement.querySelectorAll('.usdBox')
             for (let animationCarrier of animationCarriers) {
-            if (animationCarrier.classList.contains('increaseCard') || animationCarrier.classList.contains('decreaseCard')) {
+            if (animationCarrier.classList.contains('decreaseCard') || animationCarrier.classList.contains('decreaseCard')) {
               animationCarrier.classList.remove('increaseCard')
               animationCarrier.classList.remove('decreaseCard')  
           }
           }
           }, 3.5 * 1000)
         })
+    this.animation = false
   }
 }

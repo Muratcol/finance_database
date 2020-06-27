@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { 
   faArrowAltCircleUp,
   faArrowAltCircleDown,
@@ -17,12 +17,16 @@ export class CurrencyTableComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
   interval: any;
-
+  header: string;
+  headerData: string;
+  advice: any;
+  values = "";
 
   advices : Advices[];
   constructor(
     private currencyService:CurrencyService,
-    private el:ElementRef
+    private el:ElementRef,
+    private renderer:Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -45,12 +49,26 @@ export class CurrencyTableComponent implements OnInit {
             let animationCarriers = this.el.nativeElement.querySelectorAll('tr')
             for (let animationCarrier of animationCarriers) {
             if (animationCarrier.classList.contains('increase') || animationCarrier.classList.contains('decrease')) {
-              animationCarrier.classList.remove('increase')
-              animationCarrier.classList.remove('decrease')
+              this.renderer.removeClass(animationCarrier, 'increase')
+              this.renderer.removeClass(animationCarrier, 'decrease')
           }
           }
           }, 3.5 * 1000)
           
         })
+  }
+  mouseOver(event: any) {
+
+    this.header = this.el.nativeElement.querySelector('.dxyCurrency')
+    this.headerData = this.el.nativeElement.querySelector('.pt-1')
+    this.renderer.setProperty(this.header, 'innerHTML', (event.target.parentNode.firstChild as HTMLTableCellElement).innerText)
+    if ((event.target.parentNode.childNodes[2] as HTMLTableCellElement).innerText.includes('Buy')) {
+      this.renderer.setStyle(this.headerData, 'color', 'green')
+    }
+    else {
+      this.renderer.setStyle(this.headerData, 'color', 'red')
+    }
+    this.renderer.setProperty(this.headerData, 'innerHTML', (event.target.parentNode.childNodes[2] as HTMLTableCellElement).innerText)
+    
   }
 }

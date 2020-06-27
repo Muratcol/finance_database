@@ -1,8 +1,8 @@
 
-<div class="tableWrapper" appHover>
+<div class="tableWrapper">
     <div class="currencytable dxy">
-        <a href="#" title="U.S Dollar Index" class="pt-1" >DXY</a>
-        <span title="headerOutput" #zipEl class="headerOutput">96133</span>
+        <a class="pt-1" ></a>
+        <span title="headerOutput" class="headerOutput"></span>
     </div>
     <div class="comFooterWrapper">
       <div class="comFooterBody">
@@ -17,7 +17,8 @@
             <tr
               *ngFor="let share of shares; let i = index"
               [attr.data-index]="i"
-              data-track='hover'
+              (mouseover)="mouseOver($event)"
+
 
               
             >

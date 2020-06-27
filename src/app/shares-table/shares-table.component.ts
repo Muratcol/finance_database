@@ -1,6 +1,8 @@
 import {
   Component,
   OnInit,
+  ElementRef,
+  Renderer2,
 } from '@angular/core';
 import {
   faArrowAltCircleDown,
@@ -18,15 +20,19 @@ export class SharesTableComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp;
   faArrowAltCircleDown = faArrowAltCircleDown;
   changeText: boolean;
-
+  values = "";
 
   constructor(
     private currencyService: CurrencyService,
+    private el: ElementRef,
+    private renderer: Renderer2
 
   ) {}
 
   shares: Shares[];
   interval: any;
+  header: string;
+  headerData: string;
   ngOnInit(): void {
     this.changeText = false;
     this.refreshData();
@@ -34,12 +40,22 @@ export class SharesTableComponent implements OnInit {
       this.refreshData();
     }, 5000);
   }
-
-
-
   refreshData() {
     this.currencyService
       .getShortShares()
       .subscribe((data) => (this.shares = data['data']));
+  }
+
+  mouseOver(event: any) {
+    this.header = this.el.nativeElement.querySelector('.headerOutput')
+    this.headerData = this.el.nativeElement.querySelector('.pt-1')
+    this.renderer.setProperty(this.header, 'innerHTML', (event.target.parentNode.firstChild as HTMLTableCellElement).innerText)
+    if ((event.target.parentNode.childNodes[2] as HTMLTableCellElement).innerText.includes('+')) {
+      this.renderer.setStyle(this.headerData, 'color', 'green')
+    }
+    else {
+      this.renderer.setStyle(this.headerData, 'color', 'red')
+    }
+    this.renderer.setProperty(this.headerData, 'innerHTML', (event.target.parentNode.childNodes[2] as HTMLTableCellElement).innerText)
   }
 }

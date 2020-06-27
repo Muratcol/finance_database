@@ -35,6 +35,7 @@ th:last-child, td:last-child {
   border-spacing:0 15px; 
 } 
 
+
 .changeIncreaseColor {
   color: green;
 }
@@ -42,7 +43,7 @@ th:last-child, td:last-child {
   color: red;
 }
 
-
+tr:hover {background-color:#484F55;}
 
 a {
   color: white;
@@ -58,7 +59,7 @@ a {
 
 }
 .dxyCurrency {
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .increase {
   -webkit-animation: increaseEffect 3.5s forwards;

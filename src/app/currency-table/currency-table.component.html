@@ -1,8 +1,8 @@
 
 <div class="tableWrapper">
 <div class="currencytable dxy">
-    <a href="#" title="U.S Dollar Index" class="pt-1" >DXY</a>
-    <span class="dxyCurrency">96133</span>
+    <a href="#" title="U.S Dollar Index" class="pt-1" ></a>
+    <span class="dxyCurrency"></span>
 </div>
 <div class="comFooterWrapper">
 
@@ -19,6 +19,7 @@
         <tr
           *ngFor="let advice of advices; let i = index"
           [attr.data-index]="i"
+          (mouseover)="mouseOver($event)"
         >
           <td>{{ advice.pair }}</td>
           <td>{{ advice.last }}</td>

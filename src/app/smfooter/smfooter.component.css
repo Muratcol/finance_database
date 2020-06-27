@@ -3,7 +3,9 @@
 
     margin-left: 1%;
 }
-
+tr:hover {
+    background-color: #484F55;
+}
 .currencyFooterNav{
     width: 95%;
     display: flex;

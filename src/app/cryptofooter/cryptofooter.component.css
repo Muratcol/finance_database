@@ -14,6 +14,9 @@
     padding: 0.5rem;
     color: #FFFFFF;
 }
+tr:hover {
+    background-color: #484F55;
+}
 .comFooterBody {
     background-color: #343A40;
     height: 100%;

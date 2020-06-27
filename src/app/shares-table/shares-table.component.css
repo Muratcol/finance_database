@@ -9,6 +9,7 @@
     margin-top: 0.5rem;
     border-collapse: collapse;
     font-size: 1rem;
+    font-weight: 400;
   }
   .comFooterBody {
     background-color: #343A40;
@@ -58,7 +59,7 @@
   
   }
   .headerOutput {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
   .increase {
     -webkit-animation: increaseEffect 3.5s forwards;
@@ -68,6 +69,7 @@
     -webkit-animation: decreaseEffect 3.5s forwards;
     animation: decreaseEffect 3.5s forwards;
   }
+  tr:hover {background-color:#484F55;}
   
   @keyframes increaseEffect {
     0% {

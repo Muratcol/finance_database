@@ -30,6 +30,7 @@ import { CommodityfooterComponent } from './commodityfooter/commodityfooter.comp
 import { CryptofooterComponent } from './cryptofooter/cryptofooter.component';
 import { CryptoMainComponent } from './crypto-main/crypto-main.component';
 import { SharesTableComponent } from './shares-table/shares-table.component';
+import { HoverDirective } from './events/hover/hover.directive';
 
 
 
@@ -56,6 +57,7 @@ import { SharesTableComponent } from './shares-table/shares-table.component';
     CryptofooterComponent,
     CryptoMainComponent,
     SharesTableComponent,
+    HoverDirective,
 
 
   ],

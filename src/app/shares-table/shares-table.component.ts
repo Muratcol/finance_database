@@ -3,6 +3,8 @@ import {
   OnInit,
   ElementRef,
   Renderer2,
+  AfterViewInit,
+  ViewChild,
 } from '@angular/core';
 import {
   faArrowAltCircleDown,
@@ -16,7 +18,14 @@ import { Shares } from './shares';
   templateUrl: './shares-table.component.html',
   styleUrls: ['./shares-table.component.css'],
 })
-export class SharesTableComponent implements OnInit {
+export class SharesTableComponent implements AfterViewInit {
+
+    @ViewChild('textarea') textarea: ElementRef
+  
+    ngAfterViewInit() {
+      this.textarea.nativeElement.focus()
+    }
+  
   faArrowAltCircleUp = faArrowAltCircleUp;
   faArrowAltCircleDown = faArrowAltCircleDown;
   changeText: boolean;
@@ -33,6 +42,7 @@ export class SharesTableComponent implements OnInit {
   interval: any;
   header: string;
   headerData: string;
+  firstChild: string;
   ngOnInit(): void {
     this.changeText = false;
     this.refreshData();
@@ -40,6 +50,7 @@ export class SharesTableComponent implements OnInit {
       this.refreshData();
     }, 5000);
   }
+
   refreshData() {
     this.currencyService
       .getShortShares()

@@ -7,7 +7,7 @@
     background-color: #343A40;
     color: #FFFF;
     height: auto;
-    width: 100%; 
+    width: 330px; 
     z-index: -1; 
     margin-top: 0.3rem;
     margin-left: 0.3rem;
@@ -15,7 +15,7 @@
   .usdBox{
     background-color: #FFFF;
     height: 50px;
-    width: 100px;
+    width: 120px;
     margin-top: 0.5rem;
     border-radius: 25px;
     display:flex;
@@ -39,7 +39,7 @@
   .box {
     /* margin-bottom: 2rem; */
     border: 1px solid;
-    padding:1rem;
+    padding:0.9rem;
   }
   
   .increaseCard {  

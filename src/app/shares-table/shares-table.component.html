@@ -22,7 +22,7 @@
 
               
             >
-              <td>{{ share.name }}</td>
+              <td #textarea>{{ share.name }}</td>
               <td>{{ share.last }}</td>
               <td 
               [ngClass]="share.chgPerc.includes('+') ? 'changeIncreaseColor' : 'changeDecreaseColor'"

@@ -8,7 +8,7 @@
   padding: 1rem;
   margin-top: 0.5rem;
   border-collapse: collapse;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .comFooterBody {
   background-color: #343A40;
@@ -22,13 +22,13 @@
 
 }
 th, td { 
-  width:130px; 
+  width:120px; 
   text-align:start; 
   padding:5px 
 
 }
 th:last-child, td:last-child {
-  width: 100px;
+  width: 90px;
 }
 .table { 
   border-collapse:separate; 
@@ -50,12 +50,13 @@ a {
 }
 .dxy {
 
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
   color: white;
   border-bottom: 2px solid white;
+  margin-bottom: 1rem;
 
 }
 .dxyCurrency {

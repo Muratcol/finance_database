@@ -32,6 +32,7 @@ import { CryptoMainComponent } from './crypto-main/crypto-main.component';
 import { SharesTableComponent } from './shares-table/shares-table.component';
 import { HoverDirective } from './events/hover/hover.directive';
 import { CryptoCardComponent } from './crypto-card/crypto-card.component';
+import { AlertCenterComponent } from './alert-center/alert-center.component';
 
 
 
@@ -60,6 +61,7 @@ import { CryptoCardComponent } from './crypto-card/crypto-card.component';
     SharesTableComponent,
     HoverDirective,
     CryptoCardComponent,
+    AlertCenterComponent,
 
 
   ],

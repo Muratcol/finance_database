@@ -11,51 +11,55 @@ import { FinanceMainComponent } from './finance-main/finance-main.component';
 import { ContactComponent } from './contact/contact.component';
 import { CardsComponent } from './cards/cards.component';
 import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
-
+import { AlertCenterComponent } from './alert-center/alert-center.component';
 
 const routes: Routes = [
   {
     path: '',
     component: FinanceMainComponent,
-    
   },
   {
     path: 'currencies',
     component: CurrencyComponent,
   },
   {
-    path:"user/login",
-    component: LoginComponent
+    path: 'user/login',
+    component: LoginComponent,
   },
   {
-    path:"cards",
-    component: CardsComponent
+    path: 'cards',
+    component: CardsComponent,
   },
   {
-    path:"user/register",
-    component: RegisterComponent
+    path: 'user/register',
+    component: RegisterComponent,
   },
   {
-    path:"user/panel",
+    path: 'user/panel',
     component: UserComponent,
-    canActivate:[LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
-    path:"user/forgotPassword",
+    path: 'user/forgotPassword',
     component: ForgotPasswordComponent,
   },
   {
-    path:"user/resetPassword/:resetPasswordToken",
+    path: 'user/resetPassword/:resetPasswordToken',
     component: ResetPasswordComponent,
   },
   {
-    path:"contact",
+    path: 'contact',
     component: ContactComponent,
   },
   {
-    path:"currencies/commodities",
+    path: 'currencies/commodities',
     component: CommoditieMainComponent,
   },
+  {
+    path: 'alert-center',
+    component: AlertCenterComponent,
+    // canActivate: [LoginGuard],
+  }
 ];
 
 @NgModule({

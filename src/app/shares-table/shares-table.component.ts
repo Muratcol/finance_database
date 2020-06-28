@@ -20,10 +20,14 @@ import { Shares } from './shares';
 })
 export class SharesTableComponent implements AfterViewInit {
 
+    @ViewChild('headerarea') headerarea: ElementRef
     @ViewChild('textarea') textarea: ElementRef
   
     ngAfterViewInit() {
-      this.textarea.nativeElement.focus()
+      this.header = this.el.nativeElement.querySelector('.headerOutput')
+      this.headerData = this.el.nativeElement.querySelector('.pt-1')
+      this.renderer.setProperty(this.header, 'innerHTML', (this.headerarea.nativeElement as HTMLTableCellElement).innerText)
+      this.renderer.setProperty(this.headerData, 'innerHTML', (this.textarea.nativeElement as HTMLTableCellElement).innerText)
     }
   
   faArrowAltCircleUp = faArrowAltCircleUp;
@@ -42,7 +46,7 @@ export class SharesTableComponent implements AfterViewInit {
   interval: any;
   header: string;
   headerData: string;
-  firstChild: string;
+
   ngOnInit(): void {
     this.changeText = false;
     this.refreshData();

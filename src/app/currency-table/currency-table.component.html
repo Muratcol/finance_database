@@ -21,11 +21,11 @@
           [attr.data-index]="i"
           (mouseover)="mouseOver($event)"
         >
-          <td>{{ advice.pair }}</td>
+          <td #headerarea>{{ advice.pair }}</td>
           <td>{{ advice.last }}</td>
           <td 
           [ngClass]="advice.advice.includes('Buy') ? 'changeIncreaseColor' : 'changeDecreaseColor'"
-
+          #textarea
           >{{ advice.advice }} 
 
           </td>

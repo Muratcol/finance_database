@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, AfterViewInit, ViewChild } from '@angular/core';
 import { 
   faArrowAltCircleUp,
   faArrowAltCircleDown,
@@ -13,7 +13,18 @@ import { Advices } from './advices';
   styleUrls: ['./currency-table.component.css'],
   providers: []
 })
-export class CurrencyTableComponent implements OnInit {
+export class CurrencyTableComponent implements AfterViewInit {
+
+  @ViewChild('headerarea') headerarea: ElementRef
+  @ViewChild('textarea') textarea: ElementRef
+
+  ngAfterViewInit() {
+    this.header = this.el.nativeElement.querySelector('.dxyCurrency')
+    this.headerData = this.el.nativeElement.querySelector('.pt-1')
+    this.renderer.setProperty(this.header, 'innerHTML', (this.headerarea.nativeElement as HTMLTableCellElement).innerText)
+    this.renderer.setProperty(this.headerData, 'innerHTML', (this.textarea.nativeElement as HTMLTableCellElement).innerText)
+  }
+
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
   interval: any;

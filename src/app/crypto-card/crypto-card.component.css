@@ -1,0 +1,64 @@
+
+.currencyBox {
+    border: 1px solid #FFFF;
+    border-collapse: collapse;
+    font-size: 1rem;
+
+    background-color: #343A40;
+    color: #FFFF;
+    height: auto;
+    width: 330px; 
+    z-index: -1; 
+    margin-top: 0.3rem;
+    margin-left: 0.3rem;
+  }
+  .usdBox{
+    background-color: #FFFF;
+    height: 50px;
+    width: 120px;
+    margin-top: 0.5rem;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom:0.5rem;
+    
+  }
+  .rightBox {
+    margin-left: 1rem;
+  }
+  .currencyInput {
+    color: #1D1E22;
+    display: block;
+  }
+  .labels {
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  .box {
+    /* margin-bottom: 2rem; */
+    border: 1px solid;
+    padding:0.9rem;
+  }
+  
+  .increaseCard {  
+    -webkit-animation: increaseCardEffect 3.5s forwards;
+    animation: increaseCardEffect 3.5s forwards;
+  }
+  .decreaseCard {  
+    -webkit-animation: decreaseCardEffect 3.5s forwards;
+    animation: decreaseCardEffect 3.5s forwards;
+  }
+  
+  @keyframes increaseCardEffect{
+        0%{background: green;}
+        50%{background:lightgreen}
+        100%{background:white}
+    }
+  @keyframes decreaseCardEffect{
+        0%{background: red;}
+        50%{background:lightcoral}
+        100%{background:white}
+    }
+  

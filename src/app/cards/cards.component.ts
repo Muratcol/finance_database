@@ -32,7 +32,7 @@ export class CardsComponent implements OnInit {
     this.refreshData()
       this.interval = setInterval(() => {
         this.refreshData()
-      },5000)  
+      },7000)  
 
   }
 

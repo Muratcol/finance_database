@@ -5,7 +5,7 @@ import {
 
  } from '@fortawesome/free-solid-svg-icons';
 import { CurrencyService } from '../services/currency.service';
-import { CurrencyCrosses } from '../currency/currency';
+import { Cryptos } from '../crypto-main/crypto';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class CryptoCardComponent implements OnInit {
   animation:boolean = false
   interval: any;
 
-  currencies : CurrencyCrosses[];
+  cryptos : Cryptos[];
   constructor(
     private currencyService:CurrencyService,
     private el:ElementRef
@@ -29,15 +29,15 @@ export class CryptoCardComponent implements OnInit {
     this.refreshData()
       this.interval = setInterval(() => {
         this.refreshData()
-      },5000)  
+      },7000)  
 
   }
 
 
   refreshData(){
-    this.currencyService.getCurrencies()
+    this.currencyService.getCryptos()
         .subscribe(data => {
-          this.currencies = data['data']
+          this.cryptos = data['data']
           this.animation= true
           setTimeout(() => {
             let animationCarriers = this.el.nativeElement.querySelectorAll('.usdBox')

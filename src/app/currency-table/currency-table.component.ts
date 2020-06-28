@@ -45,7 +45,7 @@ export class CurrencyTableComponent implements AfterViewInit {
       this.interval = setInterval(() => {
         this.refreshData()
 
-      },2000)  
+      },7000)  
 
   }
 

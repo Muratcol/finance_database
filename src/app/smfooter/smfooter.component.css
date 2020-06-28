@@ -40,6 +40,9 @@ th:last-child, td:last-child {
     border-collapse:separate; 
     border-spacing:0 15px; 
 } 
+a {
+    color: white;
+}
 
 .changeIncreaseColor {
     color: green;

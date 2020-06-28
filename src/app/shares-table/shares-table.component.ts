@@ -52,7 +52,7 @@ export class SharesTableComponent implements AfterViewInit {
     this.refreshData();
     this.interval = setInterval(() => {
       this.refreshData();
-    }, 5000);
+    }, 7000);
   }
 
   refreshData() {

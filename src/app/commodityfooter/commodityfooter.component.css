@@ -41,7 +41,9 @@ th:last-child, td:last-child {
 tr:hover {
     background-color: #484F55;
 }
-
+a {
+    color: white;
+}
 .changeIncreaseColor {
     color: green;
 }

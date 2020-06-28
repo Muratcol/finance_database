@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { AlertifyService } from '../services/alertify.service';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -8,6 +9,7 @@ import { AlertifyService } from '../services/alertify.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  faBell = faBell
   constructor(
     private userService:UserService,
     private alertifyService:AlertifyService

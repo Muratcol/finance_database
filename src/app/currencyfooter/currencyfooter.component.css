@@ -25,6 +25,9 @@
     justify-content: space-between;
 
 }
+a {
+    color: white;
+}
 tr:hover {
     background-color: #484F55;
 }

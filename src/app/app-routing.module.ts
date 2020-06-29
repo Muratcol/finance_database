@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CardsComponent } from './cards/cards.component';
 import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
 import { AlertCenterComponent } from './alert-center/alert-center.component';
+import { ChatServiceComponent } from './chat-service/chat-service.component';
 
 const routes: Routes = [
   {
@@ -59,8 +60,14 @@ const routes: Routes = [
     path: 'alert-center',
     component: AlertCenterComponent,
     // canActivate: [LoginGuard],
+  },
+  {
+    path: 'chat-room',
+    component: ChatServiceComponent
   }
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

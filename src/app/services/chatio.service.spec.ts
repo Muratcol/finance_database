@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CategoryService } from './category.service';
+import { ChatioService } from './chatio.service';
 
-describe('CategoryService', () => {
-  let service: CategoryService;
+describe('ChatioService', () => {
+  let service: ChatioService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CategoryService);
+    service = TestBed.inject(ChatioService);
   });
 
   it('should be created', () => {

@@ -49,25 +49,34 @@ export class ChatWindowComponent {
   changeChat(event: any) {
     var i, tabcontent, tablinks;
   
-    // Get all elements with class="tabcontent" and hide them
     tabcontent = this.el.nativeElement.querySelectorAll(".tabContent"); 
     for (i = 0; i < tabcontent.length; i++) {
       this.renderer.setStyle(tabcontent[i], 'display', 'none');
     }
-  
-    // Get all elements with class="tablinks" and remove the class "active"
     tablinks = this.el.nativeElement.querySelectorAll('.tablinks');
     for (i = 0; i < tablinks.length; i++) {
       this.renderer.removeClass(tablinks[i], 'active');
     }
-    // Show the current tab, and add an "active" class to the button that opened the tab
     this.renderer.setStyle(this.el.nativeElement.querySelector('#' + (event.target as HTMLTableCellElement).id + 'Tab'), 'display', 'block')
-    // document.getElementById(cityName).style.display = "block";
     this.renderer.addClass(event.currentTarget, 'active')
-    // evt.currentTarget.className += " active";
   }
-  // changeRoom(event: any) {
-
-  // }
+  changeRoom(event: any) {
+    let roomName = (event.target as HTMLTableCellElement).id
+    if ( roomName == 'exchangeRates') {
+      this.room = 'exchangeRatesRoom'
+      this.user = localStorage.getItem('name')
+      this.changeChat(event)
+      return
+    }
+    else if ( roomName == 'stockMarket') {
+      this.room = 'stockMarketRoom'
+      this.changeChat(event)
+      return
+    }
+    else {
+      this.room = 'randChannelRoom'
+      this.changeChat(event)
+    } 
+}
 }
 

@@ -66,8 +66,8 @@ export class UserService {
 
           }
           this.isLoggedIn = true
-          sessionStorage.setItem('name', data['data']['name'])
-          sessionStorage.setItem('access_token', data['access_token']);
+          localStorage.setItem('name', data['data']['name'])
+          localStorage.setItem('access_token', data['access_token']);
           return true
         }
         this.isLoggedIn = false
@@ -82,11 +82,11 @@ export class UserService {
 
   logOutUser():void {
     this.isLoggedIn = false
-    sessionStorage.removeItem('access_token');
+    localStorage.removeItem('access_token');
   }
 
   updateUserInfos(userUpdate:UserInfos): Observable<UserInfos[]> {
-    let access_token = sessionStorage.getItem('access_token')
+    let access_token = localStorage.getItem('access_token')
 
     let http_options = {
       headers: new HttpHeaders ({
@@ -95,7 +95,7 @@ export class UserService {
       
     }
     const body = {
-      "name" : userUpdate.username == null || userUpdate.username == "" ? sessionStorage.getItem('name'): userUpdate.username,
+      "name" : userUpdate.username == null || userUpdate.username == "" ? localStorage.getItem('name'): userUpdate.username,
       'title': userUpdate.title == null ||  userUpdate.title == "" ? undefined : userUpdate.title,
       'place':userUpdate.place ==  null || userUpdate.place == ""  ? undefined : userUpdate.place,
       'website':userUpdate.website ==  null || userUpdate.website == ""  ?  undefined: userUpdate.website,
@@ -113,7 +113,7 @@ export class UserService {
 
 
   uploadImage(image:File): Observable<any> {
-    let access_token = sessionStorage.getItem('access_token')
+    let access_token = localStorage.getItem('access_token')
     let httpOptions = {
       headers: new HttpHeaders({
         Authorization: 'Bearer: ' + access_token

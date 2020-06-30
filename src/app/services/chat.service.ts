@@ -35,7 +35,7 @@ export class ChatService{
 
     userLeftRoom(){
         let observable = new Observable<{user:String, message:String}>(observer=>{
-            this.socket.on('left room', (data)=>{
+            this.socket.on('left room', ( data )=>{
                 observer.next(data);
             });
             return () => {this.socket.disconnect();}
@@ -46,7 +46,7 @@ export class ChatService{
 
     sendMessage(data)
     {
-        this.socket.emit('message',data);
+        this.socket.emit('message', data);
     }
 
     newMessageReceived(){

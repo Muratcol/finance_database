@@ -12,7 +12,8 @@ import { ContactComponent } from './contact/contact.component';
 import { CardsComponent } from './cards/cards.component';
 import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
 import { AlertCenterComponent } from './alert-center/alert-center.component';
-import { ChatServiceComponent } from './chat-service/chat-service.component';
+import { ChatWindowComponent } from './chat-window/chat-window.component';
+
 
 const routes: Routes = [
   {
@@ -63,8 +64,9 @@ const routes: Routes = [
   },
   {
     path: 'chat-room',
-    component: ChatServiceComponent
-  }
+    component: ChatWindowComponent,
+    // canActivate: [LoginGuard],
+  },
 ];
 
 

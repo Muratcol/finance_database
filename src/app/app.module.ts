@@ -33,8 +33,8 @@ import { SharesTableComponent } from './shares-table/shares-table.component';
 import { HoverDirective } from './events/hover/hover.directive';
 import { CryptoCardComponent } from './crypto-card/crypto-card.component';
 import { AlertCenterComponent } from './alert-center/alert-center.component';
-import { ChatServiceComponent } from './chat-service/chat-service.component';
-import { ChatioService } from './services/chatio.service';
+import { ChatWindowComponent } from './chat-window/chat-window.component';
+
 
 
 
@@ -65,9 +65,7 @@ import { ChatioService } from './services/chatio.service';
     HoverDirective,
     CryptoCardComponent,
     AlertCenterComponent,
-    ChatServiceComponent,
-
-
+    ChatWindowComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +76,7 @@ import { ChatioService } from './services/chatio.service';
     FontAwesomeModule,
     ChartsModule
   ],
-  providers: [AlertifyService, UserService, LoginGuard, CurrencyService, ChatioService], //Alertify service a global service !
+  providers: [AlertifyService, UserService, LoginGuard, CurrencyService], //Alertify service a global service !
   bootstrap: [AppComponent]
 })
 export class AppModule { }

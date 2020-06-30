@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild, Input, ContentChild } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 
 
@@ -8,8 +8,8 @@ import { ChatService } from '../services/chat.service';
   styleUrls: ['./chat-window.component.css'],
   providers:[ChatService]
 })
-export class ChatWindowComponent {
 
+export class ChatWindowComponent {
   user:String;
   room:String;
   exchangeRates:string;
@@ -17,11 +17,20 @@ export class ChatWindowComponent {
   randChannel:string;
   messageText:String;
   messageArray:Array<{user:String,message:String}> = [];
+  @ViewChild ('defaultSelection')
+  defaulSelection : ElementRef
+  ngAfterViewInit() {
+  this.defaulSelection.nativeElement.click()
+    
+  }
   constructor(
     private _chatService:ChatService,
     private el: ElementRef,
     private renderer: Renderer2
     ){
+      // this.defaulSelection.nativeElement.click()
+
+
       this._chatService.newUserJoined()
       .subscribe(data=> this.messageArray.push(data));
 

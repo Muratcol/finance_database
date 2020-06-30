@@ -30,7 +30,8 @@
               "node_modules/alertifyjs/build/css/themes/bootstrap.min.css"
             ],
             "scripts": [
-              "./node_modules/alertifyjs/build/alertify.min.js"
+              "./node_modules/alertifyjs/build/alertify.min.js",
+              "./src/app/chat-window/chat-tabs.js"
             ]
           },
           "configurations": {

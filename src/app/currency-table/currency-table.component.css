@@ -9,6 +9,7 @@
   margin-top: 0.5rem;
   border-collapse: collapse;
   font-size: 0.9rem;
+  width: 70%;
 }
 .comFooterBody {
   background-color: #343A40;
@@ -91,5 +92,13 @@ a {
   }
   100% {
     background: #343a40;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .tableWrapper {
+    font-size: 0.8rem;
+  }
+  .dxyCurrency {
+    font-size: 1rem;
   }
 }

@@ -2,12 +2,12 @@
 .currencyBox {
     border: 1px solid #FFFF;
     border-collapse: collapse;
-    font-size: 1rem;
+    /* font-size: 1rem; */
 
     background-color: #343A40;
     color: #FFFF;
     height: auto;
-    width: 330px; 
+    width: 97%; 
     z-index: -1; 
     margin-top: 0.3rem;
     margin-left: 0.3rem;
@@ -15,18 +15,19 @@
   .usdBox{
     background-color: #FFFF;
     height: 50px;
-    width: 120px;
+    width: 95px;
     margin-top: 0.5rem;
     border-radius: 25px;
     display:flex;
     align-items: center;
     justify-content:center;
     margin-bottom:0.5rem;
+    padding: 0.5rem;
     
   }
-  .rightBox {
+  /* .rightBox {
     margin-left: 1rem;
-  }
+  } */
   .currencyInput {
     color: #1D1E22;
     display: block;
@@ -61,4 +62,12 @@
         50%{background:lightcoral}
         100%{background:white}
     }
-  
+    @media only screen and (min-width: 1500px) {
+      .currencyBox {
+        font-size: 0.8rem;
+      }
+      .usdBox {
+        width: 40%;
+        height: 35px;
+      }
+    }

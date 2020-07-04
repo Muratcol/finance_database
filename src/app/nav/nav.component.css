@@ -4,6 +4,9 @@
     height: 50px;
 
 }
+.nav-item {
+    font-size: 1rem;
+}
 .navbar-brand{
     position: relative;
     margin-left: 5rem;

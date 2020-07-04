@@ -10,10 +10,10 @@
       </div>
   
       <div class="labels">
-        <div class="usdBox" [ngClass]="cryptos[0].chg24.includes('-') ? 'increaseCard' : 'decreaseCard'">
+        <div class="usdBox" [ngClass]="cryptos[0].chg24.includes('+') ? 'increaseCard' : 'decreaseCard'">
           <span class="currencyInput">{{ cryptos[0].price }}</span>
         </div>
-        <div class="usdBox rightBox" [ngClass]="cryptos[0].chg24.includes('-') ? 'increaseCard' : 'decreaseCard'">
+        <div class="usdBox rightBox" [ngClass]="cryptos[0].chg24.includes('+') ? 'increaseCard' : 'decreaseCard'">
           <span class="currencyInput">{{ cryptos[0].price }}</span>
         </div>
       </div>
@@ -30,10 +30,10 @@
       </div>
   
       <div class="labels">
-        <div class="usdBox" [ngClass]="cryptos[1].chg24.includes('-') ? 'increaseCard' : 'decreaseCard'" >
+        <div class="usdBox" [ngClass]="cryptos[1].chg24.includes('+') ? 'increaseCard' : 'decreaseCard'" >
           <span class="currencyInput">{{ cryptos[1].price }}</span>
         </div>
-        <div class="usdBox" [ngClass]="cryptos[1].chg24.includes('-') ? 'increaseCard' : 'decreaseCard'" >
+        <div class="usdBox" [ngClass]="cryptos[1].chg24.includes('+') ? 'increaseCard' : 'decreaseCard'" >
           <span class="currencyInput">{{ cryptos[1].price }}</span>
         </div>
       </div>
@@ -50,10 +50,10 @@
       </div>
   
       <div class="labels">
-        <div class="usdBox" [ngClass]="cryptos[2].chg24.includes('-') ? 'increaseCard' : 'decreaseCard'">
+        <div class="usdBox" [ngClass]="cryptos[2].chg24.includes('+') ? 'increaseCard' : 'decreaseCard'">
           <span class="currencyInput"> {{ cryptos[2].price }} </span>
         </div>
-        <div class="usdBox" [ngClass]="cryptos[2].chg24.includes('-') ? 'increaseCard' : 'decreaseCard'">
+        <div class="usdBox" [ngClass]="cryptos[2].chg24.includes('+') ? 'increaseCard' : 'decreaseCard'">
           <span class="currencyInput"> {{ cryptos[2].price }} </span>
         </div>
       </div>

@@ -30,6 +30,9 @@
   <div id="exchangeRatesTab" class="tabContent">
     <div class="row">
       <div class="well">
+        <div class="chatOffContent align-items-center">
+          <strong> Chat Closed. If you want to toogle on the chat click the yellow button ! </strong>
+        </div>
         <div *ngFor="let item of messageArray">
           <span
             ><strong>{{ item.user }} : </strong> {{ item.message }}</span
@@ -39,13 +42,13 @@
     </div>
     <div class="row">
       <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="messageText" />
+        <input type="text" class="form-control" (keydown.enter) = "sendMessage()" [(ngModel)]="messageText" />
       </div>
       <div class="col-sm-2">
         <button
           type="button"
           class="btn btn-success pull-right"
-          (click)="sendMessage()"
+          (keydown.enter) = "sendMessage()"
         >
           Send
         </button>
@@ -64,7 +67,7 @@
     </div>
     <div class="row">
       <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="messageText" />
+        <input type="text" class="form-control" (keydown.enter) = "sendMessage()" [(ngModel)]="messageText" />
       </div>
       <div class="col-sm-2">
         <button
@@ -89,13 +92,14 @@
     </div>
     <div class="row">
       <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="messageText" />
+        <input type="text" class="form-control" (keydown.enter) = "sendMessage()" [(ngModel)]="messageText" />
       </div>
       <div class="col-sm-2">
         <button
           type="button"
           class="btn btn-success pull-right"
           (click)="sendMessage()"
+          (keydown.enter) = "sendMessage()"
         >
           Send
         </button>
@@ -103,11 +107,10 @@
     </div>
   </div>
   <div style="margin-top: 19px;" class="pull-right">
-    <button type="button" class="btn btn-primary" (click)="join()">
-      Join
-    </button>
-    <button type="button" class="btn btn-danger" (click)="leave()">
-      Leave
+    
+    <button type="button" class="btn btn-warning" title="Open the chat" (click)="chatToggle()"
+    (click) = "status ? join() : leave()">
+      <fa-icon [icon]="faPowerOff"></fa-icon>
     </button>
   </div>
 </div>

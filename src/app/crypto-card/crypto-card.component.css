@@ -2,7 +2,7 @@
 .currencyBox {
     border: 1px solid #FFFF;
     border-collapse: collapse;
-    /* font-size: 1rem; */
+    font-size: 1rem;
 
     background-color: #343A40;
     color: #FFFF;
@@ -62,12 +62,14 @@
         50%{background:lightcoral}
         100%{background:white}
     }
-    @media only screen and (min-width: 1500px) {
+    @media only screen and (max-width: 1920px) {
       .currencyBox {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
       .usdBox {
         width: 40%;
         height: 35px;
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
       }
     }

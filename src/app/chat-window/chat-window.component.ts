@@ -1,5 +1,6 @@
 import { Component, ElementRef, Renderer2, ViewChild, Input, ContentChild } from '@angular/core';
 import { ChatService } from '../services/chat.service';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -12,10 +13,12 @@ import { ChatService } from '../services/chat.service';
 export class ChatWindowComponent {
   user:String;
   room:String;
+  faPowerOff = faPowerOff;
   exchangeRates:string;
   stockMarket:string;
   randChannel:string;
   messageText:String;
+  chatDummyContent:String;
   messageArray:Array<{user:String,message:String}> = [];
   @ViewChild ('defaultSelection')
   defaulSelection : ElementRef
@@ -41,13 +44,20 @@ export class ChatWindowComponent {
       this._chatService.newMessageReceived()
       .subscribe(data=>this.messageArray.push(data));
   }
-
+  status:boolean = false;
+  chatToggle() {
+    this.status = !this.status
+  }
   join(){
       this._chatService.joinRoom({user:this.user, room:this.room});
+      this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContent');
+      this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
   }
 
   leave(){
       this._chatService.leaveRoom({user:this.user, room:this.room});
+      this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContent');
+      this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
   }
 
   sendMessage()

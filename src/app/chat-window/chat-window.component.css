@@ -55,11 +55,19 @@ hr {
 }
 .sendSection {
   margin-top: 20px;
+  
 }
 strong {
   color: gold;
 }
-
+.chatOffContent {
+  text-align: center;
+}
+.chatOffContent strong {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle
+}
 
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
@@ -70,5 +78,14 @@ strong {
     opacity: 1;
   }
 }
-@media only screen and (min-width: 1600px) {
+@media only screen and (max-width: 1920px) {
+  .well {
+    height: 550px;
+  }
+  #exchangeRatesTab > div:nth-child(2) {
+    width: 90%;
+  }
+  .chatWrapper {
+    height: 100%;
+  }
 }

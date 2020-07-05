@@ -1,0 +1,27 @@
+.currencyTab {
+    margin-top: 4rem;
+    overflow: auto;
+    position: relative;
+    height: 1000px;
+    display: block;
+}
+.table {
+    
+    border-radius: 0.5rem;
+    background: #D5D5D5;
+    
+}
+tbody {
+    overflow: scroll;
+}
+#currenyHeader {
+    position: relative;
+    font-weight: lighter;
+    font-size: 2.5rem;
+    padding: 5%;
+}
+
+#definers{
+    font-weight: lighter;
+    font-size: small;
+}

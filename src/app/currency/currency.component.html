@@ -3,14 +3,12 @@
   <table class="table table-hover offset">
     <thead>
       <tr>
-        <th id="currenyHeader" scope="col" colspan="3">Currencies <input class="form-control" type="text" placeholder="Search" aria-label="Search"></th>
+        <th id="currenyHeader" scope="col" colspan="3">Real Time Streaming Forex  <input class="form-control" type="text" placeholder="Search" aria-label="Search"></th>
       </tr>
       <tr id="definers">
-        <th scope="col">Name</th>
-        <th scope="col">Buy</th>
-        <th scope="col">Sell</th>
-        <th scope="col">Highest</th>
-        <th scope="col">Lowest</th>
+        <th scope="col">Pair</th>
+        <th scope="col">Bid</th>
+        <th scope="col">Ask</th>
         <th scope="col">Change</th>
         <th scope="col">Last Update</th>
       </tr>
@@ -20,13 +18,11 @@
         *ngFor="let currency of currencies; let i = index"
         [attr.data-index]="i"
       >
-        <th scope="row">{{ currency.name }}</th>
-        <td>{{ currency.alis }}</td>
-        <td>{{ currency.satis }}</td>
-        <td>{{ currency.yuksek }}</td>
-        <td>{{ currency.dusuk }}</td>
-        <td>{{ currency.degisim }}</td>
-        <td>{{ currency.update }}</td>
+        <th scope="row">{{ currency.pair }}</th>
+        <td>{{ currency.bid }}</td>
+        <td>{{ currency.ask }}</td>
+        <td>{{ currency.chg }}</td>
+        <td>{{ currency.time }}</td>
       </tr>
     </tbody>
   </table>

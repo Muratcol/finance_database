@@ -1,1 +1,38 @@
-<p>crypto-main works!</p>
+<div class="container">
+    <div class="currencyTab">
+      <table class="table table-hover offset">
+        <thead>
+          <tr>
+            <th id="currenyHeader" scope="col" colspan="9">Real Time Streaming Crypto Prices 
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search"></th>
+          </tr>
+          <tr id="definers">
+            <th scope="col">Name</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Market Capacity</th>
+            <th scope="col">Volume</th>
+            <th scope="col">Total Volume</th>
+            <th scope="col">Change last 24 hours %</th>
+            <th scope="col">Change last 7 days %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let currency of cryptos; let i = index"
+            [attr.data-index]="i"
+          >
+            <th scope="row">{{ currency.name }}</th>
+            <td>{{ currency.symbol }}</td>
+            <td>{{ currency.price }}</td>
+            <td>{{ currency.marketCap }}</td>
+            <td>{{ currency.vol }}</td>
+            <td>{{ currency.totalVol }}</td>
+            <td>{{ currency.chg24 }}</td>
+            <td>{{ currency.chg7 }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    

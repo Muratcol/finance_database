@@ -5,7 +5,9 @@ import {
   faUser,
   faHome,
   faPhone,
-  faBell
+  faBell,
+  faGem,
+  faBiohazard
  } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -22,6 +24,8 @@ export class SideBarComponent implements OnInit {
   faHome = faHome
   faPhone = faPhone
   faBell = faBell
+  faGem = faGem
+  faCrypto = faBiohazard
   constructor(
     private userService:UserService,
     ) { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrencyService } from '../services/currency.service';
+import { Cryptos } from './crypto';
 
 @Component({
   selector: 'app-crypto-main',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crypto-main.component.css']
 })
 export class CryptoMainComponent implements OnInit {
+  constructor(
+    private currencyService:CurrencyService,
 
-  constructor() { }
+    ) { }
 
+  cryptos: Cryptos[];
+  interval: any;
   ngOnInit(): void {
-  }
+    this.refreshData()
+      this.interval = setInterval(() => {
+        this.refreshData()
+      },5000)  
+  } 
 
+  refreshData(){
+    this.currencyService.getCryptos()
+        .subscribe(data => this.cryptos = data['data'])
+  }
 }

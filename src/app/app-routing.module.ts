@@ -13,6 +13,7 @@ import { CardsComponent } from './cards/cards.component';
 import { CommoditieMainComponent } from './commodity-main/commoditie-main.component';
 import { AlertCenterComponent } from './alert-center/alert-center.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
+import { CryptoMainComponent } from './crypto-main/crypto-main.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
     component: FinanceMainComponent,
   },
   {
-    path: 'currencies',
+    path: 'currencies/forex',
     component: CurrencyComponent,
   },
   {
@@ -63,9 +64,8 @@ const routes: Routes = [
     // canActivate: [LoginGuard],
   },
   {
-    path: 'chat-room',
-    component: ChatWindowComponent,
-    // canActivate: [LoginGuard],
+    path: 'currencies/cryptos',
+    component: CryptoMainComponent
   },
 ];
 

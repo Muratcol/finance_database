@@ -1,8 +1,8 @@
-<div class="container" style="margin-top: 150px;">
-  <h3 style="color: white;">Instrument Alert</h3>
+<div class="container" style="margin-top: 110px;">
+  <h3 style="color: white;">Instrument Alert</h3><hr>
   <div class="searchGroup mt-4 d-flex">
-    <span>Create Alert</span>
-    <div class="input-group">
+    <span class="alertLabel">Create Alert</span>
+    <div class="input-group" style="width: 40%;">
         <select class="custom-select test" id="inputGroupSelect04">
           <option selected>Choose...</option>
           <option value="1">One</option>
@@ -10,9 +10,41 @@
           <option value="3">Three</option>
         </select>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Button</button>
+          <button class="btn btn-outline-secondary" type="button">Create</button>
         </div>
       </div>
     </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Condition</th>
+          <th scope="col">Frequency</th>
+          <th scope="col">Delivery Method</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">EUR/USD</th>
+          <td>Price</td>
+          <td>Moves above 1.1218</td>
+          <td>Once</td>
+          <td><fa-icon class="icons" [icon]="faLaptop"></fa-icon><fa-icon [icon]="faMail"></fa-icon></td>
+          <td id="statusSwitch">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+              <label class="onoffswitch-label" for="myonoffswitch">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+          </div>
+          </td>
+          <td><a title="Delete"><fa-icon class="icons" [icon]="faTrash"></fa-icon></a><a title="Edit"><fa-icon [icon]="faPen"></fa-icon></a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
  

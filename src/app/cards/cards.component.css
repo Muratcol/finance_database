@@ -1,77 +1,87 @@
-
 .currencyBox {
-    border: 1px solid #FFFF;
-    border-collapse: collapse;
-    background-color: #343A40;
-    color: #FFFF;
-    height: auto;
-    width: 97%; 
-    z-index: -1; 
-    margin-top: 0.3rem;
-    margin-left: 0.3rem;
-  }
-  .usdBox{
-    background-color: #FFFF;
-    height: 50px;
-    width: 95px;
-    margin-top: 0.5rem;
-    border-radius: 25px;
-    display:flex;
-    align-items: center;
-    justify-content:center;
-    margin-bottom:0.5rem;
-    
-  }
-  /* .rightBox {
-    margin-left: 0.5rem;
-  } */
-  .currencyInput {
-    color: #1D1E22;
-    display: block;
-  }
-  .labels {
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-  }
-  .box {
-    /* margin-bottom: 2rem; */
-    border: 1px solid;
-    padding:0.9rem;
-  }
-  
-  .increaseCard {  
-    -webkit-animation: increaseCardEffect 3.5s forwards;
-    animation: increaseCardEffect 3.5s forwards;
-  }
-  .decreaseCard {  
-    -webkit-animation: decreaseCardEffect 3.5s forwards;
-    animation: decreaseCardEffect 3.5s forwards;
-  }
-  
-  @keyframes increaseCardEffect{
-        0%{background: green;}
-        50%{background:lightgreen}
-        100%{background:white}
-    }
-  @keyframes decreaseCardEffect{
-        0%{background: red;}
-        50%{background:lightcoral}
-        100%{background:white}
-    }
+  border-collapse: collapse;
+  background-color: #343a40;
+  color: #ffff;
+  height: 100%;
+  width: auto;
+  z-index: -1;
+  margin-top: 0.3rem;
+  margin-left: 0.3rem;
+  display: grid;
 
-    @media only screen and (max-width: 1920px) {
-      .currencyBox {
-        font-size: 0.7rem;
-      }
-      .usdBox {
-        width: 40%;
-        height: 35px;
-        margin-top: 0.2rem;
-        margin-bottom: 0.2rem;
-      }
-      .pt-1 {
-        font-size: 0.7rem;
-      }
-    }
-  
+  grid-template-rows: repeat(auto-fill minmax(132px, 1fr));
+}
+.usdBox {
+  background-color: #ffff;
+  height: 50px;
+  width: 95px;
+  margin-top: 0.8rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.currencyInput {
+  color: #1d1e22;
+  display: block;
+}
+.labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box {
+  border: 2px solid;
+  border-bottom: 0;
+  padding: 0.9rem;
+  border-collapse: collapse;
+}
+
+.increaseCard {
+  -webkit-animation: increaseCardEffect 3.5s forwards;
+  animation: increaseCardEffect 3.5s forwards;
+}
+.decreaseCard {
+  -webkit-animation: decreaseCardEffect 3.5s forwards;
+  animation: decreaseCardEffect 3.5s forwards;
+}
+
+@keyframes increaseCardEffect {
+  0% {
+    background: green;
+  }
+  50% {
+    background: lightgreen;
+  }
+  100% {
+    background: white;
+  }
+}
+@keyframes decreaseCardEffect {
+  0% {
+    background: red;
+  }
+  50% {
+    background: lightcoral;
+  }
+  100% {
+    background: white;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .currencyBox {
+    font-size: 0.7rem;
+  }
+  .usdBox {
+    width: 40%;
+    height: 35px;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
+  .pt-1 {
+    font-size: 0.7rem;
+  }
+}

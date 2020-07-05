@@ -1,125 +1,122 @@
-.comFooterWrapper{
-    width: auto;
-  
-    margin-left: 1%;
+.comFooterWrapper {
+  width: 100%;
+  height: 100%;
+}
+.tableWrapper {
+  border: 2px solid #ffff;
+  padding: 1rem;
+  margin-top: 0.3rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-weight: 400;
+  width: 70%;
+  height: 100%;
+}
+.comFooterBody {
+  background-color: #343a40;
+  height: auto;
+  color: whitesmoke;
+}
+.comTable {
+  display: flex;
+  justify-content: space-between;
+}
+th,
+td {
+  width: 120px;
+  text-align: start;
+  padding: 5px;
+}
+th:first-child {
+  width: 150px;
+}
+th:nth-child(1) {
+  padding: 5px;
+  width: 90;
+}
+th:last-child,
+td:last-child {
+  width: 100px;
+}
+.table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.changeIncreaseColor {
+  color: green;
+}
+.changeDecreaseColor {
+  color: red;
+}
+
+a {
+  color: white;
+}
+.dxy {
+  margin-top: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  color: white;
+  border-bottom: 2px solid white;
+  margin-bottom: 1rem;
+}
+.headerOutput {
+  font-size: 1.4rem;
+}
+.increase {
+  -webkit-animation: increaseEffect 3.5s forwards;
+  animation: increaseEffect 3.5s forwards;
+}
+.decrease {
+  -webkit-animation: decreaseEffect 3.5s forwards;
+  animation: decreaseEffect 3.5s forwards;
+}
+tr:hover {
+  background-color: #484f55;
+}
+
+@keyframes increaseEffect {
+  0% {
+    background: green;
   }
-  .tableWrapper{
-    border: 2px solid #FFFF;
-    padding: 1rem;
-    margin-top: 0.3rem;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    font-weight: 400;
-    width: 70%;
+  50% {
+    background: lightgreen;
   }
-  .comFooterBody {
-    background-color: #343A40;
-    height: 100%;
-    color: whitesmoke
-    
+  100% {
+    background: #343a40;
   }
-  .comTable{
-    display: flex;
-    justify-content: space-between;
-  
+}
+@keyframes decreaseEffect {
+  0% {
+    background: red;
   }
-  th, td { 
-    width:120px; 
-    text-align:start; 
-    padding:5px 
-  
+  50% {
+    background: lightcoral;
   }
-  th:first-child {
-    width: 150px;
+  100% {
+    background: #343a40;
   }
-  th:nth-child(1) {
-    padding:5px;
-    width:90; 
-  }
-  th:last-child, td:last-child {
-    width: 100px;
-  }
-  .table { 
-    border-collapse:separate; 
-    border-spacing:0 15px; 
-  } 
-  
-  .changeIncreaseColor {
-    color: green;
-  }
-  .changeDecreaseColor {
-    color: red;
-  }
-  
-  
-  
-  a {
-    color: white;
-  }
-  .dxy {
-  
-    margin-top: 0.4rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem;
-    color: white;
-    border-bottom: 2px solid white;
-    margin-bottom: 1rem;
-  
+}
+@media only screen and (max-width: 1920px) {
+  .tableWrapper {
+    font-size: 0.6rem;
+    margin-top: 0.2rem;
+    padding-top: 0.6rem;
   }
   .headerOutput {
-    font-size: 1.4rem;
+    font-size: 0.9rem;
   }
-  .increase {
-    -webkit-animation: increaseEffect 3.5s forwards;
-    animation: increaseEffect 3.5s forwards;
-  }
-  .decrease {
-    -webkit-animation: decreaseEffect 3.5s forwards;
-    animation: decreaseEffect 3.5s forwards;
-  }
-  tr:hover {background-color:#484F55;}
-  
-  @keyframes increaseEffect {
-    0% {
-      background: green;
-    }
-    50% {
-      background: lightgreen;
-    }
-    100% {
-      background: #343a40;
-    }
-  }
-  @keyframes decreaseEffect {
-    0% {
-      background: red;
-    }
-    50% {
-      background: lightcoral;
-    }
-    100% {
-      background: #343a40;
-    }
-  }
-  @media only screen and (max-width: 1920px) {
-    .tableWrapper {
-      font-size: 0.6rem;
-      margin-top: 0.2rem;
-      padding-top: 0.6rem;
-    }
-    .headerOutput {
-      font-size: 0.9rem;
-    }
 
-    .table {
-      border-spacing: 0 5px;
-    }
-    .dxy {
-      margin-top: 0.1rem;
-      padding: 0.3rem;
-    }
-    .pt-1 {
-      font-size: 0.7rem;
-    }
+  .table {
+    border-spacing: 0 5px;
   }
+  .dxy {
+    margin-top: 0.1rem;
+    padding: 0.3rem;
+  }
+  .pt-1 {
+    font-size: 0.7rem;
+  }
+}

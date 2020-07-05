@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
     this.authService.logInUser(this.user)
     .subscribe(() => {
       this.alertifyService.success('Login Succesfully. Routing Currencies')
-      setTimeout(() => "", 1000)
-      this.router.navigate(['currencies'])
+      setTimeout(() => "", 1500)
+      this.router.navigate([''])
     });
     
   }

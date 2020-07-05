@@ -50,9 +50,5 @@ body {
   .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #A9ACB1;
   }
-  @media only screen and (min-width: 1500px) {
-    body, div {
-      font-size: 0.5rem;
-    }
-  }
+
   

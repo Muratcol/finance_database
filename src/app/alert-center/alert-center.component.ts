@@ -30,9 +30,11 @@ export class AlertCenterComponent implements OnInit {
       this.alertSection = this.el.nativeElement.querySelector(
         'body > main > app-alert-center > div > div'
       );
-      this.alertOptions = this.el.nativeElement.querySelector()
+      this.alertOptions = this.el.nativeElement.querySelector('body > main > app-alert-center > div > div > div > div.alertOptions.row')
+      this.renderer.setStyle(this.alertOptions, 'display', 'flex');
       this.renderer.addClass(this.alertSection, 'alertTab');
     } else {
+      this.renderer.setStyle(this.alertOptions, 'display', 'none');
       this.renderer.removeClass(this.alertSection, 'alertTab');
     }
     this.alertTab = true;

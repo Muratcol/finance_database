@@ -5,6 +5,9 @@
     width: 40%;
 
 }
+.searchGroup {
+    display: block;
+}
 .alertLabel {
     padding-right: 3rem;
 
@@ -94,6 +97,7 @@ table tr:hover{
 }
 .alertOptions {
     background-color : grey;
+    width: 100%;
   }
   row {
     grid-row: 1;

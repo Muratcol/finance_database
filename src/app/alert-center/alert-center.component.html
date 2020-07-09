@@ -1,13 +1,18 @@
 <div class="container">
   <h3 style="color: white;">Instrument Alert</h3>
   <hr />
-  <div class="searchGroup mt-4">
+  <form
+    [formGroup]="alertForm"
+    (ngSubmit)="submitAlert()"
+    class="searchGroup mt-4"
+  >
     <div class="input-group" style="width: 40%;">
       <span class="alertLabel">Create Alert</span>
       <select
         class="custom-select"
         id="inputGroupSelect04"
         (change)="openAlertTab($event.target.value)"
+        formControlName="pair">
       >
         <option selected>Choose...</option>
         <option>One</option>
@@ -15,35 +20,33 @@
         <option>Three</option>
       </select>
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Create</button>
+        <button class="btn btn-outline-secondary" type="submit">Create</button>
       </div>
     </div>
     <div *ngIf="alertTab" class="alertOptions row">
       <div class="col-sm-4 firstColumn">
-        
         <div class="alertInputGroup">
           <span class="subAlertLabel">Create Alert</span>
           <div class="limitFormGroup">
-            <select>
+            <select formControlName="conditionName">
               <option>Moves Above</option>
               <option>Moves Below</option>
             </select>
-            <input type="number" class="limitInput">
-          </div>         
+            <input type="number" class="limitInput" />
+          </div>
         </div>
-        
       </div>
       <div class="col-sm-2">
         <span class="subAlertLabel">Frequency</span>
 
         <label class="container2"
           >Once
-          <input type="radio" checked="checked" name="radio" />
+          <input type="radio" class="radio" checked="checked" value="Once" name="frequency" />
           <span class="checkmark"></span>
         </label>
         <label class="container2"
           >Requirring
-          <input type="radio" name="radio" />
+          <input class="radio" type="radio" name="frequency" />
           <span class="checkmark"></span>
         </label>
       </div>
@@ -58,7 +61,7 @@
             <span> Website popup</span>
           </div>
           <label class="checkBoxCont">
-            <input type="checkbox" checked="checked">
+            <input type="checkbox" checked="checked" />
             <span class="checkmarkSect"></span>
           </label>
         </div>
@@ -68,14 +71,14 @@
             <span> Email notification</span>
           </div>
           <label class="checkBoxCont">
-            <input type="checkbox" checked="checked">
+            <input type="checkbox" checked="checked" />
             <span class="checkmarkSect"></span>
           </label>
         </div>
       </div>
       <div class="col-sm-2"></div>
     </div>
-  </div>
+  </form>
   <table class="table table-hover">
     <thead>
       <tr>

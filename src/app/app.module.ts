@@ -34,6 +34,7 @@ import { HoverDirective } from './events/hover/hover.directive';
 import { CryptoCardComponent } from './crypto-card/crypto-card.component';
 import { AlertCenterComponent } from './alert-center/alert-center.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
+import { AlertService } from './services/alert.service';
 
 
 
@@ -76,7 +77,7 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
     FontAwesomeModule,
     ChartsModule
   ],
-  providers: [AlertifyService, UserService, LoginGuard, CurrencyService], //Alertify service a global service !
+  providers: [AlertifyService, UserService, LoginGuard, CurrencyService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

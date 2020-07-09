@@ -26,6 +26,7 @@ export class AlertCenterComponent implements OnInit {
   alertOptions: string;
   alertForm: FormGroup;
   alert: Alert = new Alert();
+  radios:any;
   username:string;
   constructor(
     private el: ElementRef,
@@ -36,12 +37,12 @@ export class AlertCenterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.username = localStorage.getItem('username');
+    this.createAlertForm();
   }
 
     createAlertForm() {
+      
       this.alertForm = this.formBuilder.group ({
-        userName: this.username,
         pair: [null, Validators.required],
         limit: [null, Validators.required],
         conditionName: [null, Validators.required],
@@ -52,8 +53,11 @@ export class AlertCenterComponent implements OnInit {
     }
 
     submitAlert() {
-
+      this.radios = this.el.nativeElement.querySelectorAll('.radio');
+      this.websitePopup = this.el.nativeElement.querySelector('')
       if (this.alertForm.valid){
+        this.radios[0].checked ? this.alertForm.value.frequency = "Once": this.alertForm.value.frequency = "Requirring"
+        
         this.alert = Object.assign({}, this.alertForm.value)
         this.alertService.createAlert(this.alert)
         .subscribe(() => {
@@ -61,6 +65,7 @@ export class AlertCenterComponent implements OnInit {
         })
       }
       else {
+        console.log(this.alertForm.value.frequency)
         this.alertifyService.error("Please check your inputs.")
       }
       
@@ -73,7 +78,7 @@ export class AlertCenterComponent implements OnInit {
     if (value != 'Choose...') {
       this.alertTab = true;
       this.alertOptions = this.el.nativeElement.querySelector(
-        'body > main > app-alert-center > div > div > div.alertOptions.row'
+        'body > main > app-alert-center > div > form > div.alertOptions.row'
       );
 
       this.renderer.setStyle(this.alertOptions, 'display', 'flex');

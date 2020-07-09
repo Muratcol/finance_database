@@ -16,6 +16,12 @@
     border: #949292 solid 2px;
     background-color: #949292;
 }
+.deliveryLabel {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
 button {
     color: whitesmoke;
 }
@@ -95,11 +101,26 @@ table tr:hover{
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
 .alertOptions {
-    background-color : grey;
+    background-color: #949292;
+    padding: 1rem;
     width: 100%;
   }
-  row {
+  .firstColumn {
+      display: flex;
+      justify-content: flex-start;
+  }
+  .alertMethods {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+  }
+  .methodsInsideLabel {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .row {
     grid-row: 1;
     column-count: 3;
   }
@@ -108,11 +129,15 @@ table tr:hover{
     padding: 1rem;
   }
   .alertInputGroup {
+      display: inline;
     padding-left: 1rem;
   }
   .alertOptions > div {
-    border-right: solid black 2px;
+    border-right: solid whitesmoke 1px;
     padding-left: 1rem;
+  }
+  .alertOptions > div:last-child {
+    border-right: 0;
   }
   .container2 {
     display: block;
@@ -149,7 +174,6 @@ table tr:hover{
   .container:hover input ~ .checkmark {
     background-color: #ccc;
   }
-  
   /* When the radio button is checked, add a blue background */
   .container input:checked ~ .checkmark {
     background-color: #2196F3;
@@ -175,4 +199,73 @@ table tr:hover{
       height: 5.5px;
       border-radius: 50%;
       background: white;
+  }
+
+
+
+  .checkBoxCont {
+
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .checkBoxCont input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmarkSect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .checkBoxCont:hover input ~ .checkmarkSect {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .checkBoxCont input:checked ~ .checkmarkSect {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmarkSect:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkBoxCont input:checked ~ .checkmarkSect:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkBoxCont .checkmarkSect:after {
+    left: 8px;
+    top: 4px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }

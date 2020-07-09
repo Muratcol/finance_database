@@ -1,8 +1,7 @@
 <div class="container">
   <h3 style="color: white;">Instrument Alert</h3>
   <hr />
-  <div class="searchGroup mt-4 ">
-    
+  <div class="searchGroup mt-4">
     <div *ngIf="!alertTab" class="input-group" style="width: 40%;">
       <span class="alertLabel">Create Alert</span>
       <select
@@ -19,8 +18,7 @@
         <button class="btn btn-outline-secondary" type="button">Create</button>
       </div>
     </div>
-
-    <div *ngIf="alertTab" class="input-group" style="width: 40%;">
+    <div *ngIf="alertTab" class="input-group" style="width: 40%; background-color: #949292;">
       <span class="alertLabel">Create Alert</span>
       <select
         class="custom-select test"
@@ -35,36 +33,60 @@
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button">Create</button>
       </div>
-      <div  class="alertOptions row">
-        <div class="col-sm">
+    </div>
+    <div *ngIf="alertTab" class="alertOptions row">
+      <div class="col-sm-4 firstColumn">
+        
+        <div class="alertInputGroup">
           <span class="subAlertLabel">Create Alert</span>
-          <div class="alertInputGroup">
-            
-            <select>
-              <option>One</option>
-              <option>Two</option>
-              <option>Three</option>
-            </select>
-            <input />
-          </div>
+          <select>
+            <option>Moves Above</option>
+            <option>Moves Below</option>
+          </select>
+          <input>
         </div>
-        <div class="col-sm">
-          <span class="subAlertLabel">Frequency</span>
-
-          <label class="container2"
-            >One
-            <input type="radio" checked="checked" name="radio" />
-            <span class="checkmark"></span>
-          </label>
-          <label class="container2"
-            >Two
-            <input type="radio" name="radio" />
-            <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
       </div>
+      <div class="col-sm-2">
+        <span class="subAlertLabel">Frequency</span>
+
+        <label class="container2"
+          >Once
+          <input type="radio" checked="checked" name="radio" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="container2"
+          >Requirring
+          <input type="radio" name="radio" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="col-sm-4">
+        <div class="deliveryLabel">
+          <span>Delivery Method</span>
+          <span>Status</span>
+        </div>
+        <div class="alertMethods">
+          <div class="methodsInsideLabel">
+            <span><fa-icon [icon]="faLaptop"></fa-icon></span>
+            <span> Website popup</span>
+          </div>
+          <label class="checkBoxCont">
+            <input type="checkbox" checked="checked">
+            <span class="checkmarkSect"></span>
+          </label>
+        </div>
+        <div class="alertMethods">
+          <div class="methodsInsideLabel">
+            <span><fa-icon [icon]="faMail"></fa-icon></span>
+            <span> Email notification</span>
+          </div>
+          <label class="checkBoxCont">
+            <input type="checkbox" checked="checked">
+            <span class="checkmarkSect"></span>
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
     </div>
   </div>
   <table class="table table-hover">

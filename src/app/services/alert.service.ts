@@ -36,7 +36,7 @@ export class AlertService {
   
   
       return this.http
-      .put<Alert[]>(this.path + '/alert/createAlert', body, http_options)
+      .post<Alert[]>(this.path + '/alert/createAlert', body, http_options)
       .pipe(
         tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)

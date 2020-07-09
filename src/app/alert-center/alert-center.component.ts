@@ -28,6 +28,8 @@ export class AlertCenterComponent implements OnInit {
   alert: Alert = new Alert();
   radios:any;
   username:string;
+  webPopup:any;
+  emailNotify:any;
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
@@ -46,18 +48,20 @@ export class AlertCenterComponent implements OnInit {
         pair: [null, Validators.required],
         limit: [null, Validators.required],
         conditionName: [null, Validators.required],
-        frequency: [null, Validators.required],
-        websitePopup: [null, Validators.required],
-        emailNotify: [null, Validators.required]
+        frequency: [null],
+        websitePopup: [null],
+        emailNotify: [null]
       })
     }
 
     submitAlert() {
       this.radios = this.el.nativeElement.querySelectorAll('.radio');
-      this.websitePopup = this.el.nativeElement.querySelector('')
+      this.webPopup = this.el.nativeElement.querySelector('.webPopup');
+      this.emailNotify = this.el.nativeElement.querySelector('.emailNotify');
+      this.radios[0].checked ? this.alertForm.value.frequency = "Once": this.alertForm.value.frequency = "Requirring"
+      this.alertForm.value.websitePopup = this.webPopup.checked
+      this.alertForm.value.emailNotify = this.emailNotify.checked
       if (this.alertForm.valid){
-        this.radios[0].checked ? this.alertForm.value.frequency = "Once": this.alertForm.value.frequency = "Requirring"
-        
         this.alert = Object.assign({}, this.alertForm.value)
         this.alertService.createAlert(this.alert)
         .subscribe(() => {
@@ -65,7 +69,7 @@ export class AlertCenterComponent implements OnInit {
         })
       }
       else {
-        console.log(this.alertForm.value.frequency)
+        console.log(this.alertForm.value)
         this.alertifyService.error("Please check your inputs.")
       }
       

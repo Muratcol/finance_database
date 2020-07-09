@@ -125,6 +125,17 @@ table tr:hover{
     from { opacity: 1}
     to   { opacity: 0}
   }
+  .limitInput {
+    width: 50%;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    padding: 7px 20px;
+    opacity: 1;
+  }
+  .limitFormGroup {
+    display: flex;
+    justify-content: space-between;
+  }
   .firstColumn {
       display: flex;
       justify-content: flex-start;
@@ -174,7 +185,7 @@ table tr:hover{
   }
   
   /* Hide the browser's default radio button */
-  .container input {
+  .container2 input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -192,11 +203,11 @@ table tr:hover{
   }
   
   /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+  .container2:hover input ~ .checkmark {
     background-color: #ccc;
   }
   /* When the radio button is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+  .container2 input:checked ~ .checkmark {
     background-color: #2196F3;
   }
   
@@ -208,12 +219,12 @@ table tr:hover{
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .container input:checked ~ .checkmark:after {
+  .container2 input:checked ~ .checkmark:after {
     display: block;
   }
   
   /* Style the indicator (dot/circle) */
-  .container .checkmark:after {
+  .container2 .checkmark:after {
        top: 4.5px;
       left: 4.5px;
       width: 6px;

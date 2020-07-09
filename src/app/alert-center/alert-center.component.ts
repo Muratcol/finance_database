@@ -5,6 +5,10 @@ import {
   faTrash,
   faPen,
 } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Alert } from './alertModel';
+import { AlertifyService } from '../services/alertify.service';
+import { AlertService } from '../services/alert.service';
 
 @Component({
   selector: 'app-alert-center',
@@ -20,25 +24,66 @@ export class AlertCenterComponent implements OnInit {
   selectedCurrency: string;
   alertSection: string;
   alertOptions: string;
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  alertForm: FormGroup;
+  alert: Alert = new Alert();
+  username:string;
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private formBuilder: FormBuilder,
+    private alertifyService: AlertifyService,
+    private alertService:AlertService
+  ) {}
 
   ngOnInit(): void {
+    this.username = localStorage.getItem('username');
   }
-  openAlertTab(value) {
-    value == 'Choose...' ? this.alertTab = false : this.alertTab = true;
 
-    if (this.alertTab) {
-      this.alertOptions = this.el.nativeElement.querySelector("body > main > app-alert-center > div > div > div.alertOptions.row")
+    createAlertForm() {
+      this.alertForm = this.formBuilder.group ({
+        userName: this.username,
+        pair: [null, Validators.required],
+        limit: [null, Validators.required],
+        conditionName: [null, Validators.required],
+        frequency: [null, Validators.required],
+        websitePopup: [null, Validators.required],
+        emailNotify: [null, Validators.required]
+      })
+    }
+
+    submitAlert() {
+
+      if (this.alertForm.valid){
+        this.alert = Object.assign({}, this.alertForm.value)
+        this.alertService.createAlert(this.alert)
+        .subscribe(() => {
+          this.alertifyService.success('Alert created. Thank you')
+        })
+      }
+      else {
+        this.alertifyService.error("Please check your inputs.")
+      }
       
-      this.renderer.setStyle(this.alertOptions, 'display', 'flex');
+    }
 
+
+
+
+  openAlertTab(value) {
+    if (value != 'Choose...') {
+      this.alertTab = true;
+      this.alertOptions = this.el.nativeElement.querySelector(
+        'body > main > app-alert-center > div > div > div.alertOptions.row'
+      );
+
+      this.renderer.setStyle(this.alertOptions, 'display', 'flex');
     } else {
       this.renderer.addClass(this.alertOptions, 'fadeOff');
       setTimeout(() => {
         this.renderer.setStyle(this.alertOptions, 'display', 'none');
         this.renderer.removeClass(this.alertOptions, 'fadeOff');
-      },2000)      
-
+        this.alertTab = false;
+      }, 2000);
     }
     this.alertTab = true;
   }

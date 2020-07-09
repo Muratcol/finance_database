@@ -22,20 +22,23 @@ export class AlertCenterComponent implements OnInit {
   alertOptions: string;
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   openAlertTab(value) {
     value == 'Choose...' ? this.alertTab = false : this.alertTab = true;
 
     if (this.alertTab) {
-      this.alertSection = this.el.nativeElement.querySelector(
-        'body > main > app-alert-center > div > div'
-      );
-      this.alertOptions = this.el.nativeElement.querySelector('body > main > app-alert-center > div > div > div > div.alertOptions.row')
+      this.alertOptions = this.el.nativeElement.querySelector("body > main > app-alert-center > div > div > div.alertOptions.row")
+      
       this.renderer.setStyle(this.alertOptions, 'display', 'flex');
-      this.renderer.addClass(this.alertSection, 'alertTab');
+
     } else {
-      this.renderer.setStyle(this.alertOptions, 'display', 'none');
-      this.renderer.removeClass(this.alertSection, 'alertTab');
+      this.renderer.addClass(this.alertOptions, 'fadeOff');
+      setTimeout(() => {
+        this.renderer.setStyle(this.alertOptions, 'display', 'none');
+        this.renderer.removeClass(this.alertOptions, 'fadeOff');
+      },2000)      
+
     }
     this.alertTab = true;
   }

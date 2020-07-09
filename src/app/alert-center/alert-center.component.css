@@ -14,7 +14,7 @@
 }
 .alertTab {
     border: #949292 solid 2px;
-    background-color: #949292;
+    background-color: #484f55;
 }
 .deliveryLabel {
     padding: 1rem;
@@ -103,9 +103,27 @@ table tr:hover{
 }
 
 .alertOptions {
-    background-color: #949292;
+    background-color: #484f55;
     padding: 1rem;
     width: 100%;
+    margin-top: 2rem;
+    animation: 0.5s ease-out 0s 1 slideFromTop;
+    /* animation: fadeOff 2s; */
+  }
+  .fadeOff {
+    animation: fadeOff 2s;
+  }
+  @keyframes slideFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeOff {
+    from { opacity: 1}
+    to   { opacity: 0}
   }
   .firstColumn {
       display: flex;
@@ -123,6 +141,9 @@ table tr:hover{
   .row {
     grid-row: 1;
     column-count: 3;
+  }
+  .subMenu {
+    width: 40%;
   }
   .subAlertLabel {
     display:block;
@@ -269,3 +290,5 @@ table tr:hover{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+

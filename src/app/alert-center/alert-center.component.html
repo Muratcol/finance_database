@@ -2,26 +2,10 @@
   <h3 style="color: white;">Instrument Alert</h3>
   <hr />
   <div class="searchGroup mt-4">
-    <div *ngIf="!alertTab" class="input-group" style="width: 40%;">
+    <div class="input-group" style="width: 40%;">
       <span class="alertLabel">Create Alert</span>
       <select
-        class="custom-select test"
-        id="inputGroupSelect04"
-        (change)="openAlertTab($event.target.value)"
-      >
-        <option selected>Choose...</option>
-        <option>One</option>
-        <option>Two</option>
-        <option>Three</option>
-      </select>
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Create</button>
-      </div>
-    </div>
-    <div *ngIf="alertTab" class="input-group" style="width: 40%; background-color: #949292;">
-      <span class="alertLabel">Create Alert</span>
-      <select
-        class="custom-select test"
+        class="custom-select"
         id="inputGroupSelect04"
         (change)="openAlertTab($event.target.value)"
       >

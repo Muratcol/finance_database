@@ -24,7 +24,9 @@ export class SmfooterComponent{
         this.refreshData()
       },5000)  
   } 
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
   refreshData(){
     this.currencyService.getIndices()
         .subscribe(data => this.indices = data['data'])

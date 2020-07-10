@@ -35,7 +35,9 @@ export class CardsComponent implements OnInit {
       },7000)  
 
   }
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
 
   refreshData(){
     this.currencyService.getCurrencies()

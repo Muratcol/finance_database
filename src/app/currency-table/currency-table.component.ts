@@ -48,7 +48,9 @@ export class CurrencyTableComponent implements AfterViewInit {
       },7000)  
 
   }
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
 
   refreshData(){
     this.currencyService.getForexAdvices()

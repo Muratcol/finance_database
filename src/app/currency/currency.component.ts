@@ -39,7 +39,9 @@ export class CurrencyComponent implements OnInit {
         this.refreshData()
       },5000)  
   } 
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
   refreshData(){
     this.currencyService.getCurrencies()
         .subscribe(data => this.currencies = data['data'])

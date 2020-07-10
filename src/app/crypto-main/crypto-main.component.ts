@@ -21,7 +21,9 @@ export class CryptoMainComponent implements OnInit {
         this.refreshData()
       },5000)  
   } 
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
   refreshData(){
     this.currencyService.getCryptos()
         .subscribe(data => this.cryptos = data['data'])

@@ -54,7 +54,9 @@ export class SharesTableComponent implements AfterViewInit {
       this.refreshData();
     }, 7000);
   }
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
   refreshData() {
     this.currencyService
       .getShortShares()

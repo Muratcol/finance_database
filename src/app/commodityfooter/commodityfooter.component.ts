@@ -24,7 +24,9 @@ export class CommodityfooterComponent implements OnInit {
         this.refreshData()
       },5000)  
   } 
-
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
   refreshData(){
     this.currencyService.getCommodities()
         .subscribe(data => this.commodities = data['data'])

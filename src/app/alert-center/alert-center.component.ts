@@ -105,7 +105,6 @@ export class AlertCenterComponent implements OnInit {
     }
     this.alertTab = true;
   }
-
   printAlerts() {
     this.alertService.getAlerts().subscribe((data) => {
       this.allAlerts = data['data'];

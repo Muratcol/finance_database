@@ -149,6 +149,23 @@ table tr:hover{
     display: flex;
     justify-content: flex-start;
   }
+  .createAlert {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+  }
+  .createAlert button:first-child {
+    border: 0;
+    outline-offset: 0  !important;
+    background-image: none  !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none  !important;
+    background-color: #484F55;
+    padding: 0.5rem;
+  }
+  .createAlert button:first-child:hover {
+    background-color: #333333;
+  }
   .row {
     grid-row: 1;
     column-count: 3;

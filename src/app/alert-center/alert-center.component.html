@@ -6,22 +6,20 @@
     (ngSubmit)="submitAlert()"
     class="searchGroup mt-4"
   >
-    <div class="input-group" style="width: 40%;">
+    <div class="input-group" style="width: 40%; align-items: center;">
       <span class="alertLabel">Create Alert</span>
       <select
         class="custom-select"
         id="inputGroupSelect04"
         (change)="openAlertTab($event.target.value)"
-        formControlName="pair">
+        formControlName="pair"
       >
+        >
         <option selected>Choose...</option>
-        <option>One</option>
-        <option>Two</option>
-        <option>Three</option>
+        <option>USD/TRY</option>
+        <option>USD/EUR</option>
+        <option>GBP/EUR</option>
       </select>
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="submit">Create</button>
-      </div>
     </div>
     <div *ngIf="alertTab" class="alertOptions row">
       <div class="col-sm-4 firstColumn">
@@ -41,7 +39,13 @@
 
         <label class="container2"
           >Once
-          <input type="radio" class="radio" checked="checked" value="Once" name="frequency" />
+          <input
+            type="radio"
+            class="radio"
+            checked="checked"
+            value="Once"
+            name="frequency"
+          />
           <span class="checkmark"></span>
         </label>
         <label class="container2"
@@ -76,7 +80,11 @@
           </label>
         </div>
       </div>
-      <div class="col-sm-2"></div>
+      <div class="col-sm-2 createAlert">
+        <button type="submit">
+          <fa-icon [icon]="faArrow"></fa-icon> Create Alert
+        </button>
+      </div>
     </div>
   </form>
   <table class="table table-hover">
@@ -92,14 +100,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">EUR/USD</th>
+      <tr *ngFor="let singleAlert of allAlerts">
+        <th scope="row">{{ singleAlert.pair }}</th>
         <td>Price</td>
-        <td>Moves above 1.1218</td>
-        <td>Once</td>
+        <td>{{ singleAlert.conditionName }} {{ singleAlert.limit }}</td>
+        <td>{{ singleAlert.frequency }}</td>
         <td>
-          <fa-icon class="icons" [icon]="faLaptop"></fa-icon
-          ><fa-icon [icon]="faMail"></fa-icon>
+          <fa-icon
+            *ngIf="singleAlert.websitePopup"
+            class="icons"
+            [icon]="faLaptop"
+          ></fa-icon
+          ><fa-icon *ngIf="singleAlert.emailNotify" [icon]="faMail"></fa-icon>
         </td>
         <td id="statusSwitch">
           <div class="onoffswitch">

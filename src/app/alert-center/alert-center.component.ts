@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Alert } from './alertModel';
 import { AlertifyService } from '../services/alertify.service';
 import { AlertService } from '../services/alert.service';
+import { CurrencyService } from '../services/currency.service';
 
 @Component({
   selector: 'app-alert-center',
@@ -33,12 +34,16 @@ export class AlertCenterComponent implements OnInit {
   webPopup: any;
   emailNotify: any;
   userName: string;
+  pairOptions: Array<string> = [];
+  activePair: number;
+  limitInput:string;
   allAlerts: Alert[];
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
     private formBuilder: FormBuilder,
     private alertifyService: AlertifyService,
+    private currencyService: CurrencyService,
     private alertService: AlertService
   ) {}
 
@@ -46,7 +51,7 @@ export class AlertCenterComponent implements OnInit {
     this.createAlertForm();
     this.userName = localStorage.getItem('name');
     this.printAlerts();
-    console.log(this.allAlerts)
+    this.showPairOptions();
   }
 
   createAlertForm() {
@@ -105,5 +110,27 @@ export class AlertCenterComponent implements OnInit {
     this.alertService.getAlerts().subscribe((data) => {
       this.allAlerts = data['data'];
     });
+  }
+
+  showPairOptions(){
+    this.currencyService.getCurrencies()
+    .subscribe(data => {
+      for (let forex of data['data']) {
+        this.pairOptions.push(forex['pair'])
+      }
+    })
+  }
+
+  showActivePair(value) {
+    this.currencyService.getCurrencies()
+    .subscribe(data => {
+      for(let forex of data['data']) {
+        if(forex['pair'] == value) {
+          this.activePair = forex['ask']
+          this.limitInput = this.el.nativeElement.querySelector('.limitInput')
+          this.renderer.setProperty(this.limitInput, 'value', (this.activePair as number));
+        }
+      }
+    })
   }
 }

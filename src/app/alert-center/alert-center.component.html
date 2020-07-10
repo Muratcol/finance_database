@@ -12,13 +12,14 @@
         class="custom-select"
         id="inputGroupSelect04"
         (change)="openAlertTab($event.target.value)"
+        (change)= "showActivePair($event.target.value)"
         formControlName="pair"
+        
+        
       >
         >
         <option selected>Choose...</option>
-        <option>USD/TRY</option>
-        <option>USD/EUR</option>
-        <option>GBP/EUR</option>
+        <option *ngFor="let pairOption of pairOptions" >{{pairOption}}</option>
       </select>
     </div>
     <div *ngIf="alertTab" class="alertOptions row">
@@ -27,7 +28,7 @@
           <span class="subAlertLabel">Create Alert</span>
           <div class="limitFormGroup">
             <select formControlName="conditionName">
-              <option>Moves Above</option>
+              <option selected >Moves Above</option>
               <option>Moves Below</option>
             </select>
             <input formControlName="limit" type="number" class="limitInput" />

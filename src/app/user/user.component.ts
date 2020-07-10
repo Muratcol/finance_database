@@ -3,7 +3,6 @@ import { UserService } from '../services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserInfos } from './userInfos';
 import { AlertifyService } from '../services/alertify.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-user',
@@ -69,7 +68,6 @@ export class UserComponent implements OnInit {
 
   updateDatas() {
       this.userInfo = Object.assign({}, this.userInfoForm.value);
-      console.log(this.userInfoForm.value)
       this.userService.updateUserInfos(this.userInfo).subscribe((response) => {
         this.alertifyService.success('Profile Updated Succesfully');
         if (this.imageInput != null) this.userService.uploadImage(this.fileToUplod)

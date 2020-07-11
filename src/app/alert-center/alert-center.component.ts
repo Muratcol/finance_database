@@ -36,6 +36,8 @@ export class AlertCenterComponent implements OnInit {
   pairOptions: Array<string> = [];
   activePair: number;
   limitInput:string;
+  interval: any;
+  currentValue:number;
   allAlerts: Alert[];
   constructor(
     private el: ElementRef,
@@ -51,7 +53,14 @@ export class AlertCenterComponent implements OnInit {
     this.printAlerts();
     this.showPairOptions();
   }
-
+  ngAfterViewInit() {
+    this.interval = setInterval(() => {
+      this.sendNotify();
+    },5000)  
+  }
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
   createAlertForm() {
     this.alertForm = this.formBuilder.group({
       pair: [null, Validators.required],
@@ -125,8 +134,45 @@ export class AlertCenterComponent implements OnInit {
           this.activePair = forex['ask']
           this.limitInput = this.el.nativeElement.querySelector('.limitInput')
           this.renderer.setProperty(this.limitInput, 'value', (this.activePair as number));
+          console.log(this.activePair)
+          return this.activePair
         }
       }
     })
   }
+  sendNotify() {
+    
+    this.alertService.getAlerts().subscribe((data) => {
+      this.allAlerts = data['data'];
+    });
+    for(let alert of this.allAlerts) {
+      if(!alert.alerStatus) continue
+      this.currencyService.getCurrencies()
+      .subscribe(data => {
+        for(let forex of data['data']) {
+          
+          if(forex['pair'] == alert.pair) {
+            this.currentValue = forex.ask
+            this.currentValue = Number(this.currentValue)
+          }
+        }
+      })
+      if (alert.conditionName == "Moves Above"){
+        if(this.currentValue > alert.limit || this.currentValue == alert.limit) {
+          this.alertifyService.success(`${alert.pair} is currently ${this.currentValue}. ${alert.limit} limit has passed !!`)
+          this.alertService.closeAlertStatus(alert._id)
+          .subscribe((data) => {console.log(data)})
+        }
+      }
+      else {
+        if(alert.limit < this.currentValue) {
+          this.alertifyService.success(`${alert.pair} has passed ${this.currentValue} limit !!`)
+          console.log('yoyoy')
+          this.alertService.closeAlertStatus(alert._id)
+          .subscribe((data) => {console.log(data)})
+        }
+      }
+    }
+  }
+
 }

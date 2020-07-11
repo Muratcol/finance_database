@@ -23,7 +23,6 @@ export class AlertService {
       }),
     };
     const body = {
-      userName: alertForm.userName,
       pair: alertForm.pair,
       limit: alertForm.limit,
       conditionName: alertForm.conditionName,
@@ -56,7 +55,24 @@ export class AlertService {
       catchError(err => this.handleError(err))
     )
   }
+  closeAlertStatus(alertId): Observable<Boolean[]> {
+    let access_token = localStorage.getItem('access_token');
 
+    let http_options = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer: ' + access_token,
+      }),
+    };
+    const body = {
+      alerStatus:false
+    };
+    return this.http
+      .put<Boolean[]>(this.path + '/alert/editAlert/' + alertId, body, http_options)
+      .pipe(
+        tap((data) => console.log(JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
 
   handleError(err: HttpErrorResponse) {
     let errorMessage = '';

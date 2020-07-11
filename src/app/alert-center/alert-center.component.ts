@@ -30,7 +30,6 @@ export class AlertCenterComponent implements OnInit {
   alertForm: FormGroup;
   alert: Alert = new Alert();
   radios: any;
-  username: string;
   webPopup: any;
   emailNotify: any;
   userName: string;
@@ -49,14 +48,12 @@ export class AlertCenterComponent implements OnInit {
 
   ngOnInit(): void {
     this.createAlertForm();
-    this.userName = localStorage.getItem('name');
     this.printAlerts();
     this.showPairOptions();
   }
 
   createAlertForm() {
     this.alertForm = this.formBuilder.group({
-      userName: [null],
       pair: [null, Validators.required],
       limit: [null, Validators.required],
       conditionName: [null, Validators.required],

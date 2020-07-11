@@ -18,12 +18,7 @@ export class CurrencyTableComponent implements AfterViewInit {
   @ViewChild('headerarea') headerarea: ElementRef
   @ViewChild('textarea') textarea: ElementRef
 
-  ngAfterViewInit() {
-    this.header = this.el.nativeElement.querySelector('.dxyCurrency')
-    this.headerData = this.el.nativeElement.querySelector('.pt-1')
-    this.renderer.setProperty(this.header, 'innerHTML', (this.headerarea.nativeElement as HTMLTableCellElement).innerText)
-    this.renderer.setProperty(this.headerData, 'innerHTML', (this.textarea.nativeElement as HTMLTableCellElement).innerText)
-  }
+
 
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
@@ -40,13 +35,8 @@ export class CurrencyTableComponent implements AfterViewInit {
     private renderer:Renderer2
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.refreshData()
-      this.interval = setInterval(() => {
-        this.refreshData()
-
-      },7000)  
-
   }
   ngOnDestroy(): void {
     clearTimeout(this.interval);
@@ -83,5 +73,15 @@ export class CurrencyTableComponent implements AfterViewInit {
     }
     this.renderer.setProperty(this.headerData, 'innerHTML', (event.target.parentNode.childNodes[2] as HTMLTableCellElement).innerText)
     
+  }
+  ngAfterViewInit() {
+    this.header = this.el.nativeElement.querySelector('.dxyCurrency')
+    this.headerData = this.el.nativeElement.querySelector('.pt-1')
+    this.renderer.setProperty(this.header, 'innerHTML', (this.headerarea.nativeElement as HTMLTableCellElement).innerText)
+    this.renderer.setProperty(this.headerData, 'innerHTML', (this.textarea.nativeElement as HTMLTableCellElement).innerText)
+    this.interval = setInterval(() => {
+      this.refreshData()
+
+    },7000) 
   }
 }

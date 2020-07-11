@@ -19,10 +19,7 @@ export class SmfooterComponent{
   indices : Indices[];
   interval: any;
   ngOnInit(): void {
-    this.refreshData()
-      this.interval = setInterval(() => {
-        this.refreshData()
-      },5000)  
+    this.refreshData() 
   } 
   ngOnDestroy(): void {
     clearTimeout(this.interval);
@@ -31,5 +28,10 @@ export class SmfooterComponent{
     this.currencyService.getIndices()
         .subscribe(data => this.indices = data['data'])
   }
-
+  ngAfterViewInit() {
+    
+    this.interval = setInterval(() => {
+      this.refreshData()
+    }, 5000)  
+  }
 }

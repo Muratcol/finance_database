@@ -15,12 +15,20 @@ export class LineChartComponent {
   chartData: any = [];
   sells: Array<number> = [];
   dates: Array<any> = [];
+  interval:any;
   constructor(private currencyService: CurrencyService) {}
-
-  interval: any = setInterval(() => {
+  
+  ngAfterViewInit() {
+    
+    this.interval = setInterval(() => {
     this.updateChart();
     this.sendDatasToChart();
-  }, 10 * 1000);
+    }, 5000)  
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+  }
 
   updateChart() {
     this.currencyService.updateChart();

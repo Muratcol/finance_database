@@ -28,6 +28,9 @@ export class SharesTableComponent implements AfterViewInit {
       this.headerData = this.el.nativeElement.querySelector('.pt-1')
       this.renderer.setProperty(this.header, 'innerHTML', (this.headerarea.nativeElement as HTMLTableCellElement).innerText)
       this.renderer.setProperty(this.headerData, 'innerHTML', (this.textarea.nativeElement as HTMLTableCellElement).innerText)
+      this.interval = setInterval(() => {
+        this.refreshData();
+        }, 5000)  
     }
   
   faArrowAltCircleUp = faArrowAltCircleUp;
@@ -50,10 +53,8 @@ export class SharesTableComponent implements AfterViewInit {
   ngOnInit(): void {
     this.changeText = false;
     this.refreshData();
-    this.interval = setInterval(() => {
-      this.refreshData();
-    }, 7000);
   }
+
   ngOnDestroy(): void {
     clearTimeout(this.interval);
   }

@@ -8,7 +8,6 @@ import { CurrencyCrosses } from '../currency/currency';
   templateUrl: './currencyfooter.component.html',
   styleUrls: ['./currencyfooter.component.css']
 })
-
 export class CurrencyfooterComponent implements OnInit {
   faArrowAltCircleUp = faArrowAltCircleUp
   faArrowAltCircleDown = faArrowAltCircleDown
@@ -21,9 +20,9 @@ export class CurrencyfooterComponent implements OnInit {
   interval: any;
   ngOnInit(): void {
     this.refreshData()
-      this.interval = setInterval(() => {
-        this.refreshData()
-      },5000)  
+    this.interval = setInterval(() => {
+      this.refreshData()
+    },5000) 
   } 
   ngOnDestroy(): void {
     clearTimeout(this.interval);
@@ -32,5 +31,4 @@ export class CurrencyfooterComponent implements OnInit {
     this.currencyService.getCurrencies()
         .subscribe(data => this.currencies = data['data'])
   }
-
 }

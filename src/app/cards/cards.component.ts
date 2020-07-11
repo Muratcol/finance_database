@@ -30,10 +30,6 @@ export class CardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshData()
-      this.interval = setInterval(() => {
-        this.refreshData()
-      },7000)  
-
   }
   ngOnDestroy(): void {
     clearTimeout(this.interval);
@@ -55,5 +51,10 @@ export class CardsComponent implements OnInit {
           }, 3.5 * 1000)
         })
     this.animation = false
+  }
+  ngAfterViewInit() {
+    this.interval = setInterval(() => {
+      this.refreshData()
+    },5000)  
   }
 }

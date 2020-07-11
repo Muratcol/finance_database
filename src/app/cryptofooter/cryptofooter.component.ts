@@ -21,10 +21,7 @@ export class CryptofooterComponent implements OnInit {
   cryptos : Cryptos[];
   interval: any;
   ngOnInit(): void {
-    this.refreshData()
-      this.interval = setInterval(() => {
-        this.refreshData()
-      },5000)  
+    this.refreshData();
   } 
   ngOnDestroy(): void {
     clearTimeout(this.interval);
@@ -33,5 +30,10 @@ export class CryptofooterComponent implements OnInit {
     this.currencyService.getCryptos()
         .subscribe(data => this.cryptos = data['data'])
   }
-
+  ngAfterViewInit() {
+    
+    this.interval = setInterval(() => {
+      this.refreshData()
+    },5000)  
+  }
 }

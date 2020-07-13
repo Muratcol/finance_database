@@ -7,6 +7,7 @@ import {
 import { throwError, Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Alert } from '../alert-center/alertModel';
+import { UserEmail } from '../forgot-password/forgotPasswordEmail';
 
 @Injectable()
 export class AlertService {
@@ -71,6 +72,28 @@ export class AlertService {
       .pipe(
         tap((data) => console.log(JSON.stringify(data))),
         catchError(this.handleError)
+      );
+  }
+
+  sendEmailNotify(alertId): Observable<UserEmail[]> {
+    let access_token = localStorage.getItem('access_token');
+    let body = {
+      id: alertId
+    }
+    let http_options = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer: ' + access_token,
+      }),
+    };
+    return this.http
+      .post<UserEmail[]>(this.path + '/auth/forgotpassword', body, http_options)
+      .pipe(
+        tap(
+          (data) => {
+            console.log(JSON.stringify(data));
+          },
+          catchError((err) => this.handleError(err))
+        )
       );
   }
 

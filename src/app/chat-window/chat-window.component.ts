@@ -43,6 +43,7 @@ export class ChatWindowComponent {
 
       this._chatService.newMessageReceived()
       .subscribe(data=>this.messageArray.push(data));
+      console.log(this.messageArray)
   }
   status:boolean = false;
   chatToggle() {
@@ -50,14 +51,35 @@ export class ChatWindowComponent {
   }
   join(){
       this._chatService.joinRoom({user:this.user, room:this.room});
-      this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContent');
-      this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+      if(this.room=="exchangeRatesRoom"){
+        this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentForex');
+        this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+      }
+      else if(this.room=="stockMarketRoom"){
+        this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentStock');
+        this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+      }
+      else if(this.room=="randChannelRoom"){
+        this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentRand');
+        this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+      }
+      
   }
 
   leave(){
       this._chatService.leaveRoom({user:this.user, room:this.room});
-      this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContent');
-      this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+      if(this.room=="exchangeRatesRoom"){
+        this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentForex');
+        this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+      }
+      else if(this.room=="stockMarketRoom"){
+        this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentStock');
+        this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+      }
+      else if(this.room=="randChannelRoom"){
+        this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentRand');
+        this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+      }
   }
 
   sendMessage()

@@ -36,15 +36,17 @@ export class LoginComponent implements OnInit {
 
   logIn():void {
 
-    if (this.userLoginForm.valid) {
-      this.user = Object.assign({}, this.userLoginForm.value);
+    if (!this.userLoginForm.valid) {
+      this.alertifyService.error('Please check your inputs')
     }
+    this.user = Object.assign({}, this.userLoginForm.value);
     this.authService.logInUser(this.user)
     .subscribe(() => {
       this.alertifyService.success('Login Succesfully. Routing Currencies')
       setTimeout(() => "", 1500)
       this.router.navigate([''])
     });
+
     
   }
   logOut():void {

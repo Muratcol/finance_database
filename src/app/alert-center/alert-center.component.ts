@@ -146,7 +146,7 @@ export class AlertCenterComponent implements OnInit {
       this.allAlerts = data['data'];
     });
     for(let alert of this.allAlerts) {
-      if(!alert.alerStatus) continue
+      if(!alert.alertStatus) continue
       this.currencyService.getCurrencies()
       .subscribe(data => {
         for(let forex of data['data']) {
@@ -162,14 +162,17 @@ export class AlertCenterComponent implements OnInit {
           this.alertifyService.success(`${alert.pair} is currently ${this.currentValue}. ${alert.limit} limit has passed !!`)
           this.alertService.closeAlertStatus(alert._id)
           .subscribe((data) => {console.log(data)})
+          this.alertService.sendEmailNotify(alert._id)
+          .subscribe((data) => console.log(data))
         }
       }
       else {
         if(alert.limit < this.currentValue) {
           this.alertifyService.success(`${alert.pair} has passed ${this.currentValue} limit !!`)
-          console.log('yoyoy')
           this.alertService.closeAlertStatus(alert._id)
           .subscribe((data) => {console.log(data)})
+          this.alertService.sendEmailNotify(alert._id)
+          .subscribe((data) => console.log(data))
         }
       }
     }

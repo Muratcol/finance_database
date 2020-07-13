@@ -65,7 +65,7 @@ export class AlertService {
       }),
     };
     const body = {
-      alerStatus:false
+      alertStatus:false
     };
     return this.http
       .put<Boolean[]>(this.path + '/alert/editAlert/' + alertId, body, http_options)
@@ -86,7 +86,7 @@ export class AlertService {
       }),
     };
     return this.http
-      .post<UserEmail[]>(this.path + '/auth/forgotpassword', body, http_options)
+      .post<UserEmail[]>(this.path + '/alert/sendEmailNotify', body, http_options)
       .pipe(
         tap(
           (data) => {

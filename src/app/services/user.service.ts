@@ -71,7 +71,7 @@ export class UserService {
       }),
       catchError((err) => {
         err['status'] === 400
-          ? this.alertifyService.error('Invalid Email')
+          ? this.alertifyService.error('Please check your inputs')
           : null;
         return err;
       })

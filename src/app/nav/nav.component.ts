@@ -21,6 +21,7 @@ export class NavComponent implements OnInit {
 
   logOut(){
     this.userService.isLoggedIn = false
+    this.userService.logOutUser()
     this.alertifyService.success('LogOut Succesfull')
   }
 

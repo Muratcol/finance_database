@@ -33,11 +33,13 @@
         <div class="chatOffContentForex align-items-center">
           <strong> Forex Chat Closed. If you want to toogle on the chat click the yellow button ! </strong>
         </div>
-        <div *ngFor="let item of messageArray">
-          <span 
-            ><strong>{{ item.user }} : </strong> {{item.message}}</span
-          >
-        </div>
+        <div class="firstChatContent">
+          <div *ngFor="let item of messageArray">
+            <span 
+              ><strong>{{ item.user }} : </strong> {{item.message}}</span
+            >
+          </div>
+        </div>      
       </div>
     </div>
     <div class="row">
@@ -61,11 +63,13 @@
         <div class="chatOffContentStock align-items-center">
           <strong> Stock Market Chat Closed. If you want to toogle on the chat click the yellow button ! </strong>
         </div>
-        <div *ngFor="let item of messageArray">
-          <span
-            ><strong>{{ item.user }} : </strong> {{ item.message }}</span
-          >
-        </div>
+        <div class="secondChatContent">
+          <div *ngFor="let item of messageArray">
+            <span 
+              ><strong>{{ item.user }} : </strong> {{item.message}}</span
+            >
+          </div>
+        </div>      
       </div>
     </div>
     <div class="row">
@@ -89,11 +93,13 @@
         <div class="chatOffContentRand align-items-center">
           <strong> Random Chat Closed. If you want to toogle on the chat click the yellow button ! </strong>
         </div>
-        <div *ngFor="let item of messageArray">
-          <span
-            ><strong>{{ item.user }} : </strong> {{ item.message }}</span
-          >
-        </div>
+        <div class="thirdChatContent">
+          <div *ngFor="let item of messageArray">
+            <span 
+              ><strong>{{ item.user }} : </strong> {{item.message}}</span
+            >
+          </div>
+        </div>      
       </div>
     </div>
     <div class="row">

@@ -19,12 +19,14 @@ export class ChatWindowComponent {
   randChannel:string;
   messageText:String;
   chatDummyContent:String;
+  chatContent:String;
+  isLoggedIn:string;
   messageArray:Array<{user:String,message:String}> = [];
   @ViewChild ('defaultSelection')
   defaulSelection : ElementRef
   ngAfterViewInit() {
   this.defaulSelection.nativeElement.click()
-    
+  this.isLoggedIn = localStorage.getItem('name');
   }
   constructor(
     private _chatService:ChatService,
@@ -43,7 +45,6 @@ export class ChatWindowComponent {
 
       this._chatService.newMessageReceived()
       .subscribe(data=>this.messageArray.push(data));
-      console.log(this.messageArray)
   }
   status:boolean = false;
   chatToggle() {
@@ -52,16 +53,22 @@ export class ChatWindowComponent {
   join(){
       this._chatService.joinRoom({user:this.user, room:this.room});
       if(this.room=="exchangeRatesRoom"){
+        this.chatContent = this.el.nativeElement.querySelector('.firstChatContent');
         this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentForex');
         this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+        this.renderer.setStyle(this.chatContent, 'display', 'block');
       }
       else if(this.room=="stockMarketRoom"){
         this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentStock');
+        this.chatContent = this.el.nativeElement.querySelector('.secondChatContent');
         this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+        this.renderer.setStyle(this.chatContent, 'display', 'block');
       }
       else if(this.room=="randChannelRoom"){
         this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentRand');
+        this.chatContent = this.el.nativeElement.querySelector('.thirdChatContent');
         this.renderer.setStyle(this.chatDummyContent, 'display', 'none');
+        this.renderer.setStyle(this.chatContent, 'display', 'block');
       }
       
   }
@@ -70,15 +77,21 @@ export class ChatWindowComponent {
       this._chatService.leaveRoom({user:this.user, room:this.room});
       if(this.room=="exchangeRatesRoom"){
         this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentForex');
+        this.chatContent = this.el.nativeElement.querySelector('.firstChatContent');
         this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+        this.renderer.setStyle(this.chatContent, 'display', 'none');
       }
       else if(this.room=="stockMarketRoom"){
         this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentStock');
+        this.chatContent = this.el.nativeElement.querySelector('.secondChatContent');
         this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+        this.renderer.setStyle(this.chatContent, 'display', 'none');
       }
       else if(this.room=="randChannelRoom"){
         this.chatDummyContent = this.el.nativeElement.querySelector('.chatOffContentRand');
+        this.chatContent = this.el.nativeElement.querySelector('.thirdChatContent');
         this.renderer.setStyle(this.chatDummyContent, 'display', 'block');
+        this.renderer.setStyle(this.chatContent, 'display', 'none');
       }
   }
 

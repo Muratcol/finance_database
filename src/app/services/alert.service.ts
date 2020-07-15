@@ -47,7 +47,7 @@ export class AlertService {
       }),
     };
     return this.http
-    .get<Alert[]>(this.path + "/alert/deleteAlert/" + alertId, http_options)
+    .delete<Alert[]>(this.path + "/alert/deleteAlert/" + alertId, http_options)
     .pipe(
       tap(),
       catchError(err => this.handleError(err))

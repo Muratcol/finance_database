@@ -73,11 +73,10 @@ export class AlertCenterComponent implements OnInit {
   }
   deleteAlert(event: any) {
     let alert = event.target.parentNode.parentNode.parentNode.parentNode.parentNode
-    this.renderer.setStyle(alert, 'display', 'none');
     let _id = alert.firstChild.nextSibling
-    console.log(_id)
-    // this.alertService.deleteAlert(alert)
-    // .subscribe(() => this.alertifyService.success('Alert Deleted!'))
+    this.renderer.setStyle(alert, 'display', 'none');
+    this.alertService.deleteAlert(_id.id)
+    .subscribe(() => this.alertifyService.success('Alert Deleted!'))
   }
   submitAlert() {
     this.radios = this.el.nativeElement.querySelectorAll('.radio');

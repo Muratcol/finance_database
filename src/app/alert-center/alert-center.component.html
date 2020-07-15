@@ -103,7 +103,7 @@
     <tbody>
       <tr *ngFor="let singleAlert of allAlerts">
         <th scope="row" >{{ singleAlert.pair }}</th>
-        <td name=singleAlert._id>Price</td>
+        <td id={{singleAlert._id}}>Price</td>
         <td>{{ singleAlert.conditionName }} {{ singleAlert.limit }}</td>
         <td>{{ singleAlert.frequency }}</td>
         <td>

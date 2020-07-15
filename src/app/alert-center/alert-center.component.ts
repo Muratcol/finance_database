@@ -71,7 +71,14 @@ export class AlertCenterComponent implements OnInit {
       emailNotify: [null],
     });
   }
-
+  deleteAlert(event: any) {
+    let alert = event.target.parentNode.parentNode.parentNode.parentNode.parentNode
+    this.renderer.setStyle(alert, 'display', 'none');
+    let _id = alert.firstChild.nextSibling
+    console.log(_id)
+    // this.alertService.deleteAlert(alert)
+    // .subscribe(() => this.alertifyService.success('Alert Deleted!'))
+  }
   submitAlert() {
     this.radios = this.el.nativeElement.querySelectorAll('.radio');
     this.webPopup = this.el.nativeElement.querySelector('.webPopup');
@@ -134,7 +141,6 @@ export class AlertCenterComponent implements OnInit {
           this.activePair = forex['ask']
           this.limitInput = this.el.nativeElement.querySelector('.limitInput')
           this.renderer.setProperty(this.limitInput, 'value', (this.activePair as number));
-          console.log(this.activePair)
           return this.activePair
         }
       }

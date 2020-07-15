@@ -102,8 +102,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let singleAlert of allAlerts">
-        <th scope="row">{{ singleAlert.pair }}</th>
-        <td>Price</td>
+        <th scope="row" >{{ singleAlert.pair }}</th>
+        <td name=singleAlert._id>Price</td>
         <td>{{ singleAlert.conditionName }} {{ singleAlert.limit }}</td>
         <td>{{ singleAlert.frequency }}</td>
         <td>
@@ -131,7 +131,7 @@
           </div>
         </td>
         <td>
-          <a title="Delete"
+          <a title="Delete" (click) = "deleteAlert($event)"
             ><fa-icon class="icons" [icon]="faTrash"></fa-icon></a
           ><a title="Edit"><fa-icon [icon]="faPen"></fa-icon></a>
         </td>

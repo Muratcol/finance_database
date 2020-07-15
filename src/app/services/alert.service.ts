@@ -39,7 +39,20 @@ export class AlertService {
         catchError(this.handleError)
       );
   }
-
+  deleteAlert(alertId) {
+    let access_token = localStorage.getItem('access_token');
+    let http_options = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer: ' + access_token,
+      }),
+    };
+    return this.http
+    .get<Alert[]>(this.path + "/alert/deleteAlert/" + alertId, http_options)
+    .pipe(
+      tap(),
+      catchError(err => this.handleError(err))
+    )
+  }
   getAlerts():Observable<Alert[]> {
     let access_token = localStorage.getItem('access_token');
 

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service'
 import { Router } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
     private authService : UserService,
     private router:Router,
     private alertifyService:AlertifyService
+
   ) { }
 
   userLoginForm:FormGroup;

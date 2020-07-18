@@ -62,10 +62,13 @@
         Already have an account? <a routerLink="/user/login">Sign In</a>
       </p>
     </div>
-    <div *ngIf="isLoggedIn() === true" class="alertWindowNav">
-      <ul class="alertsList" *ngFor="let alert of allAlerts">
-        <li><fa-icon [icon]="faBell"></fa-icon> {{ alert.pair }} ----> {{alert.limit}}</li>
+    <div *ngIf="isLoggedIn() === true" class="alertListWrapper">
+      <ul class="alertsList" >
+        <li *ngFor="let alert of allAlerts"><fa-icon [icon]="faBell"></fa-icon> {{ alert.pair }} ----> {{alert.limit}}</li>
       </ul>
+      <p class="text-muted">
+        Make sure you have active alerts on your <a routerLink="/alert-center">Alert Center</a>
+      </p>
     </div>
   </div> 
 </div>

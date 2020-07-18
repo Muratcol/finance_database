@@ -101,6 +101,19 @@
     text-align: center;
     margin-top: 10%;
 }
+.alertListWrapper {
+  text-align: center;
+  margin-top: 5%;
+}
+.alertListWrapper li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.alertListWrapper p {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
 .alertWindowContent fa-icon{
     font-size: 2em;
     margin-bottom: 40px;

@@ -28,7 +28,6 @@ export class NavComponent implements OnInit {
   ) {}
 
   isLoggedIn(): boolean {
-    this.showAlerts();
     return this.userService.isLoggedIn;
   }
   showAlerts():void  {
@@ -42,6 +41,7 @@ export class NavComponent implements OnInit {
     this.alertifyService.success('LogOut Succesfull');
   }
   showAlertWrapper(): void {
+    this.showAlerts();
     let alertWindow = this.el.nativeElement.querySelector(
       '.alertWindowWrapper'
     );
@@ -59,8 +59,5 @@ export class NavComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-  }
-  ngAfterViewInit():void {
-    this.showAlerts()
   }
 }

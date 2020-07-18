@@ -121,6 +121,7 @@ table tr:hover{
       transform: translateY(0);
     }
   }
+
   @keyframes fadeOff {
     from { opacity: 1}
     to   { opacity: 0}

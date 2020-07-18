@@ -5,7 +5,7 @@
       >Finance Database</a
     >
     <ul class="navbar-nav px-4">
-      <li class="nav-item"> <a class="nav-link" routerLink="/alert-center"><fa-icon [icon]="faBell"></fa-icon></a></li>
+      <li class="nav-item"> <a class="nav-link" (click)="showAlertWrapper()"><fa-icon [icon]="faBell"></fa-icon></a></li>
       <li class="nav-item">
         <a
           *ngIf="isLoggedIn() === false"
@@ -34,3 +34,12 @@
     </ul>
 
 </nav>
+<div class="alertWindowWrapper">
+  <fa-icon class="triangle" [icon]="faTriangle"></fa-icon>
+  <div class="alertWindow">
+  <div class="alertWindowNav">
+    <p>Recent Alerts</p>
+    <fa-icon [icon]="faCog"></fa-icon>
+  </div>
+</div>
+</div>

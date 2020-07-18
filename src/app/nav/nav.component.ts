@@ -4,10 +4,9 @@ import { AlertifyService } from '../services/alertify.service';
 import {
   faBell,
   faCog,
-  faExclamationTriangle,
-  faArrowAltCircleUp,
-  faCaretUp,
+  faCaretUp
 } from '@fortawesome/free-solid-svg-icons';
+import { AlertService } from '../services/alert.service';
 
 @Component({
   selector: 'app-nav',
@@ -19,17 +18,24 @@ export class NavComponent implements OnInit {
   faCog = faCog;
   faTriangle = faCaretUp;
   windowStatus: boolean = false;
+  allAlerts:string;
   constructor(
     private userService: UserService,
     private alertifyService: AlertifyService,
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private alertService:AlertService
   ) {}
 
   isLoggedIn(): boolean {
+    this.showAlerts();
     return this.userService.isLoggedIn;
   }
-
+  showAlerts():void  {
+      this.alertService.getAlerts().subscribe((data) => {
+      this.allAlerts = data['data'];
+    });
+  }
   logOut(): void {
     this.userService.isLoggedIn = false;
     this.userService.logOutUser();
@@ -52,5 +58,9 @@ export class NavComponent implements OnInit {
       this.windowStatus = !this.windowStatus;
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+  ngAfterViewInit():void {
+    this.showAlerts()
+  }
 }

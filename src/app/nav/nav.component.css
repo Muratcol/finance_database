@@ -61,6 +61,16 @@
 .alertWindowNav a:hover {
     color: #66645f;
 }
+.alertsList {
+    margin-top: 5%;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1em;
+}
+.alertsList {
+    display: block;
+}
 .slide {
   animation: 0.5s ease-out 0s 1 slideFromTop;
   display: block;

@@ -1,52 +1,71 @@
 <nav
-  class="navbar shadow navbar-expand-lg navbar-dark sticky-top bg-dark  p-0 d-flex justify-content-between"
+  class="navbar shadow navbar-expand-lg navbar-dark sticky-top bg-dark p-0 d-flex justify-content-between"
 >
-    <a class="navbar-brand mr-0 px-3" routerLink="/"
-      >Finance Database</a
-    >
-    <ul class="navbar-nav px-4">
-      <li class="nav-item"> <a class="nav-link" (click)="showAlertWrapper()"><fa-icon [icon]="faBell"></fa-icon></a></li>
-      <li class="nav-item">
-        <a
-          *ngIf="isLoggedIn() === false"
-          class="nav-link"
-          routerLink="/user/login"
-          >Login</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          *ngIf="isLoggedIn() === true"
-          (click)="logOut()"
-          class="nav-link"
-          routerLink="/"
-          >Sign Out</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          *ngIf="isLoggedIn() === false"
-          class="nav-link"
-          routerLink="/user/register"
-          >Register</a
-        >
-      </li>
-    </ul>
-
+  <a class="navbar-brand mr-0 px-3" routerLink="/">Finance Database</a>
+  <ul class="navbar-nav px-4">
+    <li class="nav-item">
+      <a class="nav-link" (click)="showAlertWrapper()"
+        ><fa-icon [icon]="faBell"></fa-icon
+      ></a>
+    </li>
+    <li class="nav-item">
+      <a
+        *ngIf="isLoggedIn() === false"
+        class="nav-link"
+        routerLink="/user/login"
+        >Login</a
+      >
+    </li>
+    <li class="nav-item">
+      <a *ngIf="isLoggedIn() === true" class="nav-link" routerLink="/user/panel"
+        >Profile</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        *ngIf="isLoggedIn() === true"
+        (click)="logOut()"
+        class="nav-link"
+        routerLink="/"
+        >Sign Out</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        *ngIf="isLoggedIn() === false"
+        class="nav-link"
+        routerLink="/user/register"
+        >Register</a
+      >
+    </li>
+  </ul>
 </nav>
 <div class="alertWindowWrapper">
-  <a routerLink="/alert-center"><fa-icon class="triangle" [icon]="faTriangle"></fa-icon></a>
+  <a routerLink="/alert-center"
+    ><fa-icon class="triangle" [icon]="faTriangle"></fa-icon
+  ></a>
   <div class="alertWindow">
-  <div class="alertWindowNav">
-    <strong>Recent Alerts</strong>
-    <a routerLink="/alert-center"><fa-icon [icon]="faCog"></fa-icon></a>
-  </div>
-  <div class="alertWindowContent">
-    <fa-icon [icon]="faBell"></fa-icon>
-    <p class="warningText">Sign up to create alerts for Instruments, Economic Events and content by followed authors
-    </p>
-    <button class="btn btn-warning"><a routerLink = "/user/register">Free Sign Up</a></button>
-    <p class="text-muted">Already have an account? <a routerLink="/user/login">Sign In</a></p>
-  </div>
-</div>
+    <div class="alertWindowNav">
+      <strong>Recent Alerts</strong>
+      <a routerLink="/alert-center"><fa-icon [icon]="faCog"></fa-icon></a>
+    </div>
+    <div *ngIf="isLoggedIn() === false" class="alertWindowContent">
+      <fa-icon [icon]="faBell"></fa-icon>
+      <p class="warningText">
+        Sign up to create alerts for Instruments, Economic Events and content by
+        followed authors
+      </p>
+      <button class="btn btn-warning">
+        <a routerLink="/user/register">Free Sign Up</a>
+      </button>
+      <p class="text-muted">
+        Already have an account? <a routerLink="/user/login">Sign In</a>
+      </p>
+    </div>
+    <div *ngIf="isLoggedIn() === true" class="alertWindowNav">
+      <ul class="alertsList" *ngFor="let alert of allAlerts">
+        <li><fa-icon [icon]="faBell"></fa-icon> {{ alert.pair }} ----> {{alert.limit}}</li>
+      </ul>
+    </div>
+  </div> 
 </div>

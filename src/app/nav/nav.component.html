@@ -35,11 +35,18 @@
 
 </nav>
 <div class="alertWindowWrapper">
-  <fa-icon class="triangle" [icon]="faTriangle"></fa-icon>
+  <a routerLink="/alert-center"><fa-icon class="triangle" [icon]="faTriangle"></fa-icon></a>
   <div class="alertWindow">
   <div class="alertWindowNav">
-    <p>Recent Alerts</p>
-    <fa-icon [icon]="faCog"></fa-icon>
+    <strong>Recent Alerts</strong>
+    <a routerLink="/alert-center"><fa-icon [icon]="faCog"></fa-icon></a>
+  </div>
+  <div class="alertWindowContent">
+    <fa-icon [icon]="faBell"></fa-icon>
+    <p class="warningText">Sign up to create alerts for Instruments, Economic Events and content by followed authors
+    </p>
+    <button class="btn btn-warning"><a routerLink = "/user/register">Free Sign Up</a></button>
+    <p class="text-muted">Already have an account? <a routerLink="/user/login">Sign In</a></p>
   </div>
 </div>
 </div>

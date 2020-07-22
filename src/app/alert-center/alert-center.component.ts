@@ -209,6 +209,16 @@ export class AlertCenterComponent implements OnInit {
           'value',
           this.alertDetails['data'].limit as number
         );
+        let emailNotifier = this.el.nativeElement.querySelector('.emailNotify');
+        let windowPopupNotifier = this.el.nativeElement.querySelector(
+          '.webPopup'
+        );
+        this.alertDetails['data'].emailNotify
+          ? (this.renderer.setProperty(emailNotifier, 'checked', 'checked'))
+          : (this.renderer.setProperty(emailNotifier, 'checked', ''));
+        this.alertDetails['data'].websitePopup
+          ? (this.renderer.setProperty(windowPopupNotifier, 'checked', 'checked'))
+          : (this.renderer.setProperty(windowPopupNotifier, 'checked', ''));
       })
     );
   }

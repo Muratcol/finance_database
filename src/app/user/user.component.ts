@@ -72,7 +72,6 @@ export class UserComponent implements OnInit {
         this.alertifyService.success('Profile Updated Succesfully');
         if (this.imageInput != null) this.userService.uploadImage(this.fileToUplod)
         .subscribe(() => {
-          console.log("Picture sended")
         })
       });
     

@@ -6,6 +6,7 @@ import {
   faPen,
   faArrowRight,
   faChartLine,
+  faUndoAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Alert } from './alertModel';
@@ -22,6 +23,7 @@ export class AlertCenterComponent implements OnInit {
   faLaptop = faLaptop;
   faMail = faMailBulk;
   faTrash = faTrash;
+  faUndoAlt = faUndoAlt;
   faPen = faPen;
   faArrow = faArrowRight;
   alertTab: boolean = false;

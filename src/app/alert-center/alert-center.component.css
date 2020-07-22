@@ -1,380 +1,409 @@
 .container {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 .test {
-    width: 40%;
-
+  width: 40%;
 }
 .searchGroup {
-    display: block;
+  display: block;
 }
 .alertLabel {
-    padding-right: 3rem;
-
+  padding-right: 3rem;
 }
 .alertTab {
-    border: #949292 solid 2px;
-    background-color: #484f55;
+  border: #949292 solid 2px;
+  background-color: #484f55;
 }
 .deliveryLabel {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
 }
 button {
-    color: whitesmoke;
+  color: whitesmoke;
 }
-hr{
-    background-color: whitesmoke;
+hr {
+  background-color: whitesmoke;
 }
 table {
-    color: whitesmoke;
-    border: 2px solid whitesmoke;
-    margin-top: 2rem;
-    text-align: center;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  margin-top: 2rem;
+  text-align: center;
 }
-table tr:hover{
-    background-color: #484F55;
-    color: whitesmoke;
+table tr:hover {
+  background-color: #484f55;
+  color: whitesmoke;
 }
 .icons {
-    margin-right: 0.6rem;
+  margin-right: 0.6rem;
 }
 .searchGroup {
-    padding: 1rem;
-    color: whitesmoke;
-    text-align: center;
-    align-items: center;
-    /* display: flex;
+  padding: 1rem;
+  color: whitesmoke;
+  text-align: center;
+  align-items: center;
+  /* display: flex;
     justify-content: space-between; */
 }
 #statusSwitch {
-    text-align: center !important;
+  text-align: center !important;
 }
 /* On-Off switch */
 .onoffswitch {
-    position: relative; width: 46px;
-    left: 25px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  position: relative;
+  width: 46px;
+  left: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .onoffswitch-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 .onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #343A40; border-radius: 4px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #343a40;
+  border-radius: 4px;
 }
 .onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 14px; padding: 0; line-height: 14px;
-    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 14px;
+  padding: 0;
+  line-height: 14px;
+  font-size: 10px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "";
-    padding-left: 5px;
-    background-color: #FFFFFF; color: #949292;
+  content: "";
+  padding-left: 5px;
+  background-color: #ffffff;
+  color: #949292;
 }
 .onoffswitch-inner:after {
-    content: "";
-    padding-right: 5px;
-    background-color: #969696; color: #999999;
-    text-align: right;
+  content: "";
+  padding-right: 5px;
+  background-color: #969696;
+  color: #999999;
+  text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 21px; margin: -3.5px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 28px;
-    border: 2px solid #343A40; border-radius: 4px;
-    transition: all 0.3s ease-in 0s; 
+  display: block;
+  width: 21px;
+  margin: -3.5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 28px;
+  border: 2px solid #343a40;
+  border-radius: 4px;
+  transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
+  margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
+  right: 0px;
 }
 
 .alertOptions {
-    background-color: #484f55;
-    padding: 1rem;
-    width: 100%;
-    margin-top: 2rem;
-    animation: 0.5s ease-out 0s 1 slideFromTop;
-    /* animation: fadeOff 2s; */
+  background-color: #484f55;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+  animation: 0.5s ease-out 0s 1 slideFromTop;
+  /* animation: fadeOff 2s; */
+}
+.fadeOff {
+  animation: fadeOff 2s;
+}
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-100%);
   }
-  .fadeOff {
-    animation: fadeOff 2s;
+  100% {
+    transform: translateY(0);
   }
-  @keyframes slideFromTop {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+}
 
-  @keyframes fadeOff {
-    from { opacity: 1}
-    to   { opacity: 0}
-  }
-  .limitInput {
-    width: 50%;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    padding: 7px 20px;
+@keyframes fadeOff {
+  from {
     opacity: 1;
   }
-  .limitFormGroup {
-    display: flex;
-    justify-content: space-between;
-  }
-  .firstColumn {
-      display: flex;
-      justify-content: flex-start;
-  }
-  .alertMethods {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
-  }
-  .methodsInsideLabel {
-    display: flex;
-    justify-content: flex-start;
-  }
-  .createAlert {
-    display: flex;
-    align-items: center;
-    justify-content: center ;
-  }
-  .createAlert button:first-child {
-    border: 0;
-    outline-offset: 0  !important;
-    background-image: none  !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none  !important;
-    background-color: #484F55;
-    padding: 0.5rem;
-  }
-  .createAlert button:first-child:hover {
-    background-color: #333333;
-  }
-  .row {
-    grid-row: 1;
-    column-count: 3;
-  }
-  .subMenu {
-    width: 40%;
-  }
-  .subAlertLabel {
-    display:block;
-    padding: 1rem;
-  }
-  .alertInputGroup {
-      display: inline;
-    padding-left: 1rem;
-  }
-  .alertOptions > div {
-    border-right: solid whitesmoke 1px;
-    padding-left: 1rem;
-  }
-  .alertOptions > div:last-child {
-    border-right: 0;
-  }
-  .container2 {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 1em;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default radio button */
-  .container2 input {
-    position: absolute;
+  to {
     opacity: 0;
-    cursor: pointer;
   }
-  
-  /* Create a custom radio button */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .container2:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  /* When the radio button is checked, add a blue background */
-  .container2 input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the indicator (the dot/circle - hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the indicator (dot/circle) when checked */
-  .container2 input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the indicator (dot/circle) */
-  .container2 .checkmark:after {
-       top: 4.5px;
-      left: 4.5px;
-      width: 6px;
-      height: 5.5px;
-      border-radius: 50%;
-      background: white;
-  }
+}
+.limitInput {
+  width: 50%;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  padding: 7px 20px;
+  opacity: 1;
+}
+.limitFormGroup {
+  display: flex;
+  justify-content: space-between;
+}
+.firstColumn {
+  display: flex;
+  justify-content: flex-start;
+}
+.alertMethods {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.methodsInsideLabel {
+  display: flex;
+  justify-content: flex-start;
+}
+.createAlert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.createAlert button:first-child {
+  border: 0;
+  outline-offset: 0 !important;
+  background-image: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background-color: #484f55;
+  padding: 0.5rem;
+}
+.createAlert button:first-child:hover {
+  background-color: #333333;
+}
+.row {
+  grid-row: 1;
+  column-count: 3;
+}
+.subMenu {
+  width: 40%;
+}
+.subAlertLabel {
+  display: block;
+  padding: 1rem;
+}
+.alertInputGroup {
+  display: inline;
+  padding-left: 1rem;
+}
+.alertOptions > div {
+  border-right: solid whitesmoke 1px;
+  padding-left: 1rem;
+}
+.alertOptions > div:last-child {
+  border-right: 0;
+}
+.container2 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+/* Hide the browser's default radio button */
+.container2 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
 
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border-radius: 50%;
+}
 
-  .checkBoxCont {
+/* On mouse-over, add a grey background color */
+.container2:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+/* When the radio button is checked, add a blue background */
+.container2 input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
 
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .checkBoxCont input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmarkSect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .checkBoxCont:hover input ~ .checkmarkSect {
-    background-color: #ccc;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .checkBoxCont input:checked ~ .checkmarkSect {
-    background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmarkSect:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .checkBoxCont input:checked ~ .checkmarkSect:after {
-    display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .checkBoxCont .checkmarkSect:after {
-    left: 8px;
-    top: 4px;
-    width: 4px;
-    height: 8px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  /* Edit popup starts */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  .popupContent{
-    text-align: center;
-    padding: 1em;
-  }
-  .editPanelHeader{
-    text-align: start;
-    font-size: 2em;
-    font-weight: 800;
-  }
-  p a {
-    color: goldenrod;
-  }
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 20%; /* Could be more or less, depending on screen size */
-    background: linear-gradient(180deg, #D5D5D5 0%, #2E3439  100%);
-    color: antiquewhite;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #1F2327;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  /* Edit popup ends */
-  .popupContentTitle {
-    color: goldenrod;
-    font-size: 1.2em;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: block;
-    text-align: start;
-    }
-    .popupContentSubTitle {
-      color: goldenrod;
-      font-size: 1.2em;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container2 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container2 .checkmark:after {
+  top: 4.5px;
+  left: 4.5px;
+  width: 6px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: white;
+}
+
+.checkBoxCont {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkBoxCont input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmarkSect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkBoxCont:hover input ~ .checkmarkSect {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkBoxCont input:checked ~ .checkmarkSect {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmarkSect:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkBoxCont input:checked ~ .checkmarkSect:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkBoxCont .checkmarkSect:after {
+  left: 8px;
+  top: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* Edit popup starts */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.popupContent {
+  text-align: center;
+  padding: 1em;
+}
+.editPanelHeader {
+  text-align: start;
+  font-size: 2em;
+  font-weight: 800;
+}
+p a {
+  color: goldenrod;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%; /* Could be more or less, depending on screen size */
+  background: linear-gradient(180deg, #d5d5d5 0%, #2e3439 100%);
+  color: antiquewhite;
+}
+
+/* The Close Button */
+.close {
+  color: #1f2327;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+/* Edit popup ends */
+.popupContentTitle {
+  color: goldenrod;
+  font-size: 1.2em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: start;
+}
+.popupContentSubTitle {
+  color: goldenrod;
+  font-size: 1.2em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.editPanelButton {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  right: 15px;
+}

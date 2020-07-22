@@ -143,7 +143,9 @@
     <div class="modal-content">
       <span (click)="closeEditPanel()" class="close">&times;</span>
       <div class="popupContent">
-        <span class="editPanelHeader"><fa-icon [icon]= "faChartLine"></fa-icon> USD/EUR </span>
+        <span class="editPanelHeader"
+          ><fa-icon [icon]="faChartLine"></fa-icon> USD/EUR
+        </span>
         <strong class="popupContentTitle">Price</strong>
         <div class="limitFormGroup">
           <select formControlName="conditionName">
@@ -152,8 +154,10 @@
           </select>
           <input formControlName="limit" type="number" class="limitInput" />
         </div>
+        <strong class="popupContentTitle">Frequency</strong>
+        <span><fa-icon [icon]="faUndoAlt"></fa-icon> Once</span>
         <div style="display: flex; justify-content: space-between;">
-          <strong class="popupContentSubTitle" >Delivery Method</strong>
+          <strong class="popupContentSubTitle">Delivery Method</strong>
           <strong class="popupContentSubTitle">Status</strong>
         </div>
 
@@ -177,6 +181,7 @@
             <span class="checkmarkSect"></span>
           </label>
         </div>
+        <button type="submit" class="btn btn-warning editPanelButton"> Update</button>
       </div>
     </div>
   </div>

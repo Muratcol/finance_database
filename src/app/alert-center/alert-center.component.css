@@ -371,3 +371,10 @@ table tr:hover{
     display: block;
     text-align: start;
     }
+    .popupContentSubTitle {
+      color: goldenrod;
+      font-size: 1.2em;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      display: block;
+    }

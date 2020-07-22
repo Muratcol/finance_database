@@ -100,9 +100,8 @@ export class AlertService {
     .pipe(
       tap(data => {
         console.log(JSON.stringify(data))
-      },
+      }),
       catchError(err => this.handleError(err)))
-    )
   }
 
   sendEmailNotify(alertId): Observable<UserEmail[]> {

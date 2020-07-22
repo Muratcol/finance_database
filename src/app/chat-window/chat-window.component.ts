@@ -29,7 +29,7 @@ export class ChatWindowComponent {
   chatContent: String;
   isLoggedIn: string;
   status: boolean = false;
-  messageArray: Array<{ user: String; message: String }> = [];
+  messageArray: Array<{ user: String; message: String; room: String }> = [];
   @ViewChild('defaultSelection')
   defaulSelection: ElementRef;
   ngAfterViewInit() {
@@ -135,6 +135,7 @@ clickOut(event) {
       let modal = this.el.nativeElement.querySelector('#myModal');
       this.renderer.setStyle(modal, 'display', 'block');
     }
+    console.log(this.room)
     this._chatService.sendMessage({
       user: this.user,
       room: this.room,

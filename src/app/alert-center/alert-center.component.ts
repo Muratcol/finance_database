@@ -5,6 +5,7 @@ import {
   faTrash,
   faPen,
   faArrowRight,
+  faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Alert } from './alertModel';
@@ -27,6 +28,7 @@ export class AlertCenterComponent implements OnInit {
   selectedCurrency: string;
   alertSection: string;
   alertOptions: string;
+  faChartLine = faChartLine;
   alertForm: FormGroup;
   alert: Alert = new Alert();
   radios: any;
@@ -35,9 +37,9 @@ export class AlertCenterComponent implements OnInit {
   userName: string;
   pairOptions: Array<string> = [];
   activePair: number;
-  limitInput:string;
+  limitInput: string;
   interval: any;
-  currentValue:number;
+  currentValue: number;
   allAlerts: Alert[];
   constructor(
     private el: ElementRef,
@@ -56,7 +58,7 @@ export class AlertCenterComponent implements OnInit {
   ngAfterViewInit() {
     this.interval = setInterval(() => {
       this.sendNotify();
-    },5000)  
+    }, 5000);
   }
   ngOnDestroy(): void {
     clearTimeout(this.interval);
@@ -72,11 +74,13 @@ export class AlertCenterComponent implements OnInit {
     });
   }
   deleteAlert(event: any) {
-    let alert = event.target.parentNode.parentNode.parentNode.parentNode.parentNode
-    let _id = alert.firstChild.nextSibling
+    let alert =
+      event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+    let _id = alert.firstChild.nextSibling;
     this.renderer.setStyle(alert, 'display', 'none');
-    this.alertService.deleteAlert(_id.id)
-    .subscribe(() => this.alertifyService.success('Alert Deleted!'))
+    this.alertService
+      .deleteAlert(_id.id)
+      .subscribe(() => this.alertifyService.success('Alert Deleted!'));
   }
   submitAlert() {
     this.radios = this.el.nativeElement.querySelectorAll('.radio');
@@ -123,61 +127,70 @@ export class AlertCenterComponent implements OnInit {
     });
   }
 
-  showPairOptions(){
-    this.currencyService.getCurrencies()
-    .subscribe(data => {
+  showPairOptions() {
+    this.currencyService.getCurrencies().subscribe((data) => {
       for (let forex of data['data']) {
-        this.pairOptions.push(forex['pair'])
+        this.pairOptions.push(forex['pair']);
       }
-    })
+    });
   }
 
   showActivePair(value) {
-    this.currencyService.getCurrencies()
-    .subscribe(data => {
-      for(let forex of data['data']) {
-        if(forex['pair'] == value) {
-          this.activePair = forex['ask']
-          this.limitInput = this.el.nativeElement.querySelector('.limitInput')
-          this.renderer.setProperty(this.limitInput, 'value', (this.activePair as number));
-          return this.activePair
+    this.currencyService.getCurrencies().subscribe((data) => {
+      for (let forex of data['data']) {
+        if (forex['pair'] == value) {
+          this.activePair = forex['ask'];
+          this.limitInput = this.el.nativeElement.querySelector('.limitInput');
+          this.renderer.setProperty(
+            this.limitInput,
+            'value',
+            this.activePair as number
+          );
+          return this.activePair;
         }
       }
-    })
+    });
   }
   sendNotify() {
-    
     this.alertService.getAlerts().subscribe((data) => {
       this.allAlerts = data['data'];
     });
-    for(let alert of this.allAlerts) {
-      if(!alert.alertStatus) continue
-      this.currencyService.getCurrencies()
-      .subscribe(data => {
-        for(let forex of data['data']) {
-          
-          if(forex['pair'] == alert.pair) {
-            this.currentValue = forex.ask
-            this.currentValue = Number(this.currentValue)
+    for (let alert of this.allAlerts) {
+      if (!alert.alertStatus) continue;
+      this.currencyService.getCurrencies().subscribe((data) => {
+        for (let forex of data['data']) {
+          if (forex['pair'] == alert.pair) {
+            this.currentValue = forex.ask;
+            this.currentValue = Number(this.currentValue);
           }
         }
-      })
-      if (alert.conditionName == "Moves Above"){
-        if(this.currentValue > alert.limit || this.currentValue == alert.limit) {
-          this.alertifyService.success(`${alert.pair} is currently ${this.currentValue}. ${alert.limit} limit has passed !!`)
-          this.alertService.closeAlertStatus(alert._id)
-          .subscribe((data) => {console.log(data)})
-          this.alertService.sendEmailNotify(alert._id)
-          .subscribe((data) => console.log(data))
+      });
+      if (alert.conditionName == 'Moves Above') {
+        if (
+          this.currentValue > alert.limit ||
+          this.currentValue == alert.limit
+        ) {
+          this.alertifyService.success(
+            `${alert.pair} is currently ${this.currentValue}. ${alert.limit} limit has passed !!`
+          );
+          this.alertService.closeAlertStatus(alert._id).subscribe((data) => {
+            console.log(data);
+          });
+          this.alertService
+            .sendEmailNotify(alert._id)
+            .subscribe((data) => console.log(data));
         }
-      }
-      else {
-        if(alert.limit < this.currentValue) {
-          this.alertifyService.success(`${alert.pair} has passed ${this.currentValue} limit !!`)
-          this.alertService.closeAlertStatus(alert._id)
-          .subscribe((data) => {console.log(data)})
-          this.alertService.sendEmailNotify(alert._id)
-          .subscribe((data) => console.log(data))
+      } else {
+        if (alert.limit < this.currentValue) {
+          this.alertifyService.success(
+            `${alert.pair} has passed ${this.currentValue} limit !!`
+          );
+          this.alertService.closeAlertStatus(alert._id).subscribe((data) => {
+            console.log(data);
+          });
+          this.alertService
+            .sendEmailNotify(alert._id)
+            .subscribe((data) => console.log(data));
         }
       }
     }

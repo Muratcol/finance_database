@@ -3,8 +3,6 @@ import {
   ElementRef,
   Renderer2,
   ViewChild,
-  Input,
-  ContentChild,
   HostListener,
 } from '@angular/core';
 import { ChatService } from '../services/chat.service';

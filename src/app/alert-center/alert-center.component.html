@@ -12,14 +12,12 @@
         class="custom-select"
         id="inputGroupSelect04"
         (change)="openAlertTab($event.target.value)"
-        (change)= "showActivePair($event.target.value)"
+        (change)="showActivePair($event.target.value)"
         formControlName="pair"
-        
-        
       >
         >
         <option selected>Choose...</option>
-        <option *ngFor="let pairOption of pairOptions" >{{pairOption}}</option>
+        <option *ngFor="let pairOption of pairOptions">{{ pairOption }}</option>
       </select>
     </div>
     <div *ngIf="alertTab" class="alertOptions row">
@@ -28,7 +26,7 @@
           <span class="subAlertLabel">Create Alert</span>
           <div class="limitFormGroup">
             <select formControlName="conditionName">
-              <option selected >Moves Above</option>
+              <option selected>Moves Above</option>
               <option>Moves Below</option>
             </select>
             <input formControlName="limit" type="number" class="limitInput" />
@@ -102,8 +100,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let singleAlert of allAlerts">
-        <th scope="row" >{{ singleAlert.pair }}</th>
-        <td id={{singleAlert._id}}>Price</td>
+        <th scope="row">{{ singleAlert.pair }}</th>
+        <td id="{{ singleAlert._id }}">Price</td>
         <td>{{ singleAlert.conditionName }} {{ singleAlert.limit }}</td>
         <td>{{ singleAlert.frequency }}</td>
         <td>
@@ -131,23 +129,51 @@
           </div>
         </td>
         <td>
-          <a title="Delete" (click) = "deleteAlert($event)"
+          <a title="Delete" (click)="deleteAlert($event)"
             ><fa-icon class="icons" [icon]="faTrash"></fa-icon></a
-          ><a (click)="openEditPanel()" title="Edit"><fa-icon [icon]="faPen"></fa-icon></a>
+          ><a (click)="openEditPanel()" title="Edit"
+            ><fa-icon [icon]="faPen"></fa-icon
+          ></a>
         </td>
       </tr>
     </tbody>
   </table>
   <div id="myModal" class="modal">
-
     <!-- Modal content -->
     <div class="modal-content">
       <span (click)="closeEditPanel()" class="close">&times;</span>
       <div class="popupContent">
-        <p>You have to login to use chat application</p>
-        <p>Click <a routerLink="user/login">here</a> to login</p>
+        <span class="editPanelHeader"><fa-icon [icon]= "faChartLine"></fa-icon> USD/EUR </span>
+        <strong class="popupContentTitle">Price</strong>
+        <div class="limitFormGroup">
+          <select formControlName="conditionName">
+            <option selected>Moves Above</option>
+            <option>Moves Below</option>
+          </select>
+          <input formControlName="limit" type="number" class="limitInput" />
+        </div>
+        <strong class="popupContentTitle">Notification Method</strong>
+        <div class="alertMethods">
+          <div class="methodsInsideLabel">
+            <span><fa-icon [icon]="faLaptop"></fa-icon></span>
+            <span> Website popup</span>
+          </div>
+          <label class="checkBoxCont">
+            <input class="webPopup" type="checkbox" checked="checked" />
+            <span class="checkmarkSect"></span>
+          </label>
+        </div>
+        <div class="alertMethods">
+          <div class="methodsInsideLabel">
+            <span><fa-icon [icon]="faMail"></fa-icon></span>
+            <span> Email notification</span>
+          </div>
+          <label class="checkBoxCont">
+            <input class="emailNotify" type="checkbox" checked="checked" />
+            <span class="checkmarkSect"></span>
+          </label>
+        </div>
       </div>
     </div>
-  
   </div>
 </div>

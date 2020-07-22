@@ -336,6 +336,11 @@ table tr:hover{
     text-align: center;
     padding: 1em;
   }
+  .editPanelHeader{
+    text-align: start;
+    font-size: 2em;
+    font-weight: 800;
+  }
   p a {
     color: goldenrod;
   }
@@ -345,7 +350,7 @@ table tr:hover{
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    width: 20%; /* Could be more or less, depending on screen size */
     background: linear-gradient(180deg, #D5D5D5 0%, #2E3439  100%);
     color: antiquewhite;
   }
@@ -358,4 +363,11 @@ table tr:hover{
     font-weight: bold;
   }
   /* Edit popup ends */
-
+  .popupContentTitle {
+    color: goldenrod;
+    font-size: 1.2em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: start;
+    }

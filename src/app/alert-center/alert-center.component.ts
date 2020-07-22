@@ -182,5 +182,12 @@ export class AlertCenterComponent implements OnInit {
       }
     }
   }
-
+  openEditPanel() {
+    let modal = this.el.nativeElement.querySelector('#myModal');
+    this.renderer.setStyle(modal, 'display', 'block');
+  }
+  closeEditPanel() {
+    let modal = this.el.nativeElement.querySelector('#myModal');
+    this.renderer.setStyle(modal, 'display', 'none');
+  }
 }

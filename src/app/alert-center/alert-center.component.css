@@ -319,5 +319,43 @@ table tr:hover{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
+  /* Edit popup starts */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .popupContent{
+    text-align: center;
+    padding: 1em;
+  }
+  p a {
+    color: goldenrod;
+  }
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    background: linear-gradient(180deg, #D5D5D5 0%, #2E3439  100%);
+    color: antiquewhite;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #1F2327;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  /* Edit popup ends */
 

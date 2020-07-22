@@ -135,7 +135,6 @@ clickOut(event) {
       let modal = this.el.nativeElement.querySelector('#myModal');
       this.renderer.setStyle(modal, 'display', 'block');
     }
-    console.log(this.room)
     this._chatService.sendMessage({
       user: this.user,
       room: this.room,

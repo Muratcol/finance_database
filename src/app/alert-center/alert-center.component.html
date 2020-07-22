@@ -133,9 +133,21 @@
         <td>
           <a title="Delete" (click) = "deleteAlert($event)"
             ><fa-icon class="icons" [icon]="faTrash"></fa-icon></a
-          ><a title="Edit"><fa-icon [icon]="faPen"></fa-icon></a>
+          ><a (click)="openEditPanel()" title="Edit"><fa-icon [icon]="faPen"></fa-icon></a>
         </td>
       </tr>
     </tbody>
   </table>
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)="closeEditPanel()" class="close">&times;</span>
+      <div class="popupContent">
+        <p>You have to login to use chat application</p>
+        <p>Click <a routerLink="user/login">here</a> to login</p>
+      </div>
+    </div>
+  
+  </div>
 </div>

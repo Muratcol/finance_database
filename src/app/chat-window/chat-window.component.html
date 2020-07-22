@@ -35,7 +35,7 @@
         </div>
         <div class="firstChatContent">
           <div *ngFor="let item of messageArray">
-            <span 
+            <span *ngIf="item.room == 'exchangeRatesRoom'"
               ><strong>{{ item.user }} : </strong> {{item.message}}</span
             >
           </div>
@@ -65,7 +65,7 @@
         </div>
         <div class="secondChatContent">
           <div *ngFor="let item of messageArray">
-            <span 
+            <span *ngIf="item.room == 'stockMarketRoom'"
               ><strong>{{ item.user }} : </strong> {{item.message}}</span
             >
           </div>
@@ -95,7 +95,7 @@
         </div>
         <div class="thirdChatContent">
           <div *ngFor="let item of messageArray">
-            <span 
+            <span *ngIf="item.room == 'randChannelRoom'"
               ><strong>{{ item.user }} : </strong> {{item.message}}</span
             >
           </div>

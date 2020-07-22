@@ -88,6 +88,23 @@ export class AlertService {
       );
   }
 
+  getAlertDetails(_id) {
+    let access_token = localStorage.getItem('access_token');
+    let http_options = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer: ' + access_token,
+      }),
+    };
+    return this.http
+    .get(this.path + '/alert/getSingleAlert/' + _id, http_options)
+    .pipe(
+      tap(data => {
+        console.log(JSON.stringify(data))
+      },
+      catchError(err => this.handleError(err)))
+    )
+  }
+
   sendEmailNotify(alertId): Observable<UserEmail[]> {
     let access_token = localStorage.getItem('access_token');
     let body = {

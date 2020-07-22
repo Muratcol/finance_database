@@ -42,6 +42,7 @@ export class AlertCenterComponent implements OnInit {
   limitInput: string;
   interval: any;
   currentValue: number;
+  alertDetails:Object;
   allAlerts: Alert[];
   constructor(
     private el: ElementRef,
@@ -188,18 +189,33 @@ export class AlertCenterComponent implements OnInit {
             `${alert.pair} has passed ${this.currentValue} limit !!`
           );
           this.alertService.closeAlertStatus(alert._id).subscribe((data) => {
-            console.log(data);
           });
           this.alertService
             .sendEmailNotify(alert._id)
-            .subscribe((data) => console.log(data));
+            .subscribe((data) => {});
         }
       }
     }
   }
-  openEditPanel() {
-    let modal = this.el.nativeElement.querySelector('#myModal');
+  openEditPanel(event: any) {
+    let modal = this.el.nativeElement.querySelector('#myModal'); 
     this.renderer.setStyle(modal, 'display', 'block');
+    let alert =
+      event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+    let _id = alert.firstChild.nextSibling;
+    this.alertService.getAlertDetails(_id.id)
+    .subscribe((data) => {
+      this.alertDetails = data
+    })
+    console.log(this.alertDetails['data'].limit)
+    let editInput = this.el.nativeElement.querySelector('.editPanelInput');
+    this.renderer.setProperty(
+      editInput,
+      'value',
+      this.alertDetails['data'].limit as number
+    );
+
+    
   }
   closeEditPanel() {
     let modal = this.el.nativeElement.querySelector('#myModal');

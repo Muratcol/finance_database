@@ -131,7 +131,7 @@
         <td>
           <a title="Delete" (click)="deleteAlert($event)"
             ><fa-icon class="icons" [icon]="faTrash"></fa-icon></a
-          ><a (click)="openEditPanel()" title="Edit"
+          ><a (click)="openEditPanel($event)" title="Edit"
             ><fa-icon [icon]="faPen"></fa-icon
           ></a>
         </td>
@@ -148,11 +148,11 @@
         </span>
         <strong class="popupContentTitle">Price</strong>
         <div class="limitFormGroup">
-          <select formControlName="conditionName">
+          <select>
             <option selected>Moves Above</option>
             <option>Moves Below</option>
           </select>
-          <input formControlName="limit" type="number" class="limitInput" />
+          <input type="number" class="limitInput editPanelInput" />
         </div>
         <strong class="popupContentTitle">Frequency</strong>
         <span><fa-icon [icon]="faUndoAlt"></fa-icon> Once</span>

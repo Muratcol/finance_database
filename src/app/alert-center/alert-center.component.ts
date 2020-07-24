@@ -32,6 +32,7 @@ export class AlertCenterComponent implements OnInit {
   alertOptions: string;
   faChartLine = faChartLine;
   alertForm: FormGroup;
+  editAlertForm: FormGroup;
   alert: Alert = new Alert();
   radios: any;
   webPopup: any;
@@ -76,6 +77,15 @@ export class AlertCenterComponent implements OnInit {
       emailNotify: [null],
     });
   }
+  createEditAlertForm() {
+    this.editAlertForm = this.formBuilder.group({
+      limit: [null, Validators.required],
+      conditionName: [null, Validators.required],
+      frequency: [null],
+      websitePopup: [null],
+      emailNotify: [null],
+    });
+  }
   deleteAlert(event: any) {
     let alert =
       event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
@@ -105,8 +115,30 @@ export class AlertCenterComponent implements OnInit {
       this.alertifyService.error('Please check your inputs.');
     }
   }
-
+  //// DEVELOPING /////////////
+  editAlert() {
+    this.radios = this.el.nativeElement.querySelectorAll('.radio');
+    this.webPopup = this.el.nativeElement.querySelector('.webPopup');
+    this.emailNotify = this.el.nativeElement.querySelector('.emailNotify');
+    this.alertForm.value.userName = this.userName;
+    this.radios[0].checked
+      ? (this.alertForm.value.frequency = 'Once')
+      : (this.alertForm.value.frequency = 'Requirring');
+    this.alertForm.value.websitePopup = this.webPopup.checked;
+    this.alertForm.value.emailNotify = this.emailNotify.checked;
+    if (this.alertForm.valid) {
+      this.alert = Object.assign({}, this.alertForm.value);
+      this.printAlerts();
+      this.alertService.createAlert(this.alert).subscribe(() => {
+        this.alertifyService.success('Alert created. Thank you');
+      });
+    } else {
+      this.alertifyService.error('Please check your inputs.');
+    }
+  }
+  //// DEVELOPING /////////////
   openAlertTab(value) {
+    this.createEditAlertForm()
     if (value != 'Choose...') {
       this.alertTab = true;
       this.alertOptions = this.el.nativeElement.querySelector(

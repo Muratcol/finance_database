@@ -138,9 +138,9 @@
       </tr>
     </tbody>
   </table>
-  <div id="myModal" class="modal">
+  <div (ngSubmit)="editAlert()" id="myModal" class="modal">
     <!-- Modal content -->
-    <div class="modal-content">
+    <form [formGroup]="editAlertForm" class="modal-content">
       <span (click)="closeEditPanel()" class="close">&times;</span>
       <div class="popupContent">
         <span class="editPanelHeader"
@@ -183,6 +183,6 @@
         </div>
         <button type="submit" class="btn btn-warning editPanelButton"> Update</button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

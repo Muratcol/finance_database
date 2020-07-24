@@ -45,6 +45,7 @@ export class AlertCenterComponent implements OnInit {
   currentValue: number;
   alertDetails: Object;
   allAlerts: Alert[];
+  editWindowPairName:string;
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
@@ -120,14 +121,14 @@ export class AlertCenterComponent implements OnInit {
     this.radios = this.el.nativeElement.querySelectorAll('.radio');
     this.webPopup = this.el.nativeElement.querySelector('.webPopup');
     this.emailNotify = this.el.nativeElement.querySelector('.emailNotify');
-    this.alertForm.value.userName = this.userName;
+    this.editAlertForm.value.userName = this.userName;
     this.radios[0].checked
-      ? (this.alertForm.value.frequency = 'Once')
-      : (this.alertForm.value.frequency = 'Requirring');
-    this.alertForm.value.websitePopup = this.webPopup.checked;
-    this.alertForm.value.emailNotify = this.emailNotify.checked;
-    if (this.alertForm.valid) {
-      this.alert = Object.assign({}, this.alertForm.value);
+      ? (this.editAlertForm.value.frequency = 'Once')
+      : (this.editAlertForm.value.frequency = 'Requirring');
+    this.editAlertForm.value.websitePopup = this.webPopup.checked;
+    this.editAlertForm.value.emailNotify = this.emailNotify.checked;
+    if (this.editAlertForm.valid) {
+      this.alert = Object.assign({}, this.editAlertForm.value);
       this.printAlerts();
       this.alertService.createAlert(this.alert).subscribe(() => {
         this.alertifyService.success('Alert created. Thank you');
@@ -138,7 +139,7 @@ export class AlertCenterComponent implements OnInit {
   }
   //// DEVELOPING /////////////
   openAlertTab(value) {
-    this.createEditAlertForm()
+    
     if (value != 'Choose...') {
       this.alertTab = true;
       this.alertOptions = this.el.nativeElement.querySelector(
@@ -227,11 +228,15 @@ export class AlertCenterComponent implements OnInit {
     }
   }
   async openEditPanel(event: any) {
+    this.createEditAlertForm()
+    
     let modal = this.el.nativeElement.querySelector('#myModal');
     this.renderer.setStyle(modal, 'display', 'block');
     let alert =
       event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+    this.editWindowPairName = alert.firstChild
     let _id = alert.firstChild.nextSibling;
+    
     await new Promise((accept) =>
       this.alertService.getAlertDetails(_id.id).subscribe((data) => {
         this.alertDetails = data;

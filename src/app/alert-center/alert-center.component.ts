@@ -122,9 +122,9 @@ export class AlertCenterComponent implements OnInit {
     this.webPopup = this.el.nativeElement.querySelector('.editWeb');
     this.emailNotify = this.el.nativeElement.querySelector('.editEmail');
     this.editAlertForm.value.userName = this.userName;
-    this.radios[0].checked
-      ? (this.editAlertForm.value.frequency = 'Once')
-      : (this.editAlertForm.value.frequency = 'Requirring');
+    // this.radios[0].checked
+    //   ? (this.editAlertForm.value.frequency = 'Once')
+    //   : (this.editAlertForm.value.frequency = 'Requirring');
     this.editAlertForm.value.websitePopup = this.webPopup.checked;
     this.editAlertForm.value.emailNotify = this.emailNotify.checked;
     if (this.editAlertForm.valid) {

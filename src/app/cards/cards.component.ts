@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Renderer2 } from '@angular/core';
 import { 
   faArrowAltCircleUp,
   faArrowAltCircleDown,
@@ -25,7 +25,8 @@ export class CardsComponent implements OnInit {
   currencies : CurrencyCrosses[];
   constructor(
     private currencyService:CurrencyService,
-    private el:ElementRef
+    private el:ElementRef,
+    private renderer:Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -44,8 +45,8 @@ export class CardsComponent implements OnInit {
             let animationCarriers = this.el.nativeElement.querySelectorAll('.usdBox')
             for (let animationCarrier of animationCarriers) {
             if (animationCarrier.classList.contains('decreaseCard') || animationCarrier.classList.contains('decreaseCard')) {
-              animationCarrier.classList.remove('increaseCard')
-              animationCarrier.classList.remove('decreaseCard')  
+              this.renderer.removeClass(animationCarrier, 'increaseCard')
+              this.renderer.removeClass(animationCarrier, 'decreaseCard')
           }
           }
           }, 3.5 * 1000)

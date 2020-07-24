@@ -118,9 +118,9 @@ export class AlertCenterComponent implements OnInit {
   }
   //// DEVELOPING /////////////
   editAlert() {
-    this.radios = this.el.nativeElement.querySelectorAll('.radio');
-    this.webPopup = this.el.nativeElement.querySelector('.webPopup');
-    this.emailNotify = this.el.nativeElement.querySelector('.emailNotify');
+    // this.radios = this.el.nativeElement.querySelectorAll('.radio');
+    this.webPopup = this.el.nativeElement.querySelector('.editWeb');
+    this.emailNotify = this.el.nativeElement.querySelector('.editEmail');
     this.editAlertForm.value.userName = this.userName;
     this.radios[0].checked
       ? (this.editAlertForm.value.frequency = 'Once')
@@ -130,7 +130,7 @@ export class AlertCenterComponent implements OnInit {
     if (this.editAlertForm.valid) {
       this.alert = Object.assign({}, this.editAlertForm.value);
       this.printAlerts();
-      this.alertService.createAlert(this.alert).subscribe(() => {
+      this.alertService.editAlert(this.alert).subscribe(() => {
         this.alertifyService.success('Alert created. Thank you');
       });
     } else {
